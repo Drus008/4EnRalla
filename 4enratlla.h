@@ -1,3 +1,7 @@
+#ifndef QUATRE_EN_RATLLA_H
+#define QUATRE_EN_RATLLA_H
+
+
 #include <stdbool.h>
 
 #define NFILES 8
@@ -30,3 +34,6 @@ bool comprovarSolucio(QuatreEnRatlla *partida, int ultimMoviment);
 bool comprovarEmpat(QuatreEnRatlla *partida);
 
 void pardidaDeDosJugadors();
+
+
+#endif // QUATRE_EN_RATLLA_H

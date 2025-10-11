@@ -1,4 +1,6 @@
 #include "4enratlla.h"
+#include "funcioUtilitat.h"
+
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -137,6 +139,7 @@ void pardidaDeDosJugadors(){
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
+            printf("Puntuacio: %i\n", puntuacioPerAdjacencia(&prova));
             imprimirQuateEnRatlla(&prova);
             printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
             int moviment = -1;
