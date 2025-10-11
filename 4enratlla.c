@@ -1,5 +1,6 @@
 #include "4enratlla.h"
 #include "funcioUtilitat.h"
+#include "minmax.h"
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -34,6 +35,10 @@ void realitzarMoviment(QuatreEnRatlla *partida, int moviment, char jugador){
             break;
         }
     }
+}
+
+void desferMoviment(QuatreEnRatlla *partida, int moviment){
+    partida->tauler[filaSuperior(partida, moviment)][moviment] = 0;
 }
 
 // donat un joc del 4enRalla y una columna, retorna la fila en la que hi ha la peça superior
@@ -131,32 +136,42 @@ bool comprovarEmpat(QuatreEnRatlla *partida){
     return true;
 }
 
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
+    int moviment = -1;
+    while (moviment==-1){
+        printf("Intodueix una columna: ");
+
+        if (scanf(" %d", &moviment)!=1){
+            while (getchar() != '\n'); //atois
+            printf("Moviment invàlid.\n");
+            moviment = -1;
+        }
+        
+        else if(moviment>=0 && moviment<NCOLS && comprovarMovimentLegal(partida,moviment)) realitzarMoviment(partida, moviment, jugador);
+        else{
+            printf("Moviment il·legal.\n");
+            moviment = -1;
+        }
+    }
+}
+
+
 
 void pardidaDeDosJugadors(){
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova);
-    
+    prova.tauler[7][3] = 2;
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
             printf("Puntuacio: %i\n", puntuacioPerAdjacencia(&prova));
             imprimirQuateEnRatlla(&prova);
             printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
-            int moviment = -1;
-            while (moviment==-1){
-                printf("Intodueix una columna: ");
-
-                if (scanf(" %d", &moviment)!=1){
-                    while (getchar() != '\n'); //atois
-                    printf("Moviment invàlid.\n");
-                    moviment = -1;
-                }
-                
-                else if(moviment>=0 && moviment<NCOLS && comprovarMovimentLegal(&prova,moviment)) realitzarMoviment(&prova, moviment, jugador);
-                else{
-                    printf("Moviment il·legal.\n");
-                    moviment = -1;
-                }
+            int moviment;
+            if(jugador==1) moviment = triarMovimentJugador(&prova, jugador);
+            else {
+                moviment= triaNaive(&prova);
+                realitzarMoviment(&prova,moviment,jugador);
             }
             if(comprovarSolucio(&prova, moviment)){
                 printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);

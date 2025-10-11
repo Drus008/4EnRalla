@@ -8,7 +8,8 @@
 #define NCOLS 8
 #define MODIFICADOR 4
 
-
+//Crec que és millor incloure un array que indique a quina fila s'ha colocat la ultima peça
+//ja que aixi no s'ha de calcular
 typedef struct quatreEnRatlla {
     signed char tauler[NFILES][NCOLS];
 }QuatreEnRatlla;
@@ -22,6 +23,8 @@ void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida);
 bool comprovarMovimentLegal(QuatreEnRatlla *partida, int moviment);
 
 void realitzarMoviment(QuatreEnRatlla *partida, int moviment, char jugador);
+
+void desferMoviment(QuatreEnRatlla *partida, int moviment);
 
 int filaSuperior(QuatreEnRatlla *partida, int columna);
 
