@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 4
+#define PROFUNDITAT 6
 
 
 typedef struct arbre {
@@ -25,7 +25,7 @@ typedef struct arbre {
 
 void imprimirArbre(Arbre* arbre, int prof, int n);
 
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador);
+bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador, char jugadorOriginal);
 
 int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador);
 

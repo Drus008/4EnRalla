@@ -1,0 +1,2 @@
+https://en.wikipedia.org/wiki/Negamax
+En els jocs de suma zero es pot fer servir el Negamax enlloc de MinMax

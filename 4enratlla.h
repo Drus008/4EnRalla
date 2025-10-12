@@ -36,7 +36,6 @@ bool comprovarSolucioDiagonal2(QuatreEnRatlla *partida, int fila, int col);
 bool comprovarSolucio(QuatreEnRatlla *partida, int ultimMoviment);
 bool comprovarEmpat(QuatreEnRatlla *partida);
 
-void pardidaDeDosJugadors();
-
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador);
 
 #endif // QUATRE_EN_RATLLA_H

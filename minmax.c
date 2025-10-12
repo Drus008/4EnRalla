@@ -27,9 +27,8 @@ void imprimirArbre(Arbre* arbre, int prof, int n){
 
 
 //Retorna true en cas de que el node sigui una fulla (i omple la puntuació) i retorna false en cas contrari
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
+bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador, char jugadorOriginal){
     int moviment = arbre->tirada;
-
     double multiplicador=-1;
     if (jugador==2) multiplicador=1;
 
@@ -54,12 +53,12 @@ bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
     return true;
 }//Segurament reorganitzant condicionals i fent que no es faci el moviment si no cal es pot millorar l'eficiència
 
-int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador){
-    if(arbre->nivell!=0){
-        if(jugador==1) jugador = 2;
-        else jugador = 1;
-    }
+int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugadorOriginal){
     
+
+    char jugador = (char)((arbre->nivell+1)%2+1);
+
+
     arbre->fills = malloc(sizeof(Arbre)*NCOLS);
     int nouNivell = arbre->nivell+1;
     for(int i=0; i<NCOLS; i++){
@@ -68,9 +67,9 @@ int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador){
         (arbre->fills[i]).tirada = i;
         
         
-        if (!omplirNodeTrivial(&(arbre->fills[i]), partida, jugador)){
+        if (!omplirNodeTrivial(&(arbre->fills[i]), partida, jugador, jugadorOriginal)){
             realitzarMoviment(partida, i, jugador);
-            ferMinmax(&(arbre->fills[i]), partida, jugador);
+            ferMinmax(&(arbre->fills[i]), partida, jugadorOriginal);
             desferMoviment(partida, i);
         }
         

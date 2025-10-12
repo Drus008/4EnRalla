@@ -2,6 +2,8 @@
 #include "funcioUtilitat.h"
 #include "minmax.h"
 
+
+#include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -49,6 +51,7 @@ int filaSuperior(QuatreEnRatlla *partida, int columna){
     for(int f=0; f<NFILES; f++){
         if(partida->tauler[f][columna]!=0) return f;
     }
+    return -1;
 }//Potser millor que això és incloure al 4enRalla la fila en que s'acaba cada columna
 
 
@@ -157,45 +160,6 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
             moviment = -1;
         }
     }
+    return moviment;
 }
 
-
-
-void pardidaDeDosJugadors(){
-    QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova);
-    bool partidaEnCurs = true;
-    while (partidaEnCurs){
-        for(char jugador=1; jugador<3; jugador++){
-            printf("Puntuacio: %i\n", puntuacioPerAdjacencia(&prova));
-            imprimirQuateEnRatlla(&prova);
-            printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
-            int moviment;
-            if(jugador==1) moviment = triarMovimentJugador(&prova, jugador);
-            else {
-                Arbre *arbreProba = malloc(sizeof(Arbre));
-                arbreProba->nivell = 0;
-                moviment = ferMinmax(arbreProba,&prova, jugador); //S'ha d'arreglar que es fiqui be el jugador
-                imprimirArbre(arbreProba,4,0);
-                printf("Movent a %d\n", moviment);
-                realitzarMoviment(&prova,moviment,jugador);
-            }
-            if(comprovarSolucio(&prova, moviment)){
-                printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-            if(comprovarEmpat(&prova)){
-                printf("PARTIDA EMPATADA\n");
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-        }
-    }
-}
-
-void main(){
-    pardidaDeDosJugadors();
-}
