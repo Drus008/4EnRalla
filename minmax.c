@@ -8,19 +8,19 @@
 
 #include <stdio.h>
 
-void imprimirNode(Arbre *arbre){
+void imprimirNode(Arbre *arbre, int n){
     for(int i=0; i<arbre->nivell;i++){
         printf("  ");
     }
-    printf("%lf\n", arbre->puntuacio);
+    printf("%i:%lf\n",n, arbre->puntuacio);
 }
 
-void imprimirArbre(Arbre* arbre, int prof){
-    imprimirNode(arbre);
+void imprimirArbre(Arbre* arbre, int prof, int n){
+    imprimirNode(arbre, n);
     if(arbre->nivell<prof && !arbre->fulla){
         
         for(int i=0;i<NCOLS; i++){
-            imprimirArbre(&(arbre->fills[i]),prof);
+            imprimirArbre(&(arbre->fills[i]),prof,i);
         }
     }
 }

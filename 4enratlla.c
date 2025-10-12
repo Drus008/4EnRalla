@@ -9,7 +9,9 @@
 void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
     for(int fil = 0; fil<NFILES; fil++){
         for(int col = 0; col<NCOLS; col++){
-            printf("|%u", (partida->tauler)[fil][col]);
+            if((partida->tauler)[fil][col]==1) printf("|🟥");
+            else if((partida->tauler)[fil][col]==2) printf("|🟦");
+            else(printf("|  "));
         }
         printf("|\n");
     }
@@ -20,7 +22,7 @@ void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida){
         for(int col=0; col<NCOLS; col++){
             partida->tauler[fil][col] = 0;
         }
-    }    
+    }
 }
 
 //Retorna true si el moviment es pot fer i false en cas contrari
@@ -174,7 +176,7 @@ void pardidaDeDosJugadors(){
                 Arbre *arbreProba = malloc(sizeof(Arbre));
                 arbreProba->nivell = 0;
                 moviment = ferMinmax(arbreProba,&prova, jugador); //S'ha d'arreglar que es fiqui be el jugador
-                imprimirArbre(arbreProba,3);
+                imprimirArbre(arbreProba,3,0);
                 printf("Movent a %d\n", moviment);
                 realitzarMoviment(&prova,moviment,jugador);
             }
