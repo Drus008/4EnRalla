@@ -29,9 +29,9 @@ bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador);
 
 int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador);
 
-int trobarMaxim(double llista[NCOLS]);
+int trobarMaxim(Arbre *arbre);
 
-int trobarMinim(double llista[NCOLS]);
+int trobarMinim(Arbre *arbre);
 
 int triaNaive(QuatreEnRatlla *partida);
 

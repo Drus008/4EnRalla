@@ -176,7 +176,7 @@ void pardidaDeDosJugadors(){
                 Arbre *arbreProba = malloc(sizeof(Arbre));
                 arbreProba->nivell = 0;
                 moviment = ferMinmax(arbreProba,&prova, jugador); //S'ha d'arreglar que es fiqui be el jugador
-                imprimirArbre(arbreProba,3,0);
+                imprimirArbre(arbreProba,4,0);
                 printf("Movent a %d\n", moviment);
                 realitzarMoviment(&prova,moviment,jugador);
             }
