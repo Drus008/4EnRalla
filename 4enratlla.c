@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
 
 void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
     for(int fil = 0; fil<NFILES; fil++){
@@ -23,6 +23,7 @@ void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida){
     }    
 }
 
+//Retorna true si el moviment es pot fer i false en cas contrari
 bool comprovarMovimentLegal(QuatreEnRatlla *partida, int moviment){
     if (partida->tauler[0][moviment] == 0) return true;
     else return false;
@@ -46,13 +47,13 @@ int filaSuperior(QuatreEnRatlla *partida, int columna){
     for(int f=0; f<NFILES; f++){
         if(partida->tauler[f][columna]!=0) return f;
     }
-}
+}//Potser millor que això és incloure al 4enRalla la fila en que s'acaba cada columna
 
 
 
 // Aquest codi és horrible, estaria bé una funció que ho englobes tot i fos eficient
 bool comprovarSolucioHoritzontal(QuatreEnRatlla *partida, int fila, int col){
-    char casellaInicial = partida->tauler[fila][col];
+    char casellaInicial = partida->tauler[fila][col]; //Crec que es millor si això ho paso com a parametre en les 4 funcions
     int comptadorFitxer = 1;
     for(int i=1; i<MODIFICADOR; i++){
         if(col+i>=0 && col+i<NCOLS){
@@ -110,10 +111,11 @@ bool comprovarSolucioDiagonal2(QuatreEnRatlla *partida, int fila, int col){
             else comptadorFitxer++;
         }
     }
+    
     if (comptadorFitxer>=MODIFICADOR) return true;
     for(int i=1; i<MODIFICADOR; i++){
         if(col+i>=0 && col+i<NCOLS && fila-i>=0 && fila-i<NFILES){
-            if(partida->tauler[fila - i][col+1]!=casellaInicial) break;
+            if(partida->tauler[fila - i][col+i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
@@ -160,7 +162,6 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
 void pardidaDeDosJugadors(){
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova);
-    prova.tauler[7][3] = 2;
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
@@ -170,7 +171,11 @@ void pardidaDeDosJugadors(){
             int moviment;
             if(jugador==1) moviment = triarMovimentJugador(&prova, jugador);
             else {
-                moviment= triaNaive(&prova);
+                Arbre *arbreProba = malloc(sizeof(Arbre));
+                arbreProba->nivell = 0;
+                moviment = ferMinmax(arbreProba,&prova, jugador); //S'ha d'arreglar que es fiqui be el jugador
+                imprimirArbre(arbreProba,3);
+                printf("Movent a %d\n", moviment);
                 realitzarMoviment(&prova,moviment,jugador);
             }
             if(comprovarSolucio(&prova, moviment)){
