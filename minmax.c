@@ -21,7 +21,6 @@ void imprimirArbre(Arbre* arbre, int prof, int n){
         
         for(int i=0;i<NCOLS; i++){
             imprimirArbre(&(arbre->fills[i]),prof,i);
-            if(arbre->fills[i].puntuacio==INFINITY || arbre->fills[i].puntuacio==-INFINITY) break;
         }
     }
 }
@@ -74,16 +73,6 @@ int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador){
             ferMinmax(&(arbre->fills[i]), partida, jugador);
             desferMoviment(partida, i);
         }
-        if((arbre->nivell)%2==0 && arbre->fills[i].puntuacio==INFINITY){
-            arbre->puntuacio = INFINITY;
-            arbre->profunditatSolucio = arbre->fills[i].profunditatSolucio;
-            return i;
-        }
-        else if ((arbre->nivell)%2==1 && arbre->fills[i].puntuacio==-INFINITY){
-            arbre->puntuacio = -INFINITY;
-            arbre->profunditatSolucio = arbre->fills[i].profunditatSolucio;
-            return i;
-        }
         
     }
     
@@ -95,7 +84,7 @@ int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador){
     return millorTirada;
 }
 
-int trobarMaxim(Arbre *arbre){
+int trobarMaxim(Arbre *arbre){//Segurament això es pot optimitzar per a que faci menys comparacions si una fila és INF
     double max = arbre->fills[0].puntuacio;
     int indexMax = 0;
     int desempat = arbre->fills[0].profunditatSolucio;
@@ -104,6 +93,12 @@ int trobarMaxim(Arbre *arbre){
 
     for(int i=1;i<NCOLS;i++){
         if (max<llista[i]){
+            max = llista[i];
+            indexMax = i;
+        }
+        //Aquesta part del codi serveix per a desempatar en cas de que dos estats tinguin la mateixa valoració
+        //El que es fa és triar la que menys passos hagi necessitat. Això estalvia un parell de tirades i per tant bastants cálculs
+        else if(max==llista[i] && arbre->fills[i].profunditatSolucio<desempat){
             max = llista[i];
             indexMax = i;
         }
@@ -120,6 +115,10 @@ int trobarMinim(Arbre *arbre){
 
     for(int i=1;i<NCOLS;i++){
         if (min>llista[i]){
+            min = llista[i];
+            indexMin = i;
+        }
+        else if(min==llista[i] && arbre->fills[i].profunditatSolucio>desempat){
             min = llista[i];
             indexMin = i;
         }
