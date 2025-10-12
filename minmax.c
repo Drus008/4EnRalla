@@ -8,29 +8,29 @@
 
 #include <stdio.h>
 
-void imprimirNode(Arbre *arbre, int n){
+void imprimirNode(Arbre *arbre){
     for(int i=0; i<arbre->nivell;i++){
         printf("  ");
     }
-    printf("%i:%lf\n",n, arbre->puntuacio);
+    printf("%i:%lf\n",arbre->nivell, arbre->puntuacio);
 }
 
-void imprimirArbre(Arbre* arbre, int prof, int n){
-    imprimirNode(arbre, n);
-    if(arbre->nivell<prof && !arbre->fulla){
+void imprimirArbre(Arbre* arbre, int profunditatMaxima){
+    imprimirNode(arbre);
+    if(arbre->nivell<profunditatMaxima && !arbre->fulla){
         
         for(int i=0;i<NCOLS; i++){
-            imprimirArbre(&(arbre->fills[i]),prof,i);
+            imprimirArbre(&(arbre->fills[i]),profunditatMaxima);
         }
     }
 }
 
 
 //Retorna true en cas de que el node sigui una fulla (i omple la puntuació) i retorna false en cas contrari
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador, char jugadorOriginal){
+bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
     int moviment = arbre->tirada;
     double multiplicador=-1;
-    if (jugador==2) multiplicador=1;
+    if (jugador==2) multiplicador=1; //Això hem dona que no haria de ser aixi, ns hauria de dependre del jugador, però clarament deixa de funcionar si ho canvio
 
     if (!comprovarMovimentLegal(partida, moviment)) {
         arbre->puntuacio = -multiplicador*INFINITY;
@@ -67,7 +67,7 @@ int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugadorOriginal){
         (arbre->fills[i]).tirada = i;
         
         
-        if (!omplirNodeTrivial(&(arbre->fills[i]), partida, jugador, jugadorOriginal)){
+        if (!omplirNodeTrivial(&(arbre->fills[i]), partida, jugador)){
             realitzarMoviment(partida, i, jugador);
             ferMinmax(&(arbre->fills[i]), partida, jugadorOriginal);
             desferMoviment(partida, i);

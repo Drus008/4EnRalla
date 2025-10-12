@@ -1,0 +1,17 @@
+
+
+
+- Documentació de 4enratlla.c
+- Alliberar els arbres
+- Canviar MinMax en dos funcions, la recursiva i la que retorna l'int. així es poden declarar i alliberar del arbres de de la
+    segona i no des de la funció de la partida
+- Afegir eleccions aleatories als bots
+- Ficar la profundiatat com a variable
+- Optimitzar la jugabilitat
+
+
+- Entrenar la IA
+
+
+
+

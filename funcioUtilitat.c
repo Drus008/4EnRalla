@@ -7,7 +7,6 @@ float utilitat(QuatreEnRatlla *partida, char jugador){
 }
 
 
-// Donada una partida, una fila i una columna, retorna per entrada el nombre de fitxes de cada jugador adjacents a la donada
 void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fitxesJ1, int* fitxesJ2){
     for(int i=fila-1; i<fila+2; i++){
         for(int j=col-1; j<col+2; j++){
@@ -21,7 +20,7 @@ void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fit
     }
 }
 
-// Retorna una puntuació de l'estat de la partida en funció de les fitxes dayacents de cada jugador
+
 int puntuacioPerAdjacencia(QuatreEnRatlla *partida){
     int puntuacio = 0;
     for(int f=0; f<NFILES; f++){

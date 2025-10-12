@@ -6,6 +6,7 @@ SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
 TARGET := 4enratlla
 
+
 .PHONY: all clean run
 
 all: $(TARGET)
@@ -20,4 +21,5 @@ clean:
 	rm -f $(TARGET) $(OBJS)
 
 run: $(TARGET)
+	-pkill -f $(TARGET) || true
 	./$(TARGET)

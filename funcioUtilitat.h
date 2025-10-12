@@ -8,11 +8,29 @@
 float utilitat(QuatreEnRatlla *partida, char jugador);
 
 
-
-// Donada una partida, una fila i una columna, retorna per entrada el nombre de fitxes de cada jugador adjacents a la donada
+/**
+ * @brief Compta quantes fitxer de cada tipos hi ha al voltant d'una posició en concret
+ * 
+ * @param partida és l'estat de partida actual
+ * @param fila fila on es la posició que es vol comprovar
+ * @param col columna on es la posició que es vol comprovar
+ * @param fitxesJ1 direcció per on retorna el nombre de fitxes del J1
+ * @param fitxesJ1 direcció per on retorna el nombre de fitxes del J2
+ * 
+ */
 void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fitxesJ1, int* fitxesJ2);
 
-// Retorna una puntuació de l'estat de la partida en funció de les fitxes dayacents de cada jugador
+// Es podria millorar fent que no comproves casselles que estàn molt més amunt que les últimes tirades
+
+/**
+ * @brief Valora un estat de partida
+ * 
+ * @param partida és l'estat que es vol valorar
+ * 
+ * per a fer el càlcul, per a cada casella es compten quantes n'hi ha de cada jugador i es resten les d'un amb les de l'altre elevades al quadrat
+ * 
+ * @return la valoració de la partida, on un nombre positiu vol dir que J1 va guanyant i negatiu que J2 va guanyant
+ */
 int puntuacioPerAdjacencia(QuatreEnRatlla *partida);
 
 #endif // FUNCIO_UTILITAT_H

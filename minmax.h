@@ -18,19 +18,70 @@ typedef struct arbre {
     bool fulla;
 } Arbre;
 
+/**
+ * @brief Imprimeix un arbre
+ * @param arbre és l'arbre que es vol imprimir
+ * @param profunditatMaxima és la profunditat fins a la que s'imprimeix l'arbre
+ * @param profunditatActual si es crida ha de valer 1
+ */
+void imprimirArbre(Arbre* arbre, int profunditatMaxima);
 
+/**
+ * @brief Gestiona les arrels de l'arbre
+ * Donat un node comprova si:
+ * - El moviment no es pot fer (i aleshores assigna -INF en cas de ser el jugador original i INF en cas de ser l'altre)
+ * - El moviment provoca una victoria (i aleshores assigna INF en cas de ser el jugador original i -INF en cas de ser l'altre)
+ * - El moviment es de la profunditat màxima de l'arbre (i aleshores assigna la punuació corresponent si el jugador és l'original i l'oposat si és l'altre)
+ * 
+ * En cas de detectar alguna d'aquestes coses s'assigna fulla=true al node i és retorna true
+ * En cas contrari retorna false.
+ * 
+ * No modifica l'estat acutal de la partida.
+ * 
+ * @param arbre és el node de l'arbre que es configurarà.
+ * @param partida és l'estat actual de la partida (sense haver realitzat encara el moviment del node).
+ * @param jugador és el jugador que està fent el moviment actual.
+ * 
+ * @return retorna cert en cas de que el node sigui una fulla i false en cas contrari.
+ */
+bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador);
 
-
-
-
-void imprimirArbre(Arbre* arbre, int prof, int n);
-
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador, char jugadorOriginal);
-
+/**
+ * @brief realitza l'algorisme del MinMax
+ * 
+ * Aniria bé explicar-ho millor aquí
+ * 
+ * @param arbre és el node en el que s'aplicarà el minmax recursivament.
+ * @param partida és l'estat acutal de la partida (sense modificar el moviment actual).
+ * @param jugador és el jugador que farà el moviment actual
+ * 
+ * @param retorna el int del moviment que ha trobat l'algorisme que és el millor
+ * 
+ * Segurament estaria bé separar la funció en 2, una que retorna int i és la que s'executa des de fora
+ * i una altre que es la que fa el MinMax recursiu.
+ * 
+ */
 int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador);
 
+/**
+ * @brief Troba l'index del node fill amb una puntuació més alta
+ * 
+ * @param arbre L'arbre del que es vol trobar el fill amb la puntuació més alta
+ * 
+ * @return l'index del moviment que provoca el node amb puntuació màxima
+ * 
+ * En cas d'empat, fa servir profunditat solució per a descartar el node que triga més passos en guanyar
+ */
 int trobarMaxim(Arbre *arbre);
-
+/**
+ * @brief Troba l'index del node fill amb una puntuació més baixa
+ * 
+ * @param arbre L'arbre del que es vol trobar el fill amb la puntuació més baixa
+ * 
+ * @return l'index del moviment que provoca el node amb puntuació mínima
+ * 
+ * En cas d'empat, fa servir profunditat solució per a descartar el node que triga menys passos en guanyar
+ */
 int trobarMinim(Arbre *arbre);
 
 int triaNaive(QuatreEnRatlla *partida);
