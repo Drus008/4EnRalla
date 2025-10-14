@@ -32,7 +32,7 @@ bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
     double multiplicador=-1;
     if (jugador==2) multiplicador=1; //Això hem dona que no haria de ser aixi, ns hauria de dependre del jugador, però clarament deixa de funcionar si ho canvio
 
-    if (!comprovarMovimentLegal(partida, moviment)) {
+    if (comprovarColumnaPlena(partida, moviment)) {
         arbre->puntuacio = -multiplicador*INFINITY;
         arbre->profunditatSolucio = arbre->nivell;
     }

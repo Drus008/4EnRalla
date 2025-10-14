@@ -8,6 +8,26 @@
 #include <unistd.h>
 
 
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
+    int moviment = -1;
+    while (moviment==-1){
+        printf("Intodueix una columna: ");
+
+        if (scanf(" %d", &moviment)!=1){
+            while (getchar() != '\n'); //atois
+            printf("Moviment invàlid.\n");
+            moviment = -1;
+        }
+        
+        else if(moviment>=0 && moviment<NCOLS && !comprovarColumnaPlena(partida,moviment)) realitzarMoviment(partida, moviment, jugador);
+        else{
+            printf("Moviment il·legal.\n");
+            moviment = -1;
+        }
+    }
+    return moviment;
+}
+
 
 void pardidaPlayerVsBot(char tornJugador){
     QuatreEnRatlla prova;
@@ -104,5 +124,5 @@ void pardidaDeDosJugadors(){
 
 
 int main(){
-    pardidaPlayerVsBot(1);
+    pardidaDeDosJugadors();
 }

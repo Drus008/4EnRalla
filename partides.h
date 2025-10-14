@@ -2,6 +2,22 @@
 #define PARTIDES_H
 
 
+
+/**
+ * @brief Pregunta al jugador quin moviment vol fer
+ * 
+ * No para de preguntar fins a rebre una jugada válidad. En cas de no rebre una jugada vàlida imprimeix per
+ * consolo si es per un error ortogràfic o per una columna de fora del taulell.
+ * 
+ * @param partida és un apuntador a la partida que s'està jugant
+ * 
+ * @param jugador és el jugador que fa el moviment
+ * 
+ * @return el número de la columna que el jugador ha dit que vol tirar. Sempre retorna un moviment vàlid
+ * 
+ */
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador);
+
 /**
  * @brief Inicia la partida d'un jugador contra un bot.
  * @param tornJugador indica si el jugador comença al torn 1 o al torn 2.
