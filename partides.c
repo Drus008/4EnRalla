@@ -19,7 +19,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
             moviment = -1;
         }
         
-        else if(moviment>=0 && moviment<NCOLS && !comprovarColumnaPlena(partida,moviment)) realitzarMoviment(partida, moviment, jugador);
+        else if(moviment>=0 && moviment<partida->ncols && !comprovarColumnaPlena(partida,moviment)) realitzarMoviment(partida, moviment, jugador);
         else{
             printf("Moviment il·legal.\n");
             moviment = -1;
@@ -31,7 +31,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
 
 void pardidaPlayerVsBot(char tornJugador){
     QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova);
+    inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
@@ -40,10 +40,7 @@ void pardidaPlayerVsBot(char tornJugador){
             int moviment;
             if(jugador==tornJugador) moviment = triarMovimentJugador(&prova, jugador);
             else {
-                Arbre *arbreProba = malloc(sizeof(Arbre));
-                arbreProba->nivell = 0;
-                moviment = ferMinmax(arbreProba,&prova, jugador);
-                imprimirArbre(arbreProba,3);
+                moviment = minMax(&prova, jugador);
                 printf("Movent a %d\n", moviment);
                 realitzarMoviment(&prova,moviment,jugador);
             }
@@ -61,12 +58,13 @@ void pardidaPlayerVsBot(char tornJugador){
             }
         }
     }
+    alliberarQuatreEnRatlla(&prova);
 }
 
 
 void pardidaBotVsBot(double espera){
     QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova);
+    inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
@@ -74,9 +72,7 @@ void pardidaBotVsBot(double espera){
             imprimirQuateEnRatlla(&prova);
             printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
             int moviment;
-            Arbre *arbreProba = malloc(sizeof(Arbre));
-            arbreProba->nivell = 0;
-            moviment = ferMinmax(arbreProba,&prova, jugador);
+            moviment = minMax(&prova, jugador);
             printf("Movent a %d\n", moviment);
             realitzarMoviment(&prova,moviment,jugador);
             if(comprovarSolucio(&prova, moviment)){
@@ -98,7 +94,7 @@ void pardidaBotVsBot(double espera){
 
 void pardidaDeDosJugadors(){
     QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova);
+    inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
@@ -124,5 +120,6 @@ void pardidaDeDosJugadors(){
 
 
 int main(){
-    pardidaDeDosJugadors();
+    int configuracióDePartida[2] = {8,8};
+    pardidaPlayerVsBot(2);
 }

@@ -6,25 +6,64 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 3
+#define PROFUNDITAT 6
 
 
-typedef struct arbre {
-    int nivell;
-    int profunditatSolucio;
-    double puntuacio;
-    int tirada;
-    struct arbre* fills;
-    bool fulla;
-} Arbre;
+/**
+ * @brief Estructura per a fer un arbre per al MinMax
+ * 
+ */
+typedef struct nodeArbre {
+    int tirada; /**< Indica quina tirada s'ha fet per a arribar a aquesta posició. */
+    struct nodeArbre** fills; /**< Array d'apuntadors a arbres que apareixen si fas un moviment des d'aquesta posició*/
+    int nivell; /**< Quantitat de moviments que s'han fet des de la creació de l'arbre.*/
+    int profunditatSolucio; /**< Si ha trobat un estat final, indica a quants passos es troba de l'actual.*/
+    double puntuacio; /**< Puntuació assignada pel MinMax, pot ser -INF o +INF arriben a un estat final.*/
+    bool fulla; /**< Indica si l'arbre arriba a un estat final */
+} nodeArbre;
+
+/**
+ * @brief Allibera els fills d'un arbre.
+ * @param arbre és l'arbre del que vols alliberar els fills.
+ * @param nFills és el nombre de fills que te l'arbre.
+ */
+void alliberarFills(nodeArbre *arbre, int nFills);
 
 /**
  * @brief Imprimeix un arbre
  * @param arbre és l'arbre que es vol imprimir
  * @param profunditatMaxima és la profunditat fins a la que s'imprimeix l'arbre
- * @param profunditatActual si es crida ha de valer 1
+ * @param nFills és el nombre de fills que te l'arbre.
  */
-void imprimirArbre(Arbre* arbre, int profunditatMaxima);
+void imprimirArbre(nodeArbre* arbre, int profunditatMaxima, int nFills);
+
+
+/**
+ * @brief Comença l'algorisme del MinMax
+ * 
+ * @param partida l'estat de la partida en la que es fa el minmax
+ * @param jugadorOriginal és el jugador al que li toca tirar
+ * 
+ */
+int minMax(QuatreEnRatlla *partida, char jugadorOriginal);
+ 
+/**
+ * @brief realitza l'algorisme del MinMax
+ * 
+ * Aniria bé explicar-ho millor aquí
+ * 
+ * @param arbre és el node en el que s'aplicarà el minmax recursivament.
+ * @param partida és l'estat acutal de la partida (sense modificar el moviment actual).
+ * @param jugador és el jugador que farà el moviment actual
+ * 
+ * @param retorna el int del moviment que ha trobat l'algorisme que és el millor
+ * 
+ * Segurament estaria bé separar la funció en 2, una que retorna int i és la que s'executa des de fora
+ * i una altre que es la que fa el MinMax recursiu.
+ * 
+ */
+int iteracioMinmax(nodeArbre *arbre, QuatreEnRatlla *partida, char jugador);
+
 
 /**
  * @brief Gestiona les arrels de l'arbre
@@ -44,45 +83,31 @@ void imprimirArbre(Arbre* arbre, int profunditatMaxima);
  * 
  * @return retorna cert en cas de que el node sigui una fulla i false en cas contrari.
  */
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador);
+bool omplirNodeTrivial(nodeArbre* arbre, QuatreEnRatlla *partida, char jugador);
 
-/**
- * @brief realitza l'algorisme del MinMax
- * 
- * Aniria bé explicar-ho millor aquí
- * 
- * @param arbre és el node en el que s'aplicarà el minmax recursivament.
- * @param partida és l'estat acutal de la partida (sense modificar el moviment actual).
- * @param jugador és el jugador que farà el moviment actual
- * 
- * @param retorna el int del moviment que ha trobat l'algorisme que és el millor
- * 
- * Segurament estaria bé separar la funció en 2, una que retorna int i és la que s'executa des de fora
- * i una altre que es la que fa el MinMax recursiu.
- * 
- */
-int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugador);
 
 /**
  * @brief Troba l'index del node fill amb una puntuació més alta
  * 
  * @param arbre L'arbre del que es vol trobar el fill amb la puntuació més alta
+ * @param midaLlista Mida de la llista de la qual es vol trobar el màxim
  * 
  * @return l'index del moviment que provoca el node amb puntuació màxima
  * 
  * En cas d'empat, fa servir profunditat solució per a descartar el node que triga més passos en guanyar
  */
-int trobarMaxim(Arbre *arbre);
+int trobarMaxim(nodeArbre *arbre, int midaLlista);
 /**
  * @brief Troba l'index del node fill amb una puntuació més baixa
  * 
  * @param arbre L'arbre del que es vol trobar el fill amb la puntuació més baixa
+ * @param midaLlista Mida de la llista de la qual es vol trobar el mínim
  * 
  * @return l'index del moviment que provoca el node amb puntuació mínima
  * 
  * En cas d'empat, fa servir profunditat solució per a descartar el node que triga menys passos en guanyar
  */
-int trobarMinim(Arbre *arbre);
+int trobarMinim(nodeArbre *arbre, int midaLlista);
 
 int triaNaive(QuatreEnRatlla *partida);
 

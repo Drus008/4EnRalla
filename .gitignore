@@ -1,0 +1,51 @@
+# Compilación
+*.o
+*.obj
+*.so
+*.dll
+*.a
+*.lib
+*.out
+*.exe
+
+# Archivos de depuración
+*.gch
+*.pch
+*.pdb
+*.mod
+*.dSYM/
+*.stackdump
+
+# Directorios de compilación comunes
+/build/
+/bin/
+/debug/
+/release/
+
+# Archivos de dependencias o logs
+*.log
+*.tmp
+*.bak
+
+# Archivos generados por editores
+*~
+*.swp
+*.swo
+*.swn
+
+# Archivos de Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Archivos de CLion / JetBrains
+.idea/
+cmake-build*/
+
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

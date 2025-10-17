@@ -1,13 +1,13 @@
-
-
-- Alliberar els arbres
-- Canviar MinMax en dos funcions, la recursiva i la que retorna l'int. així es poden declarar i alliberar del arbres de de la
-    segona i no des de la funció de la partida
+- Bug: Falla si ha perdut si o si, aleshores pot tirar a fora del taulell.
+- Buscar el màxim mentres s'itera al minmax
 - Afegir eleccions aleatories als bots
 - Ficar la profundiatat com a variable
 - Optimitzar la jugabilitat (aplicar l'algorisme poda alfa-betta (només comprovant infinits))
+- Que es puguin passar els moviments com a paràmetres (amb void *)
 
 - Fer un Makefile que funcioni
 
 - Entrenar la IA
+
+- Fer-ho multijugador
 

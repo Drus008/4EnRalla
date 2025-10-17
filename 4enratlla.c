@@ -10,23 +10,37 @@
 
 
 void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
-    for(int fil = 0; fil<NFILES; fil++){
-        for(int col = 0; col<NCOLS; col++){
+    for(int fil = 0; fil<partida->nfiles; fil++){
+        for(int col = 0; col<partida->ncols; col++){
             if((partida->tauler)[fil][col]==1) printf("|🟥");
             else if((partida->tauler)[fil][col]==2) printf("|🟦");
             else(printf("|  "));
         }
         printf("|\n");
     }
+    for(int i =0;i<3*partida->ncols;i++) printf("—");
+    printf("\n");
+    for(int col = 0; col<partida->ncols;col++){
+        printf("| %i", col);
+    }
+    printf("|\n");
 }
 
 
-void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida){
-    for(int fil=0; fil<NFILES; fil++){
-        for(int col=0; col<NCOLS; col++){
-            partida->tauler[fil][col] = 0;
-        }
+void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida, int nFils, int nCols, int nVictoria){
+    partida->ncols = nCols;
+    partida->nfiles = nFils;
+    partida->nVictoria = nVictoria;
+    partida->tauler = malloc(sizeof(char*)*nFils);
+    for(int fil=0; fil<nFils; fil++){
+        partida->tauler[fil] = malloc(sizeof(char*)*nCols);
+        for(int col=0; col<nCols; col++) partida->tauler[fil][col] = 0;
     }
+}
+
+void alliberarQuatreEnRatlla(QuatreEnRatlla *partida){
+    for( int fil=0; fil<partida->nfiles; fil++) free(partida->tauler[fil]);
+    free(partida->tauler);
 }
 
 
@@ -36,7 +50,7 @@ bool comprovarColumnaPlena(QuatreEnRatlla *partida, int moviment){
 }
 
 void realitzarMoviment(QuatreEnRatlla *partida, int moviment, char jugador){
-    for(int fil = NFILES-1; fil>=0; fil--){
+    for(int fil = partida->nfiles-1; fil>=0; fil--){
         if(partida->tauler[fil][moviment]==0) {
             partida->tauler[fil][moviment] = jugador;
             break;
@@ -50,7 +64,7 @@ void desferMoviment(QuatreEnRatlla *partida, int moviment){
 
 
 int filaSuperior(QuatreEnRatlla *partida, int columna){
-    for(int f=0; f<NFILES; f++){
+    for(int f=0; f<partida->nfiles; f++){
         if(partida->tauler[f][columna]!=0) return f;
     }
     return -1;
@@ -62,71 +76,75 @@ int filaSuperior(QuatreEnRatlla *partida, int columna){
 bool comprovarSolucioHoritzontal(QuatreEnRatlla *partida, int fila, int col){
     char casellaInicial = partida->tauler[fila][col]; //Crec que es millor si això ho paso com a parametre en les 4 funcions
     int comptadorFitxer = 1;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col+i>=0 && col+i<NCOLS){
+    int nVictoria = partida->nVictoria; //Crec que també és millor passar això com a paràmetre
+    for(int i=1; i<nVictoria; i++){
+        if(col+i>=0 && col+i<partida->ncols){
             if(partida->tauler[fila][col + i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer==MODIFICADOR) return true;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col-i>=0 && col-i<NCOLS){
+    if (comptadorFitxer==nVictoria) return true;
+    for(int i=1; i<nVictoria; i++){
+        if(col-i>=0 && col-i<partida->ncols){
             if(partida->tauler[fila][col - i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer>=MODIFICADOR) return true;
+    if (comptadorFitxer>=nVictoria) return true;
     return false;
 }
 bool comprovarSolucioVertical(QuatreEnRatlla *partida, int fila, int col){
     char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(fila+i>=0 && fila+i<NFILES){
+    int nVictoria = partida->nVictoria;
+    for(int i=1; i<nVictoria; i++){
+        if(fila+i>=0 && fila+i<partida->nfiles){
             if(partida->tauler[fila + i][col]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer>=MODIFICADOR) return true;
+    if (comptadorFitxer>=nVictoria) return true;
     return false;
 }
 bool comprovarSolucioDiagonal1(QuatreEnRatlla *partida, int fila, int col){
     char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col+i>=0 && col+i<NCOLS && fila+i>=0 && fila+i<NFILES){
+    int nVictoria = partida->nVictoria;
+    for(int i=1; i<nVictoria; i++){
+        if(col+i>=0 && col+i<partida->ncols && fila+i>=0 && fila+i<partida->nfiles){
             if(partida->tauler[fila + i][col+i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer>=MODIFICADOR) return true;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col-i>=0 && col-i<NCOLS && fila-i>=0 && fila-i<NFILES){
+    if (comptadorFitxer>=nVictoria) return true;
+    for(int i=1; i<nVictoria; i++){
+        if(col-i>=0 && col-i<partida->ncols && fila-i>=0 && fila-i<partida->nfiles){
             if(partida->tauler[fila - i][col-i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer>=MODIFICADOR) return true;
+    if (comptadorFitxer>=nVictoria) return true;
     return false;
 }
 bool comprovarSolucioDiagonal2(QuatreEnRatlla *partida, int fila, int col){
     char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col-i>=0 && col-i<NCOLS && fila+i>=0 && fila+i<NFILES){
+    int nVictoria = partida->nVictoria;
+    for(int i=1; i<nVictoria; i++){
+        if(col-i>=0 && col-i<partida->ncols && fila+i>=0 && fila+i<partida->nfiles){
             if(partida->tauler[fila + i][col-i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
     
-    if (comptadorFitxer>=MODIFICADOR) return true;
-    for(int i=1; i<MODIFICADOR; i++){
-        if(col+i>=0 && col+i<NCOLS && fila-i>=0 && fila-i<NFILES){
+    if (comptadorFitxer>=nVictoria) return true;
+    for(int i=1; i<nVictoria; i++){
+        if(col+i>=0 && col+i<partida->ncols && fila-i>=0 && fila-i<partida->nfiles){
             if(partida->tauler[fila - i][col+i]!=casellaInicial) break;
             else comptadorFitxer++;
         }
     }
-    if (comptadorFitxer>=MODIFICADOR) return true;
+    if (comptadorFitxer>=nVictoria) return true;
     return false;
 }
 
@@ -136,7 +154,7 @@ bool comprovarSolucio(QuatreEnRatlla *partida, int ultimMoviment){
 }
 
 bool comprovarEmpat(QuatreEnRatlla *partida){
-    for(int col=0; col<NCOLS; col++) if(partida->tauler[0][col]==0) return false;
+    for(int col=0; col<partida->ncols; col++) if(partida->tauler[0][col]==0) return false;
     return true;
 }
 

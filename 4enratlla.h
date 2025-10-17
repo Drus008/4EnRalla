@@ -4,9 +4,6 @@
 
 #include <stdbool.h>
 
-#define NFILES 8
-#define NCOLS 8
-#define MODIFICADOR 4
 
 //Crec que és millor incloure un array que indique a quina fila s'ha colocat la ultima peça
 //ja que aixi no s'ha de calcular cada cop
@@ -17,7 +14,10 @@
 
 // També s'haurien d'afegir les dimensions com a paràmetre i no com a def 
 typedef struct quatreEnRatlla {
-    signed char tauler[NFILES][NCOLS];
+    signed char **tauler;
+    int nfiles;
+    int ncols;
+    int nVictoria; /**Nombre de peces iguals que s'han d'alinear per a guanyar la partida */
 }QuatreEnRatlla;
 
 
@@ -30,12 +30,21 @@ typedef struct quatreEnRatlla {
 void imprimirQuateEnRatlla(QuatreEnRatlla *partida);
 
 /**
- * @brief Inicia una partida del 4 en ratlla des de zero
+ * @brief Inicia una partida del 4 en ratlla des de zero.
  * 
- * @param partida és un apuntador a la partida que es vol iniciar
+ * @param partida és un apuntador a la partida que es vol iniciar.
+ * @param nFils és el nombre de files de la taula.
+ * @param nCols és el nombre de columnes de la taula.
+ * @param nVictoria és el nombre de peces adjacents alineades que s'han de tenir per a guanyar la partida
  */
-void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida);
+void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida, int nFils, int nCols, int nVictoria);
 
+/**
+ * @brief Allibera la partida del 4 en ratlla quan ja no es necessita.
+ * 
+ * @param partida és un apuntador a la partida que es vol alliberar.
+ */
+void alliberarQuatreEnRatlla(QuatreEnRatlla *partida);
 
 /**
  * @brief Comprova si hi ha espai en una columna per a introduïr fitxes.

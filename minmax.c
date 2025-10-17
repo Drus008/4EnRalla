@@ -5,29 +5,75 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <math.h>
-
 #include <stdio.h>
 
-void imprimirNode(Arbre *arbre){
+
+void imprimirNode(nodeArbre *arbre){
     for(int i=0; i<arbre->nivell;i++){
         printf("  ");
     }
     printf("%i:%lf\n",arbre->nivell, arbre->puntuacio);
 }
 
-void imprimirArbre(Arbre* arbre, int profunditatMaxima){
+void alliberarFills(nodeArbre *arbre, int nfills){
+    for(int i=0;i<nfills; i++){
+        if(!arbre->fills[i]->fulla) free(arbre->fills[i]);
+    }
+}
+
+
+void imprimirArbre(nodeArbre* arbre, int profunditatMaxima, int nfills){
     imprimirNode(arbre);
     if(arbre->nivell<profunditatMaxima && !arbre->fulla){
         
-        for(int i=0;i<NCOLS; i++){
-            imprimirArbre(&(arbre->fills[i]),profunditatMaxima);
+        for(int i=0;i<nfills; i++){
+            imprimirArbre(arbre->fills[i],profunditatMaxima, nfills);
         }
     }
 }
 
 
-//Retorna true en cas de que el node sigui una fulla (i omple la puntuació) i retorna false en cas contrari
-bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
+int minMax(QuatreEnRatlla *partida, char jugadorOriginal){
+    nodeArbre *arbreProba = malloc(sizeof(nodeArbre));
+    arbreProba->nivell = 0;
+    int millorMoviment = iteracioMinmax(arbreProba, partida, jugadorOriginal);
+    //imprimirArbre(arbreProba,3);
+    free(arbreProba);
+    return millorMoviment;
+}
+
+
+int iteracioMinmax(nodeArbre *arbre, QuatreEnRatlla *partida, char jugadorOriginal){
+    char jugador = (char)((arbre->nivell+1)%2+1);
+    int nCols = partida->ncols;
+    arbre->fills = malloc(sizeof(nodeArbre*)*nCols);
+    int nouNivell = arbre->nivell+1;
+    for(int i=0; i<nCols; i++){
+        arbre->fills[i] = malloc(sizeof(nodeArbre));
+        arbre->fills[i]->nivell = nouNivell;
+        arbre->fills[i]->tirada = i;
+        
+        
+        if (!omplirNodeTrivial(arbre->fills[i], partida, jugador)){
+            realitzarMoviment(partida, i, jugador);
+            iteracioMinmax(arbre->fills[i], partida, jugadorOriginal);
+            desferMoviment(partida, i);
+        }
+    }
+    
+    int millorTirada;
+    if((arbre->nivell)%2==1) millorTirada = trobarMinim(arbre, nCols);
+    else millorTirada = trobarMaxim(arbre, nCols);
+    arbre->puntuacio = arbre->fills[millorTirada]->puntuacio;
+    arbre->profunditatSolucio = arbre->fills[millorTirada]->profunditatSolucio;
+
+    alliberarFills(arbre, nCols);
+
+    return millorTirada;
+}
+
+
+bool omplirNodeTrivial(nodeArbre* arbre, QuatreEnRatlla *partida, char jugador){
     int moviment = arbre->tirada;
     double multiplicador=-1;
     if (jugador==2) multiplicador=1; //Això hem dona que no haria de ser aixi, ns hauria de dependre del jugador, però clarament deixa de funcionar si ho canvio
@@ -53,51 +99,22 @@ bool omplirNodeTrivial(Arbre* arbre, QuatreEnRatlla *partida, char jugador){
     return true;
 }//Segurament reorganitzant condicionals i fent que no es faci el moviment si no cal es pot millorar l'eficiència
 
-int ferMinmax(Arbre *arbre, QuatreEnRatlla *partida, char jugadorOriginal){
-    
 
-    char jugador = (char)((arbre->nivell+1)%2+1);
-
-
-    arbre->fills = malloc(sizeof(Arbre)*NCOLS);
-    int nouNivell = arbre->nivell+1;
-    for(int i=0; i<NCOLS; i++){
-        
-        (arbre->fills[i]).nivell = nouNivell;
-        (arbre->fills[i]).tirada = i;
-        
-        
-        if (!omplirNodeTrivial(&(arbre->fills[i]), partida, jugador)){
-            realitzarMoviment(partida, i, jugador);
-            ferMinmax(&(arbre->fills[i]), partida, jugadorOriginal);
-            desferMoviment(partida, i);
-        }
-        
-    }
-    
-    int millorTirada;
-    if((arbre->nivell)%2==1) millorTirada = trobarMinim(arbre);
-    else millorTirada = trobarMaxim(arbre);
-    arbre->puntuacio = arbre->fills[millorTirada].puntuacio;
-    arbre->profunditatSolucio = arbre->fills[millorTirada].profunditatSolucio;
-    return millorTirada;
-}
-
-int trobarMaxim(Arbre *arbre){//Segurament això es pot optimitzar per a que faci menys comparacions si una fila és INF
-    double max = arbre->fills[0].puntuacio;
+int trobarMaxim(nodeArbre *arbre, int midaLlista){//Segurament això es pot optimitzar per a que faci menys comparacions si una fila és INF
+    double max = arbre->fills[0]->puntuacio;
     int indexMax = 0;
-    int desempat = arbre->fills[0].profunditatSolucio;
-    double llista[NCOLS];
-    for(int i=0; i<NCOLS; i++) llista[i] = arbre->fills[i].puntuacio;
+    int desempat = arbre->fills[0]->profunditatSolucio;
+    double llista[midaLlista];
+    for(int i=0; i<midaLlista; i++) llista[i] = arbre->fills[i]->puntuacio;
 
-    for(int i=1;i<NCOLS;i++){
+    for(int i=1;i<midaLlista;i++){
         if (max<llista[i]){
             max = llista[i];
             indexMax = i;
         }
         //Aquesta part del codi serveix per a desempatar en cas de que dos estats tinguin la mateixa valoració
         //El que es fa és triar la que menys passos hagi necessitat. Això estalvia un parell de tirades i per tant bastants cálculs
-        else if(max==llista[i] && arbre->fills[i].profunditatSolucio<desempat){
+        else if(max==llista[i] && arbre->fills[i]->profunditatSolucio<desempat){
             max = llista[i];
             indexMax = i;
         }
@@ -105,19 +122,19 @@ int trobarMaxim(Arbre *arbre){//Segurament això es pot optimitzar per a que fac
     return indexMax;
 }
 
-int trobarMinim(Arbre *arbre){
-    double min = arbre->fills[0].puntuacio;
+int trobarMinim(nodeArbre *arbre, int midaLlista){
+    double min = arbre->fills[0]->puntuacio;
     int indexMin = 0;
-    int desempat = arbre->fills[0].profunditatSolucio;
-    double llista[NCOLS];
-    for(int i=0; i<NCOLS; i++) llista[i] = arbre->fills[i].puntuacio;
+    int desempat = arbre->fills[0]->profunditatSolucio;
+    double llista[midaLlista];
+    for(int i=0; i<midaLlista; i++) llista[i] = arbre->fills[i]->puntuacio;
 
-    for(int i=1;i<NCOLS;i++){
+    for(int i=1;i<midaLlista;i++){
         if (min>llista[i]){
             min = llista[i];
             indexMin = i;
         }
-        else if(min==llista[i] && arbre->fills[i].profunditatSolucio>desempat){
+        else if(min==llista[i] && arbre->fills[i]->profunditatSolucio>desempat){
             min = llista[i];
             indexMin = i;
         }
@@ -129,8 +146,8 @@ int trobarMinim(Arbre *arbre){
 int triaNaive(QuatreEnRatlla *partida){
     int puntuacioMaxima = -__INT_MAX__+1;
     int millorMoviment=-1;
-    for(int i=0; i<NCOLS; i++){
-        if(comprovarMovimentLegal(partida,i)){
+    for(int i=0; i<partida->ncols; i++){
+        if(!comprovarColumnaPlena(partida,i)){
             realitzarMoviment(partida,i,2);
             int puntuacioMoviment =-puntuacioPerAdjacencia(partida);
             if(puntuacioMoviment>puntuacioMaxima){
