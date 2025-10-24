@@ -64,7 +64,7 @@ void pardidaPlayerVsBot(char tornJugador){
 
 void pardidaBotVsBot(double espera){
     QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
+    inicialitzarQuatreEnRatlla(&prova, 20, 10, 6);
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
@@ -121,5 +121,5 @@ void pardidaDeDosJugadors(){
 
 int main(){
     int configuracióDePartida[2] = {8,8};
-    pardidaPlayerVsBot(2);
+    pardidaBotVsBot(0);
 }

@@ -12,12 +12,16 @@
 
 // També crec que sería millor reservar més memòria per a no fer comprovacions de si estem mirant a dins de la matriu
 
-// També s'haurien d'afegir les dimensions com a paràmetre i no com a def 
+/**
+ * @brief Estructura que conté l'estat d'una partida
+ * 
+ */
 typedef struct quatreEnRatlla {
-    signed char **tauler;
-    int nfiles;
-    int ncols;
-    int nVictoria; /**Nombre de peces iguals que s'han d'alinear per a guanyar la partida */
+    signed char **tauler; /**<Taulell actual amb les fitxes colocades, la taula ha de contenir zeros als bordes> */
+    int nfiles; /**<nombre de files del taulell> */
+    int ncols; /**<nombre de columnes del taulell> */
+    int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida> */
+    int *filesSuperiors; /*<Indica a cada columna a quina fila està la peça més alta (Sense usar actualment)*/
 }QuatreEnRatlla;
 
 

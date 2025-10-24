@@ -19,7 +19,6 @@ typedef struct nodeArbre {
     int nivell; /**< Quantitat de moviments que s'han fet des de la creació de l'arbre.*/
     int profunditatSolucio; /**< Si ha trobat un estat final, indica a quants passos es troba de l'actual.*/
     double puntuacio; /**< Puntuació assignada pel MinMax, pot ser -INF o +INF arriben a un estat final.*/
-    bool fulla; /**< Indica si l'arbre arriba a un estat final */
 } nodeArbre;
 
 /**

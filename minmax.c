@@ -17,14 +17,15 @@ void imprimirNode(nodeArbre *arbre){
 
 void alliberarFills(nodeArbre *arbre, int nfills){
     for(int i=0;i<nfills; i++){
-        if(!arbre->fills[i]->fulla) free(arbre->fills[i]);
+        free(arbre->fills[i]);
     }
+    free(arbre->fills);
 }
 
 
 void imprimirArbre(nodeArbre* arbre, int profunditatMaxima, int nfills){
     imprimirNode(arbre);
-    if(arbre->nivell<profunditatMaxima && !arbre->fulla){
+    if(arbre->nivell<profunditatMaxima){
         
         for(int i=0;i<nfills; i++){
             imprimirArbre(arbre->fills[i],profunditatMaxima, nfills);
@@ -53,8 +54,8 @@ int iteracioMinmax(nodeArbre *arbre, QuatreEnRatlla *partida, char jugadorOrigin
         arbre->fills[i]->nivell = nouNivell;
         arbre->fills[i]->tirada = i;
         
-        
-        if (!omplirNodeTrivial(arbre->fills[i], partida, jugador)){
+        if (omplirNodeTrivial(arbre->fills[i], partida, jugador)) arbre->fills[i]->fills=NULL;
+        else {
             realitzarMoviment(partida, i, jugador);
             iteracioMinmax(arbre->fills[i], partida, jugadorOriginal);
             desferMoviment(partida, i);
@@ -91,52 +92,69 @@ bool omplirNodeTrivial(nodeArbre* arbre, QuatreEnRatlla *partida, char jugador){
         else if((arbre->nivell)==PROFUNDITAT){
             //imprimirQuateEnRatlla(partida);
             arbre->puntuacio = multiplicador* (double)puntuacioPerAdjacencia(partida);
+            arbre->profunditatSolucio = arbre->nivell;
         }
-        else{desferMoviment(partida, moviment); arbre->fulla=false; return false;}
+        else{desferMoviment(partida, moviment); return false;}
         desferMoviment(partida, moviment);
     }
-    arbre->fulla=true;
     return true;
 }//Segurament reorganitzant condicionals i fent que no es faci el moviment si no cal es pot millorar l'eficiència
 
 
 int trobarMaxim(nodeArbre *arbre, int midaLlista){//Segurament això es pot optimitzar per a que faci menys comparacions si una fila és INF
-    double max = arbre->fills[0]->puntuacio;
+    double max;
+    int desempat;
     int indexMax = 0;
-    int desempat = arbre->fills[0]->profunditatSolucio;
-    double llista[midaLlista];
-    for(int i=0; i<midaLlista; i++) llista[i] = arbre->fills[i]->puntuacio;
+    bool iniciat=false;
+    for(int i=0;i<midaLlista;i++){
+        if(arbre->fills[i]!=NULL){
+            if(!iniciat) {
+                max = arbre->fills[i]->puntuacio;
+                desempat = arbre->fills[0]->profunditatSolucio;
+                iniciat = true;
+            }
+            else{
+                double valor_i = arbre->fills[i]->puntuacio;
+                if (max<valor_i){
+                    max = valor_i;
+                    indexMax = i;
+                }
+                else if(max==valor_i && arbre->fills[i]->profunditatSolucio>desempat){
+                    max = valor_i;
+                    indexMax = i;
+                }
+            }
 
-    for(int i=1;i<midaLlista;i++){
-        if (max<llista[i]){
-            max = llista[i];
-            indexMax = i;
-        }
-        //Aquesta part del codi serveix per a desempatar en cas de que dos estats tinguin la mateixa valoració
-        //El que es fa és triar la que menys passos hagi necessitat. Això estalvia un parell de tirades i per tant bastants cálculs
-        else if(max==llista[i] && arbre->fills[i]->profunditatSolucio<desempat){
-            max = llista[i];
-            indexMax = i;
         }
     }
     return indexMax;
 }
 
-int trobarMinim(nodeArbre *arbre, int midaLlista){
-    double min = arbre->fills[0]->puntuacio;
-    int indexMin = 0;
-    int desempat = arbre->fills[0]->profunditatSolucio;
-    double llista[midaLlista];
-    for(int i=0; i<midaLlista; i++) llista[i] = arbre->fills[i]->puntuacio;
 
-    for(int i=1;i<midaLlista;i++){
-        if (min>llista[i]){
-            min = llista[i];
-            indexMin = i;
-        }
-        else if(min==llista[i] && arbre->fills[i]->profunditatSolucio>desempat){
-            min = llista[i];
-            indexMin = i;
+int trobarMinim(nodeArbre *arbre, int midaLlista){
+    double min;
+    int desempat;
+    int indexMin = 0;
+    bool iniciat=false;
+    for(int i=0;i<midaLlista;i++){
+        if(arbre->fills[i]!=NULL){
+            if(!iniciat) {
+                min = arbre->fills[i]->puntuacio;
+                desempat = arbre->fills[i]->profunditatSolucio;
+                iniciat = true;
+            }
+            else{
+                double valor_i = arbre->fills[i]->puntuacio;
+                if (min>valor_i){
+                    min = valor_i;
+                    indexMin = i;
+                }
+                else if(min==valor_i && arbre->fills[i]->profunditatSolucio>desempat){
+                    min = valor_i;
+                    indexMin = i;
+                }
+            }
+
         }
     }
     return indexMin;
