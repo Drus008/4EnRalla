@@ -17,7 +17,7 @@
  * 
  */
 typedef struct quatreEnRatlla {
-    signed char **tauler; /**<Taulell actual amb les fitxes colocades, la taula ha de contenir zeros als bordes> */
+    signed char **tauler; /**<Taulell actual amb les fitxes colocades> */
     int nfiles; /**<nombre de files del taulell> */
     int ncols; /**<nombre de columnes del taulell> */
     int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida> */

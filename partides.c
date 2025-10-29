@@ -121,5 +121,5 @@ void pardidaDeDosJugadors(){
 
 int main(){
     int configuracióDePartida[2] = {8,8};
-    pardidaBotVsBot(0);
+    pardidaPlayerVsBot(1);
 }
