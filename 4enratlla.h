@@ -17,11 +17,11 @@
  * 
  */
 typedef struct quatreEnRatlla {
-    signed char **tauler; /**<Taulell actual amb les fitxes colocades> */
-    int nfiles; /**<nombre de files del taulell> */
-    int ncols; /**<nombre de columnes del taulell> */
-    int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida> */
-    int *filesSuperiors; /*<Indica a cada columna a quina fila està la peça més alta (Sense usar actualment)*/
+    signed char **tauler; /**<Taulell actual amb les fitxes colocades. Ha de ser una matriu de mida nfiles x ncols */
+    int nfiles; /**<nombre de files del taulell */
+    int ncols; /**<nombre de columnes del taulell */
+    int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida */
+    int *filesSuperiors; /*<Indica a cada columna a quina fila està la peça més alta (Sense usar actualment) */
 }QuatreEnRatlla;
 
 

@@ -13,7 +13,7 @@ void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
     for(int fil = 0; fil<partida->nfiles; fil++){
         for(int col = 0; col<partida->ncols; col++){
             if((partida->tauler)[fil][col]==1) printf("|🟥");
-            else if((partida->tauler)[fil][col]==2) printf("|🟦");
+            else if((partida->tauler)[fil][col]==-1) printf("|🟦"); 
             else(printf("|  "));
         }
         printf("|\n");

@@ -19,8 +19,7 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal){
 
 
 int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode){
-    
-    char jugador = (char)((nivellNode+jugadorOriginal+1)%2+1);
+    char jugador = (nivellNode % 2 == 0) ? 1 : -1;
     int nCols = partida->ncols;
     nivellNode++;
 
@@ -29,7 +28,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
     if (nivellNode%2==0) multiplicador = -1;
 
     double millorValoracio = -INFINITY;
-    int millorNTirades=0;
+    int millorNTirades=__INT_MAX__;
 
     for(int i=0; i<nCols; i++){
         
@@ -64,7 +63,7 @@ bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOrigin
     //Aquesta part es necessaria xq puntuacioPerAdj no te en compte a quin jugador li toca
     //pero si es guanya la partida sempre dona inf, encara que no toqui.
     if (comprovarSolucio(partida,moviment)) *valoracio = multiplicador* INFINITY; 
-    else if(profunditat==PROFUNDITAT) *valoracio = (double)puntuacioPerAdjacencia(partida);
+    else if(profunditat==PROFUNDITAT) *valoracio = -(double)puntuacioPerAdjacencia(partida);
     else return false;
     *nMoviments = 0;
     return true;

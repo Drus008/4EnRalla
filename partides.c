@@ -62,18 +62,22 @@ void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, d
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
+    char jugadors[2] = {1, -1};
+    
     while (partidaEnCurs){
-        for(char jugador=1; jugador<3; jugador++){
+        for(int i=0; i<2; i++){
             sleep(esperaEntreTorns);
             imprimirQuateEnRatlla(&prova);
-            printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
+            printf("Torn del jugador %d. A quina columna vols ficar la peça?\n", 
+                   jugadors[i] == 1 ? 1 : 2); 
 
             int moviment;
-            if(jugador==1) moviment = decisioJ1(&prova, jugador);
-            else moviment = decisioJ2(&prova, jugador);
+            if(jugadors[i]==1) moviment = decisioJ1(&prova, jugadors[i]);
+            else moviment = decisioJ2(&prova, jugadors[i]);
 
             if(comprovarSolucio(&prova, moviment)){
-                printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);
+                printf("\nHA GUANYAT EL JUGADOR %d\n", 
+                       jugadors[i] == 1 ? 1 : 2);  // Para mostrar 1 o 2 en mensajes
                 imprimirQuateEnRatlla(&prova);
                 partidaEnCurs = false;
                 break;
@@ -94,5 +98,5 @@ void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, d
 
 int main(){
     srand(time(NULL));
-    inciarPartida(triarMovimentJugador,triarMovimentBotAleatori, 0);
+    inciarPartida(triarMovimentBot, triarMovimentJugador, 0);
 }

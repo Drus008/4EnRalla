@@ -1,5 +1,8 @@
+Compilar: gcc -pg partides.c 4enratlla.c funcioUtilitat.c minmax.c -O3 -o partida
+
 https://en.wikipedia.org/wiki/Negamax
 En els jocs de suma zero es pot fer servir el Negamax enlloc de MinMax
 
 https://es.wikipedia.org/wiki/Poda_alfa-beta
 La poda alfa-betta és una optimització típica.
+

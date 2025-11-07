@@ -1,6 +1,11 @@
 #ifndef PARTIDES_H
 #define PARTIDES_H
 
+
+/**
+ * @brief Tipus de dada que representa una funció que donat un quatreEnRatlla y un jugador, decideix quin moviment es realitzarà.
+ * 
+ */
 typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char);
 
 /**

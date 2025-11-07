@@ -49,3 +49,8 @@ cmake-build*/
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# Documentacion
+Doxyfile
+/latex/
+/html/

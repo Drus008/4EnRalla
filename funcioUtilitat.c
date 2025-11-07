@@ -13,7 +13,7 @@ void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fit
             if (i>=0 && j>=0 && i<partida->nfiles && j<partida->ncols){
                 if(partida->tauler[i][j]==1){
                     (*fitxesJ1)++;}
-                else if (partida->tauler[i][j]==2){
+                else if (partida->tauler[i][j]==-1){
                     (*fitxesJ2)++;}
             }
         }
