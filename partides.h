@@ -1,7 +1,7 @@
 #ifndef PARTIDES_H
 #define PARTIDES_H
 
-
+typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char);
 
 /**
  * @brief Pregunta al jugador quin moviment vol fer
@@ -18,24 +18,39 @@
  */
 int triarMovimentJugador(QuatreEnRatlla *partida, char jugador);
 
-/**
- * @brief Inicia la partida d'un jugador contra un bot.
- * @param tornJugador indica si el jugador comença al torn 1 o al torn 2.
-*/
-void pardidaPlayerVsBot(char tornJugador);
 
 /**
- * @brief Inicia la partida d'un bot contra un bot
- * @param espera indica el temps que hi ha entre que un bot tira i l'altre comença a pensar.
-*/
-void pardidaBotVsBot(double espera);
+ * @brief Utilitza el min-max per a trobar la millor jugada
+ * 
+ * 
+ * Fa servir la funció huristica normal.
+ * Per cridar a la funció s'ha de poder fer algun moviment.
+ * 
+ * @param partida és un apuntador a la partida que s'està jugant
+ * 
+ * @param jugador és el jugador que fa el moviment
+ * 
+ * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
+ * 
+ */
+int triarMovimentBot(QuatreEnRatlla *partida, char jugador);
 
 
 /**
- * @brief Inicia la partida d'un jugador contra un jugador
-*/
-void pardidaDeDosJugadors();
-
+ * @brief Utilitza el min-max per a trobar la millor jugada amb una probabilitat de fer un moviment aleatori
+ * 
+ * 
+ * Fa servir la funció huristica normal.
+ * Per cridar a la funció s'ha de poder fer algun moviment.
+ * 
+ * @param partida és un apuntador a la partida que s'està jugant
+ * 
+ * @param jugador és el jugador que fa el moviment
+ * 
+ * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
+ * 
+ */
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador);
 
 
 #endif // PARTIDES_H

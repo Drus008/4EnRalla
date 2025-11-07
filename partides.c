@@ -6,7 +6,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>   
 
+
+#define PROBABILITAT_ALEATORI 0.05
 
 int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
     int moviment = -1;
@@ -28,22 +31,47 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
     return moviment;
 }
 
+int triarMovimentBot(QuatreEnRatlla *partida, char jugador){
+    
+    int moviment = minMax(partida, jugador);
+    printf("Movent a %d\n", moviment);
+    realitzarMoviment(partida,moviment,jugador);
+    return moviment;
+}
 
-void pardidaPlayerVsBot(char tornJugador){
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador){
+    double probabilitat = (double) rand() / RAND_MAX;
+    int moviment;
+    if (probabilitat<PROBABILITAT_ALEATORI){
+        printf("Triant aleatoriament\n");
+        bool movimentValid = false;
+        while (!movimentValid) {
+            moviment = rand()%(partida->ncols);
+            movimentValid = !comprovarColumnaPlena(partida, moviment);
+        }
+        printf("Fent moviment aleatori. ");
+    } else moviment = minMax(partida, jugador);
+
+    printf("Movent a %d\n", moviment);
+    realitzarMoviment(partida,moviment,jugador);
+    return moviment;
+}
+
+
+void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, double esperaEntreTorns){
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
     while (partidaEnCurs){
         for(char jugador=1; jugador<3; jugador++){
+            sleep(esperaEntreTorns);
             imprimirQuateEnRatlla(&prova);
             printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
+
             int moviment;
-            if(jugador==tornJugador) moviment = triarMovimentJugador(&prova, jugador);
-            else {
-                moviment = minMax(&prova, jugador);
-                printf("Movent a %d\n", moviment);
-                realitzarMoviment(&prova,moviment,jugador);
-            }
+            if(jugador==1) moviment = decisioJ1(&prova, jugador);
+            else moviment = decisioJ2(&prova, jugador);
+
             if(comprovarSolucio(&prova, moviment)){
                 printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);
                 imprimirQuateEnRatlla(&prova);
@@ -62,64 +90,9 @@ void pardidaPlayerVsBot(char tornJugador){
 }
 
 
-void pardidaBotVsBot(double espera){
-    QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova, 20, 10, 6);
-    bool partidaEnCurs = true;
-    while (partidaEnCurs){
-        for(char jugador=1; jugador<3; jugador++){
-            sleep(espera);
-            imprimirQuateEnRatlla(&prova);
-            printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
-            int moviment;
-            moviment = minMax(&prova, jugador);
-            printf("Movent a %d\n", moviment);
-            realitzarMoviment(&prova,moviment,jugador);
-            if(comprovarSolucio(&prova, moviment)){
-                printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-            if(comprovarEmpat(&prova)){
-                printf("PARTIDA EMPATADA\n");
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-        }
-    }
-}
-
-
-void pardidaDeDosJugadors(){
-    QuatreEnRatlla prova;
-    inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
-    bool partidaEnCurs = true;
-    while (partidaEnCurs){
-        for(char jugador=1; jugador<3; jugador++){
-            imprimirQuateEnRatlla(&prova);
-            printf("Torn del jugador %hhd. A quina columna vols ficar la peça?\n", jugador);
-            int moviment;
-            moviment = triarMovimentJugador(&prova, jugador);
-            if(comprovarSolucio(&prova, moviment)){
-                printf("\nHA GUANYAT EL JUGADOR %hhd\n", jugador);
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-            if(comprovarEmpat(&prova)){
-                printf("PARTIDA EMPATADA\n");
-                imprimirQuateEnRatlla(&prova);
-                partidaEnCurs = false;
-                break;
-            }
-        }
-    }
-}
 
 
 int main(){
-    int configuracióDePartida[2] = {8,8};
-    pardidaPlayerVsBot(1);
+    srand(time(NULL));
+    inciarPartida(triarMovimentJugador,triarMovimentBotAleatori, 0);
 }

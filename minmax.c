@@ -20,13 +20,11 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal){
 
 int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode){
     
-
-    
     char jugador = (char)((nivellNode+jugadorOriginal+1)%2+1);
     int nCols = partida->ncols;
     nivellNode++;
-    int millorTirada=0;
 
+    int millorTirada=0;
     double multiplicador = 1;
     if (nivellNode%2==0) multiplicador = -1;
 
@@ -48,7 +46,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
             //imprimirQuateEnRatlla(partida);
             //printf("(%i) punt:%lf, prof: %i. millor: %lf\n", nivellNode,-multiplicador* valoracioMoviment, nMoviments, millorValoracio);
 
-            desferMoviment(partida, i);
+            desferMoviment(partida, i); 
             triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
         }
     }
@@ -74,24 +72,13 @@ bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOrigin
 
 
 void triaMillorTirada(int nivellNode, int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual){
-    //if(nivellNode%2==1){
-        if (valoracioActual>=*millorValoracio){
-            if(valoracioActual!=*millorValoracio || accioDesempatActual<*accioDesempat){
-            *millorMoviment = movimentActual;
-            *millorValoracio = valoracioActual;
-            *accioDesempat = accioDesempatActual;}
+    if (valoracioActual>=*millorValoracio){
+        if(valoracioActual!=*millorValoracio || accioDesempatActual<*accioDesempat){
+        *millorMoviment = movimentActual;
+        *millorValoracio = valoracioActual;
+        *accioDesempat = accioDesempatActual;}
 
-        }
-    //}
-    /*else {
-        if (valoracioActual>=*millorValoracio){
-            if (valoracioActual!=*millorValoracio || *accioDesempat<accioDesempatActual){
-                *millorMoviment = movimentActual;
-                *millorValoracio = valoracioActual;
-                *accioDesempat = accioDesempatActual;
-            }            
-        }
-    }*/
+    }
 }
 
 int triaNaive(QuatreEnRatlla *partida){

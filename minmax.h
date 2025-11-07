@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 10
+#define PROFUNDITAT 6
 
 
 /**
