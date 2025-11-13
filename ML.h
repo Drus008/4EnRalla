@@ -1,17 +1,24 @@
 
 
+
+#define LEARNING_RATE
+
 /**
  * @brief Tipus de dada que representa la funció d'activació
  */
-typedef double (*funcioActivacio)(double);
+typedef double (*funcioReal)(double);
+
 
 /**
  * @brief Estructura que conté una capa de la xarxa
  */
 typedef struct capaXarxa{
     int nombreKernels; /**<Nombre de kernels que té la capa */
-    double ***kerners; /**<Nuclis de la capa */
-    double *biaixos; //**<Biaixos de cada kernel */
+    double ****kerners; /**<Nuclis de la capa */
+    double *biaixos; /**<Biaixos de cada kernel */
+    funcioReal funcioActivacio;
+    int dimKer; /**<Dimensió dels kernels */
+    int nMatrius; /**<Nombre de matrius a processar que coincideix amb la profunditat dels kernels */
     int dimFil; /**<Nombre de files que tenen les matrius a processar */
     int dimCol; /**<Nombre de columnes que tenen les matrius a processar */
 }CapaXarxa;
@@ -41,7 +48,7 @@ typedef struct CNN{
  * 
  * @return Retorna la convolució entre la matriu y el kernel.
  */
-double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioActivacio activacio);
+double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioReal activacio);
 
 
 
