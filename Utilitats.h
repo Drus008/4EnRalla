@@ -1,4 +1,5 @@
-
+#ifndef UTILITATS_H
+#define UTILITATS_H
 
 
 
@@ -20,3 +21,12 @@ void alliberarLlistaMatrius(double ***llistaMatrius, int nMatrius, int dimFil);
  * @param dimCol és el nombre de columnes que té la matriu
  */
 void imprimirMatriu(double **matriu, int dimFil, int dimCol);
+
+
+
+
+double rand_normal_fast();
+
+double leakyReLU(double x);
+
+#endif

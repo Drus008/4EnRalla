@@ -79,20 +79,3 @@ void triaMillorTirada(int nivellNode, int *millorMoviment, int movimentActual, d
 
     }
 }
-
-int triaNaive(QuatreEnRatlla *partida){
-    int puntuacioMaxima = -__INT_MAX__+1;
-    int millorMoviment=-1;
-    for(int i=0; i<partida->ncols; i++){
-        if(!comprovarColumnaPlena(partida,i)){
-            realitzarMoviment(partida,i,2);
-            int puntuacioMoviment =-puntuacioPerAdjacencia(partida);
-            if(puntuacioMoviment>puntuacioMaxima){
-                puntuacioMaxima = puntuacioMoviment;
-                millorMoviment = i;
-            }
-            desferMoviment(partida,i);
-        }
-    }
-    return millorMoviment;
-}
