@@ -9,16 +9,16 @@
 
 
 
-int minMax(QuatreEnRatlla *partida, char jugadorOriginal){
+int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica){
     int dumy1 = 0;
     double dumy2;
     
-    int millorMoviment = iteracioMinmax(partida, jugadorOriginal, dumy1,&dumy2,&dumy1);
+    int millorMoviment = iteracioMinmax(partida, jugadorOriginal, dumy1,&dumy2,&dumy1, fHeuristica, ctxHeuristica);
     return millorMoviment;
 }
 
 
-int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode){
+int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica){
     char jugador = (nivellNode % 2 == 0) ? 1 : -1;
     int nCols = partida->ncols;
     nivellNode++;
@@ -39,14 +39,15 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
             double valoracioMoviment;
             int nMoviments;
             
-            if (!omplirNodeTrivial(partida, i, jugadorOriginal, &valoracioMoviment, &nMoviments, nivellNode)){
-                iteracioMinmax(partida, jugadorOriginal, nivellNode, &valoracioMoviment, &nMoviments);
+            if (!omplirNodeTrivial(partida, i, jugadorOriginal, &valoracioMoviment, &nMoviments, nivellNode, fHeuristica, ctxHeuristica)){
+                iteracioMinmax(partida, jugadorOriginal, nivellNode, &valoracioMoviment, &nMoviments, fHeuristica, ctxHeuristica);
             }
             //imprimirQuateEnRatlla(partida);
             //printf("(%i) punt:%lf, prof: %i. millor: %lf\n", nivellNode,-multiplicador* valoracioMoviment, nMoviments, millorValoracio);
 
             desferMoviment(partida, i); 
             triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
+            if (millorValoracio==INFINITY) break;
         }
     }
     
@@ -57,13 +58,13 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
 
 
-bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int *nMoviments, int profunditat){
+bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int *nMoviments, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica){
     double multiplicador = -1;
     if (profunditat%2==0) multiplicador = 1;
     //Aquesta part es necessaria xq puntuacioPerAdj no te en compte a quin jugador li toca
     //pero si es guanya la partida sempre dona inf, encara que no toqui.
     if (comprovarSolucio(partida,moviment)) *valoracio = multiplicador* INFINITY; 
-    else if(profunditat==PROFUNDITAT) *valoracio = -(double)puntuacioPerAdjacencia(partida);
+    else if(profunditat==PROFUNDITAT) *valoracio = -fHeuristica(partida, ctxHeuristica);
     else return false;
     *nMoviments = 0;
     return true;

@@ -1,6 +1,9 @@
 #include "4enratlla.h"
 #include "minmax.h"
 #include "partides.h"
+#include "funcioUtilitat.h"
+
+#include"Xarxa.h"
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -11,7 +14,7 @@
 
 #define PROBABILITAT_ALEATORI 0.05
 
-int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
     int moviment = -1;
     while (moviment==-1){
         printf("Intodueix una columna: ");
@@ -31,15 +34,34 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador){
     return moviment;
 }
 
-int triarMovimentBot(QuatreEnRatlla *partida, char jugador){
+typedef struct contextHeuristica{
+    funcioHeuristica funcio[2];
+    void *altres[2];
+} ContextHeuristica;
+
+int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx){
+    ContextHeuristica *context = (ContextHeuristica*) ctx;
+
+    int index;
+    if (jugador==1) index = 0;
+    else index = 1;
+
+    funcioHeuristica f = context->funcio[index];
     
-    int moviment = minMax(partida, jugador);
+    int moviment = minMax(partida, jugador, f,context->altres[index]);
     printf("Movent a %d\n", moviment);
     realitzarMoviment(partida,moviment,jugador);
     return moviment;
 }
 
-int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador){
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void *ctx){
+    ContextHeuristica *context = (ContextHeuristica*) ctx;
+
+    int index;
+    if (jugador==1) index = 0;
+    else index = 1;
+
+    funcioHeuristica f = context->funcio[index];
     double probabilitat = (double) rand() / RAND_MAX;
     int moviment;
     if (probabilitat<PROBABILITAT_ALEATORI){
@@ -50,7 +72,7 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador){
             movimentValid = !comprovarColumnaPlena(partida, moviment);
         }
         printf("Fent moviment aleatori. ");
-    } else moviment = minMax(partida, jugador);
+    } else moviment = minMax(partida, jugador, f, context->altres[index]);
 
     printf("Movent a %d\n", moviment);
     realitzarMoviment(partida,moviment,jugador);
@@ -58,7 +80,7 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador){
 }
 
 
-void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, double esperaEntreTorns){
+void iniciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, double esperaEntreTorns, void *ctx){
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
@@ -72,12 +94,12 @@ void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, d
                    jugadors[i] == 1 ? 1 : 2); 
 
             int moviment;
-            if(jugadors[i]==1) moviment = decisioJ1(&prova, jugadors[i]);
-            else moviment = decisioJ2(&prova, jugadors[i]);
+            if(jugadors[i]==1) moviment = decisioJ1(&prova, jugadors[i], ctx);
+            else moviment = decisioJ2(&prova, jugadors[i], ctx);
 
             if(comprovarSolucio(&prova, moviment)){
                 printf("\nHA GUANYAT EL JUGADOR %d\n", 
-                       jugadors[i] == 1 ? 1 : 2);  // Para mostrar 1 o 2 en mensajes
+                       jugadors[i] == 1 ? 1 : 2); 
                 imprimirQuateEnRatlla(&prova);
                 partidaEnCurs = false;
                 break;
@@ -96,7 +118,33 @@ void inciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, d
 
 
 
-int main(){
+
+
+
+
+
+
+
+
+
+void validacioXarxa(){
+    
     srand(time(NULL));
-    inciarPartida(triarMovimentBot, triarMovimentJugador, 0);
+    ContextHeuristica heuristiques;
+    int *nDimKer = malloc(sizeof(int)*2);
+    nDimKer[0] = 3; nDimKer[1] = 3;
+    
+    int *LlistaNKer = malloc(sizeof(int)*2);
+    nDimKer[0] = 3; nDimKer[1] = 3;
+    XarxaNeuronal *xarxa = crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
+
+    heuristiques.funcio[0] = wrapperXarxa;
+    heuristiques.funcio[1] = puntuacioPerAdjacencia;
+    heuristiques.altres[0] = xarxa;
+    heuristiques.altres[1]=NULL;
+
+    iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &heuristiques);
 }
+
+
+

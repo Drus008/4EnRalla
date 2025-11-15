@@ -22,7 +22,6 @@ typedef struct quatreEnRatlla {
     int ncols; /**<nombre de columnes del taulell */
     int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida */
     int *filesSuperiors; /*<Indica a cada columna a quina fila està la peça més alta (Sense usar actualment) */
-    
 }QuatreEnRatlla;
 
 

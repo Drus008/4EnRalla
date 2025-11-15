@@ -5,7 +5,6 @@
 #define KER_DIM 5
 #define HALF_KER (int)KER_DIM/2
 
-float utilitat(QuatreEnRatlla *partida, char jugador);
 
 
 /**
@@ -31,6 +30,6 @@ void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fit
  * 
  * @return la valoració de la partida, on un nombre positiu vol dir que J1 va guanyant i negatiu que J2 va guanyant
  */
-int puntuacioPerAdjacencia(QuatreEnRatlla *partida);
+double puntuacioPerAdjacencia(QuatreEnRatlla *partida, void *ctx);
 
 #endif // FUNCIO_UTILITAT_H

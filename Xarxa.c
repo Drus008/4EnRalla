@@ -6,7 +6,6 @@
 #include"4enratlla.h"
 
 
-
 double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioReal activacio){
     int dimKer = 1;
     int dimFilConvolucio = dimFilMat - dimKer+1;
@@ -78,7 +77,9 @@ double **aplicarKer(double ***llistaMatrius, int dimFilMat, int dimColMat, int p
                 //imprimirMatriu(matResultant, dimFilConvolucio, dimColConvolucio);
             }
             //printf("%.1f ", matResultant[f][c]);
-            matResultant[f][c] = activacio(elementResultant);
+            
+            if (elementResultant<0) elementResultant = elementResultant*0.1; //He implementat la funció d'activació directament aquí.
+            matResultant[f][c] = elementResultant; //Hi ha una millora en quant al temps d'execusió. No caldria passar la funció com a paràmetre.
             //printf("%.1f\n", matResultant[f][c]);
         }
     }
@@ -87,9 +88,7 @@ double **aplicarKer(double ***llistaMatrius, int dimFilMat, int dimColMat, int p
 
 double ***aplicarCapa(double ***llistaMatrius, CapaXarxa *capa){
     double ***matriusProcessades = malloc(capa->nombreKernels*sizeof(double**));
-    
     for(int iKer=0; iKer<capa->nombreKernels; iKer++){
-        
         matriusProcessades[iKer] = aplicarKer(
             llistaMatrius,
             capa->dimFil, capa->dimCol, capa->nMatrius,
@@ -108,13 +107,29 @@ double aplicarXarxa(double **matriu, XarxaNeuronal *xarxa){
     matriuUnitaria[0] = matriu;
     double ***resultatCapa = aplicarCapa(matriuUnitaria, xarxa->capes[0]);
     free(matriuUnitaria);
-
+    
     for(int iCapa = 1; iCapa<xarxa->nCapes; iCapa++){
-        double ***llistaAux = aplicarCapa(resultatCapa, xarxa->capes[iCapa]);
-        alliberarLlistaMatrius(resultatCapa, xarxa->capes[iCapa-1]->nMatrius, xarxa->capes[iCapa-1]->dimFil);
+        
+        double ***llistaAux = aplicarCapa(resultatCapa, xarxa->capes[iCapa]); //Per a fer això més eficient es pot pasar llistaAux com a parametre per a no have-la de crear/alliberar cada cop
+        alliberarLlistaMatrius(resultatCapa, xarxa->capes[iCapa]->nMatrius, xarxa->capes[iCapa]->dimFil);
         resultatCapa = llistaAux;
     }
-    return resultatCapa[0][0][0];
+
+
+    CapaXarxa *ultimaCapa = xarxa->capes[xarxa->nCapes-1];
+    double valorFinal = 0;
+    for(int p=0; p<ultimaCapa->nombreKernels; p++){
+        for(int f=0; f<ultimaCapa->dimFil - ultimaCapa->dimKer +1; f++){
+            for(int c=0; c<ultimaCapa->dimCol - ultimaCapa->dimKer +1; c++){
+                valorFinal = valorFinal + resultatCapa[p][f][c];
+            }
+            free(resultatCapa[p][f]);
+        }
+        free(resultatCapa[p]);
+    }
+    free(resultatCapa);
+
+    return valorFinal;
 }
 
 
@@ -123,7 +138,6 @@ CapaXarxa *crearCapaAleatoria(int dimKer, int nKer, int profunditatKer, int dimF
     novaCapa->nombreKernels = nKer;
     novaCapa->dimKer = dimKer;
     novaCapa->nMatrius = profunditatKer;
-    novaCapa->nombreKernels;
     novaCapa->funcioActivacio = ACTIVACIO;
     novaCapa->dimFil = dimFilIn; novaCapa->dimCol = dimColIn;
 
@@ -144,10 +158,11 @@ CapaXarxa *crearCapaAleatoria(int dimKer, int nKer, int profunditatKer, int dimF
     return novaCapa;
 }
 
+
 XarxaNeuronal *crearXarxaAleatoria(int nCapes, int *llistaDimKernels, int *llistaNKernels, int dimFilIn, int dimColIn){
     XarxaNeuronal *novaXarxa = malloc(sizeof(XarxaNeuronal));
     novaXarxa->nCapes = nCapes;
-    novaXarxa->capes = malloc(sizeof(CapaXarxa)*nCapes);
+    novaXarxa->capes = malloc(sizeof(CapaXarxa*)*nCapes);
 
     int dimFil = dimFilIn;
     int dimCol = dimColIn;
@@ -285,3 +300,25 @@ XarxaNeuronal *carregarXarxa(const char *filename){
     return xarxa;
 }
 
+
+
+
+
+double wrapperXarxa(QuatreEnRatlla *partida, void *xarxaCtx){
+
+    XarxaNeuronal *xarxa = (XarxaNeuronal*) xarxaCtx;
+
+    int nFil = partida->nfiles; int nCol = partida->ncols;
+    double **matriu = malloc(sizeof(double*)*nFil);
+    for(int f=0; f<partida->nfiles; f++){
+        matriu[f] = malloc(sizeof(double)*nCol);
+        for(int c=0;c<partida->ncols;c++){
+            matriu[f][c] = (double) (partida->tauler[f][c]);
+        }
+    }
+    
+    double resultat = aplicarXarxa(matriu, xarxa);
+    for(int f=0; f<nFil; f++) free(matriu[f]);
+    free(matriu);
+    return resultat;
+}

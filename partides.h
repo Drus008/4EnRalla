@@ -1,12 +1,14 @@
 #ifndef PARTIDES_H
 #define PARTIDES_H
 
+#include"4enratlla.h"
 
 /**
- * @brief Tipus de dada que representa una funció que donat un quatreEnRatlla y un jugador, decideix quin moviment es realitzarà.
+ * @brief Tipus de dada que representa una funció que donat un QuatreEnRatlla y un jugador, decideix quin moviment es realitzarà.
  * 
  */
-typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char);
+typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char, void*);
+
 
 /**
  * @brief Pregunta al jugador quin moviment vol fer
@@ -21,7 +23,7 @@ typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char);
  * @return el número de la columna que el jugador ha dit que vol tirar. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentJugador(QuatreEnRatlla *partida, char jugador);
+int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void*ctx);
 
 
 /**
@@ -38,7 +40,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador);
  * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentBot(QuatreEnRatlla *partida, char jugador);
+int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx);
 
 
 /**
@@ -55,7 +57,9 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador);
  * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador);
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void*ctx);
+
+
 
 
 #endif // PARTIDES_H

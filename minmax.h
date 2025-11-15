@@ -6,18 +6,25 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 6
+#define PROFUNDITAT 4
 
+
+
+/**
+ * @brief Tipus de dada que representa una funció que donada una partida assigna un real que representa lo aprop que està el jugador
+ * 
+ */
+typedef double (*funcioHeuristica)(QuatreEnRatlla *partida, void *ctx);
 
 /**
  * @brief Comença l'algorisme del MinMax
  * 
- * @param partida l'estat de la partida en la que es fa el minmax
- * @param jugadorOriginal és el jugador al que li toca tirar
- * 
+ * @param partida l'estat de la partida en la que es fa el minmax.
+ * @param jugadorOriginal és el jugador al que li toca tirar.
+ * @param fHeuristica és la funció heurísitca que s'utilitza per a fer el minmax.
  */
-int minMax(QuatreEnRatlla *partida, char jugadorOriginal);
- 
+int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica);
+
 /**
  * @brief realitza l'algorisme del MinMax
  * 
@@ -33,7 +40,7 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal);
  * i una altre que es la que fa el MinMax recursiu.
  * 
  */
-int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode);
+int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica);
 
 
 /** S'Ha de reescriure la descripcio!
@@ -54,11 +61,10 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
  * 
  * @return retorna cert en cas de que el node sigui una fulla i false en cas contrari.
  */
-bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int *nMoviments, int profunditat);
+bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int *nMoviments, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica);
 
 void triaMillorTirada(int nivellNode, int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual);
 
 
-int triaNaive(QuatreEnRatlla *partida);
 
 #endif // MIN_MAX_H

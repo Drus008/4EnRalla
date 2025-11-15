@@ -1,6 +1,8 @@
 #include "Xarxa.h"
 #include "Utilitats.h"
 
+#include<stdlib.h>
+#include<stdio.h>
 
 
 
@@ -184,7 +186,7 @@ void exempleXarxaAleatoria(){
     printf("XARXA INICIAL:\n");
     imprimirXarxa(xarxaProva);
 
-    actualitzarXarxa(xarxaProva, 0.1);
+    actualitzarXarxa(xarxaProva, xarxaProva, 0.1);
     printf("SEGONA XARXA\n");
     imprimirXarxa(xarxaProva);
 }
@@ -207,7 +209,30 @@ void exempleDesarXarxa(){
     imprimirXarxa(xarxaProva);
 }
 
+
+void exempleAplicarXarxa(){
+    int nCapes = 3;
+    int llistaDimsKers[] = {5,3,3};
+    int llistaNombreKers[] = {3, 4, 1};
+    int dimFilIn = 10;
+    int dimColIn = 12;
+    XarxaNeuronal *xarxaProva = crearXarxaAleatoria(nCapes,llistaDimsKers,llistaNombreKers,dimFilIn, dimColIn);
+    printf("XARXA INICIAL:\n");
+    imprimirXarxa(xarxaProva);
+
+    double **matriu = malloc(sizeof(double*)*dimFilIn);
+    for(int f=0; f<dimFilIn; f++) {
+        matriu[f] = malloc(sizeof(double)*dimColIn);
+        for(int c=0; c<dimColIn; c++){
+            matriu[f][c] = f*f*c*c%19-8;
+        }
+    }
+    imprimirMatriu(matriu,dimFilIn, dimColIn);
+    double result = aplicarXarxa(matriu,xarxaProva);
+    printf("RESULTAT %lf.\n", result);
+}
+
 //gcc -g ValidacioML.c Utilitats.c Xarxa.c -o ValidacioML -lm
 int main(){
-    exempleDesarXarxa();
+    exempleAplicarXarxa();
 }

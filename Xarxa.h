@@ -1,6 +1,7 @@
 #ifndef XARXA_H
 #define XARXA_H
 
+#include"4enratlla.h"
 
 #define LEARNING_RATE
 
@@ -28,9 +29,15 @@ typedef struct capaXarxa{
 }CapaXarxa;
 
 
+/**
+ * @brief Estructura que encapsula una xarxa neuronal.
+ * 
+ * Sempre té una capa extra que suma tots els valors de la última capa.
+ * 
+ */
 typedef struct CNN{
-    int nCapes;
-    CapaXarxa **capes;
+    int nCapes; /**<Nombre de capes de la xarxa */
+    CapaXarxa **capes;/**<Array de capes */
 } XarxaNeuronal;
 
 
@@ -100,8 +107,9 @@ double **aplicarKer(double ***llistaMatrius, int dimFilMat, int dimColMat, int p
 double ***aplicarCapa(double ***llistaMatrius, CapaXarxa *capa);
 
 /**
- * @brief Donada una matrius li aplica una xarxa neuronal.
+ * @brief Donada una matriu li aplica una xarxa neuronal.
  * 
+ * El valor retornat sempre és un únic double perque al final de tot la xarxa suma tots els valors.
  * 
  * @param matriu és la matriu inicial.
  * @param xarxa és la xarxa que es vol aplicar a la matriu.
@@ -190,5 +198,17 @@ void desarXarxa(XarxaNeuronal *xarxa, const char *filename);
  */
 XarxaNeuronal *carregarXarxa(const char *filename);
 
+/**
+ * @brief Aplica una xarxa neuronal al taulell d'una partida.
+ * 
+ * Aquesta funció és necesaria per a poder passar una xarxa com a paràmetre a les funcions que prenen
+ * com a paràmetres funcions heurístiques.
+ * 
+ * @param partida és la partida de la que es vol obtenir el taulell.
+ * @param ctx és un apuntador a la xarxa neuronal que es vol passar.
+ * 
+ * @return la aplicació de la xarxa al taulell de la partida.
+ */
+double wrapperXarxa(QuatreEnRatlla *partida, void *xarxa);
 
 #endif
