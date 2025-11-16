@@ -38,6 +38,7 @@ int *trobarKMaxims(int *llista, int midaLlista, int k){
     for(int i=0; i<k; i++) llistaMaxims[i] = i;
     for(int i=k; i<midaLlista; i++){
         for(int m=0; m<k; m++){
+            printf("%i (%i), ", m,llista[llistaMaxims[m]]);
             if(llista[i]>llista[llistaMaxims[m]]) {
                 llistaMaxims[m] = i;
                 break;

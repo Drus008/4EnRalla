@@ -3,7 +3,6 @@
 
 #include"4enratlla.h"
 
-#define LEARNING_RATE
 
 
 #define ACTIVACIO leakyReLU
@@ -163,12 +162,12 @@ void alliberarXarxa(XarxaNeuronal *xarxa);
 
 
 /**
- * @brief Fa una copia d'una xarxa neuronar canviant els valors lleugerament seguint una distribució normal
+ * @brief Fa una copia d'una xarxa neuronar variant els valors lleugerament seguint una distribució normal
  * 
  * Les dues xarxes han de tenir les mateixes dimensions.
  * 
  * @param xarxaOriginal és de la que és copien els valors
- * @param xarxaClon és on s'aplicaran els valors modificats
+ * @param xarxaClon és on s'aplicaran els valors modificats. Ja ha de tenir la memòria reservada avans de pasar-la.
  * @param sigma és la desviació de la distribució normal (Marsaglia polar) que s'utilitza per a variar els valors
  */
 void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaClon, double sigma);

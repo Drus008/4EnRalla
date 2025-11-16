@@ -47,7 +47,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
             desferMoviment(partida, i); 
             triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
-            //if (millorValoracio==INFINITY) break;
+            //if (millorValoracio==INFINITY) break; //Poda a-b?
         }
     }
     

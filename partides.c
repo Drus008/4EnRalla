@@ -34,11 +34,6 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
     return moviment;
 }
 
-typedef struct contextHeuristica{
-    funcioHeuristica funcio[2];
-    void *altres[2];
-} ContextHeuristica;
-
 int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx){
     ContextHeuristica *context = (ContextHeuristica*) ctx;
 
@@ -75,6 +70,29 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void *ctx){
     } else moviment = minMax(partida, jugador, f, context->altres[index]);
 
     printf("Movent a %d\n", moviment);
+    realitzarMoviment(partida,moviment,jugador);
+    return moviment;
+}
+
+
+int triarMovimentBotAleatoriSenseText(QuatreEnRatlla *partida, char jugador, void *ctx){
+    ContextHeuristica *context = (ContextHeuristica*) ctx;
+
+    int index;
+    if (jugador==1) index = 0;
+    else index = 1;
+
+    funcioHeuristica f = context->funcio[index];
+    double probabilitat = (double) rand() / RAND_MAX;
+    int moviment;
+    if (probabilitat<PROBABILITAT_ALEATORI){
+        bool movimentValid = false;
+        while (!movimentValid) {
+            moviment = rand()%(partida->ncols);
+            movimentValid = !comprovarColumnaPlena(partida, moviment);
+        }
+    } else moviment = minMax(partida, jugador, f, context->altres[index]);
+
     realitzarMoviment(partida,moviment,jugador);
     return moviment;
 }

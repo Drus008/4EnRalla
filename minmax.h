@@ -2,19 +2,14 @@
 #define MIN_MAX_H
 
 #include "4enratlla.h"
+#include "partides.h"
 
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 4
+#define PROFUNDITAT 6
 
 
-
-/**
- * @brief Tipus de dada que representa una funció que donada una partida assigna un real que representa lo aprop que està el jugador
- * 
- */
-typedef double (*funcioHeuristica)(QuatreEnRatlla *partida, void *ctx);
 
 /**
  * @brief Comença l'algorisme del MinMax

@@ -10,6 +10,23 @@
 typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char, void*);
 
 
+
+
+/**
+ * @brief Tipus de dada que representa una funció que donada una partida assigna un real que representa lo aprop que està el jugador
+ * @todo EXPLICAR MILLOR;
+ */
+typedef double (*funcioHeuristica)(QuatreEnRatlla *partida, void *ctx);
+
+/**
+ * @todo */
+typedef struct contextHeuristica{
+    funcioHeuristica funcio[2];
+    void *altres[2];
+} ContextHeuristica;
+
+
+
 /**
  * @brief Pregunta al jugador quin moviment vol fer
  * 
@@ -59,7 +76,9 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx);
  */
 int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void*ctx);
 
-
-
+/**
+ * \brief es com triar moviment bot però sense text.
+ */
+int triarMovimentBotAleatoriSenseText(QuatreEnRatlla *partida, char jugador, void *ctx);
 
 #endif // PARTIDES_H
