@@ -146,5 +146,12 @@ void validacioXarxa(){
     iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &heuristiques);
 }
 
-
+void validacioNormal(){
+    ContextHeuristica ctx;
+    ctx.funcio[0] = puntuacioPerAdjacencia;
+    ctx.funcio[1] = puntuacioPerAdjacencia;
+    ctx.altres[0] = NULL;
+    ctx.altres[1] = NULL;
+    iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &ctx);
+}
 

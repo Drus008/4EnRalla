@@ -19,7 +19,7 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeur
 
 
 int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica){
-    char jugador = (nivellNode % 2 == 0) ? 1 : -1;
+    char jugador = (nivellNode % 2 == 0) ? jugadorOriginal : -jugadorOriginal;
     int nCols = partida->ncols;
     nivellNode++;
 
@@ -47,7 +47,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
             desferMoviment(partida, i); 
             triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
-            if (millorValoracio==INFINITY) break;
+            //if (millorValoracio==INFINITY) break;
         }
     }
     
@@ -64,7 +64,7 @@ bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOrigin
     //Aquesta part es necessaria xq puntuacioPerAdj no te en compte a quin jugador li toca
     //pero si es guanya la partida sempre dona inf, encara que no toqui.
     if (comprovarSolucio(partida,moviment)) *valoracio = multiplicador* INFINITY; 
-    else if(profunditat==PROFUNDITAT) *valoracio = -fHeuristica(partida, ctxHeuristica);
+    else if(profunditat==PROFUNDITAT) *valoracio = - jugadorOriginal* fHeuristica(partida, ctxHeuristica);
     else return false;
     *nMoviments = 0;
     return true;
@@ -77,6 +77,5 @@ void triaMillorTirada(int nivellNode, int *millorMoviment, int movimentActual, d
         *millorMoviment = movimentActual;
         *millorValoracio = valoracioActual;
         *accioDesempat = accioDesempatActual;}
-
     }
 }

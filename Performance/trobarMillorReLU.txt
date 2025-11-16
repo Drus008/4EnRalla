@@ -2,7 +2,7 @@ Flat profile:
 
 S'han ficat a competir diferents xarxes aleatories entre elles. Funció d'activació: ReLU.
 Versió f1fd1b7.
-No hi ha gaire diferencia. Potser ficant la relu directament és nota més
+No hi ha gaire diferencia. Potser ficant la relu directament és nota més.
 
 
 Each sample counts as 0.01 seconds.

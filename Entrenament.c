@@ -43,6 +43,32 @@ int triarMovimentXarxa(QuatreEnRatlla *partida, char jugador, XarxaNeuronal *xar
     return moviment;
 }
 
+
+
+void validarXarxa(XarxaNeuronal *xarxes, int torn){
+    QuatreEnRatlla partidaValidacio; //Es pot optmimizart treiant-ho.
+    inicialitzarQuatreEnRatlla(&partidaValidacio, 8, 8, 4);
+    bool partidaEnCurs = true;
+    char jugadors[2] = {1, -1};
+    while (partidaEnCurs){
+        for(int i=0; i<2; i++){
+            
+            int moviment;
+            if(jugadors[i]==torn) moviment = triarMovimentXarxa(&partidaValidacio, jugadors[i], xarxes);
+            else moviment = minMax(partidaValidacio, )
+
+            if(comprovarSolucio(&partidaValidacio, moviment)){
+                alliberarQuatreEnRatlla(&partidaValidacio);
+                return i;
+            }
+            if(comprovarEmpat(&partidaValidacio)){
+                alliberarQuatreEnRatlla(&partidaValidacio);
+                return -1;
+            }
+        }
+    }
+}
+
 int enfrentamentXarxes(XarxaNeuronal *J1, XarxaNeuronal *J2){
     QuatreEnRatlla partidaCompeticio; //Es pot optmimizart treiant-ho.
     inicialitzarQuatreEnRatlla(&partidaCompeticio, 8, 8, 4);
