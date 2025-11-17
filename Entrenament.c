@@ -8,24 +8,8 @@
 #include"minmax.h"
 #include"Utilitats.h"
 #include"funcioUtilitat.h"
+#include"Entrenament.h"
 
-#define PROBABILITAT_ALEATORI 0.01
-
-#define NOMBRE_CAPES 2
-
-
-#define NOMBRE_SUPERVIVENTS 5
-#define NOMBRE_FILLS 6
-#define MIDA_POBLACIO (NOMBRE_FILLS*NOMBRE_SUPERVIVENTS)
-
-#define DIM_TAULELL 8
-
-#define LEARNING_RATE 0.001
-
-typedef struct generacio{
-    XarxaNeuronal *poblacio[MIDA_POBLACIO];
-    int victories[MIDA_POBLACIO];
-}Generacio;
 
 
 
@@ -79,12 +63,11 @@ int enfrentamentXarxes(XarxaNeuronal *J1, XarxaNeuronal *J2){
 
 
 
-
-//A partir d'una generació i saber quines son les millors xarxes genera la nova generació
 void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus){
     for(int iSupervivent=0; iSupervivent<NOMBRE_SUPERVIVENTS; iSupervivent++){
         for(int iFamilia=0; iFamilia<NOMBRE_FILLS; iFamilia++){
             int iXarxa = iSupervivent*NOMBRE_FILLS + iFamilia;
+            antigaGeneracio->victories[iXarxa] = 0;
             bool supervivent = false;
             for(int iSupervivent2=0; iSupervivent2<NOMBRE_SUPERVIVENTS;iSupervivent2++){
                 if(millorsIndividus[iSupervivent2]==iXarxa){
@@ -99,19 +82,22 @@ void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus){
     }
 }
 
-//Enfrentes a la generació de xarxes entre elles i compta qui ha guanyat més
-void torneigEnfrentaments(Generacio *generacioXarxes){
-        for(int iJ1=0; iJ1<MIDA_POBLACIO; iJ1++) for(int iJ2=0; iJ2<MIDA_POBLACIO; iJ2++) if(iJ1!=iJ2){
-        printf("Competint %ivs%i.\n", iJ1, iJ2);
-        if (enfrentamentXarxes(generacioXarxes->poblacio[iJ1],generacioXarxes->poblacio[iJ2])==0) {
-            generacioXarxes->victories[iJ1]++;
-            printf("Ha guanyat la xarxa %i\n", iJ1);
-        }
 
-        else{
-            generacioXarxes->victories[iJ2]++;
-            printf("Ha guanyat la xarxa %i\n", iJ2);
+void torneigEnfrentaments(Generacio *generacioXarxes){
+    for(int iJ1=0; iJ1<MIDA_POBLACIO; iJ1++){
+        printf("Enfrentant %i: ", iJ1);
+        for(int iJ2=0; iJ2<MIDA_POBLACIO; iJ2++) if(iJ1!=iJ2){
+            if (enfrentamentXarxes(generacioXarxes->poblacio[iJ1],generacioXarxes->poblacio[iJ2])==0) {
+                generacioXarxes->victories[iJ1]++;
+                printf("V ");
+            }
+
+            else{
+                generacioXarxes->victories[iJ2]++;
+                printf("D ");
+            }
         }
+        printf("\n");
     }
 }
 
@@ -183,7 +169,6 @@ void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes){
 
 
 
-//Una iteració (Fer torneix + seleccionar millors)
 void iteracioEvolutiva(Generacio *generacioXarxes){
 
     torneigEnfrentaments(generacioXarxes);

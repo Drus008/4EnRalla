@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 6
+#define PROFUNDITAT 4
 
 
 

@@ -12,7 +12,7 @@
 #include <time.h>   
 
 
-#define PROBABILITAT_ALEATORI 0.05
+#define PROBABILITAT_ALEATORI 0.01
 
 int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
     int moviment = -1;

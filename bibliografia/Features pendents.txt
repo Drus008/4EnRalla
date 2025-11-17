@@ -1,6 +1,8 @@
 - Ficar la profundiatat com a variable
 - Optimitzar la jugabilitat (aplicar l'algorisme poda alfa-betta (només comprovant infinits))
 
+- Coprovar que tots els fOpen/malloc... son válids.
+
 - Fer un Makefile que funcioni
 
 - Entrenar la IA
