@@ -1,6 +1,4 @@
 #include "4enratlla.h"
-#include "funcioUtilitat.h"
-#include "minmax.h"
 
 
 #include <unistd.h>
@@ -26,6 +24,11 @@ void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
     printf("|\n");
 }
 
+void reiniciarQuatreEnRatlla(QuatreEnRatlla *partida){
+    for(int fil=0; fil<partida->nfiles; fil++){
+        for(int col=0; col<partida->ncols; col++) partida->tauler[fil][col] = 0;
+    }
+}
 
 void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida, int nFils, int nCols, int nVictoria){
     partida->ncols = nCols;

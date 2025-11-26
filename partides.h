@@ -14,7 +14,8 @@ typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char, void*);
 
 /**
  * @brief Tipus de dada que representa una funció que donada una partida assigna un real que representa lo aprop que està el jugador
- * @todo EXPLICAR MILLOR;
+ * 
+ * Reb com a paràmetres l'estat de la partida actual y el context. Aquest inclou altres paràmetres que reb la funció.
  */
 typedef double (*funcioHeuristica)(QuatreEnRatlla *partida, void *ctx);
 
@@ -31,7 +32,7 @@ typedef struct contextHeuristica{
  * @brief Pregunta al jugador quin moviment vol fer
  * 
  * No para de preguntar fins a rebre una jugada válidad. En cas de no rebre una jugada vàlida imprimeix per
- * consolo si es per un error ortogràfic o per una columna de fora del taulell.
+ * consola si es per un error ortogràfic o per una columna de fora del taulell.
  * 
  * @param partida és un apuntador a la partida que s'està jugant
  * 
@@ -46,9 +47,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void*ctx);
 /**
  * @brief Utilitza el min-max per a trobar la millor jugada
  * 
- * 
- * Fa servir la funció huristica normal.
- * Per cridar a la funció s'ha de poder fer algun moviment.
+ * La funció per decidir el moviment s'ha de pasar com a context.
  * 
  * @param partida és un apuntador a la partida que s'està jugant
  * 
@@ -64,20 +63,31 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx);
  * @brief Utilitza el min-max per a trobar la millor jugada amb una probabilitat de fer un moviment aleatori
  * 
  * 
- * Fa servir la funció huristica normal.
- * Per cridar a la funció s'ha de poder fer algun moviment.
+ * La funció per decidir el moviment s'ha de pasar com a context.
  * 
- * @param partida és un apuntador a la partida que s'està jugant
+ * @param partida és un apuntador a la partida que s'està jugant.
  * 
- * @param jugador és el jugador que fa el moviment
+ * @param jugador és el jugador que fa el moviment.
  * 
- * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
+ * @param ctx és un apuntador generic que ha de ser un apuntador a un struct ContextHeuristica.
+ * 
+ * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid.
  * 
  */
 int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void*ctx);
 
 /**
  * \brief es com triar moviment bot però sense text.
+ * 
+ * 
+ * @param partida és un apuntador a la partida que s'està jugant.
+ * 
+ * @param jugador és el jugador que fa el moviment.
+ * 
+ * @param ctx és un apuntador generic que ha de ser un apuntador a un struct ContextHeuristica.
+ * 
+ * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid.
+ * 
  */
 int triarMovimentBotAleatoriSenseText(QuatreEnRatlla *partida, char jugador, void *ctx);
 

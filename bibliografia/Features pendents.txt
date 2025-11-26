@@ -1,13 +1,12 @@
+- Fer multiprocesament (OpenACC per a GPU)
+
+- PARIDAD!
+
 - Ficar la profundiatat com a variable
+- Fer que al minmax només iteri les caselles que tenen la mateixa profunditat que volem (una modificació de alga-betta)
+
 - Optimitzar la jugabilitat (aplicar l'algorisme poda alfa-betta (només comprovant infinits))
 
 - Coprovar que tots els fOpen/malloc... son válids.
 
 - Fer un Makefile que funcioni
-
-- Entrenar la IA
-
-- Fer-ho multijugador
-
-Crec que està arreglat:
-- Bug: Falla si ha perdut si o si, aleshores pot tirar a fora del taulell

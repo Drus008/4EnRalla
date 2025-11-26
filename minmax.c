@@ -29,7 +29,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
     double millorValoracio = -INFINITY;
     int millorNTirades=__INT_MAX__;
-
+    
     for(int i=0; i<nCols; i++){
         
         if (!comprovarColumnaPlena(partida, i)) {
@@ -47,7 +47,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
             desferMoviment(partida, i); 
             triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
-            //if (millorValoracio==INFINITY) break; //Poda a-b?
+            if (millorValoracio==INFINITY) break; //Poda a-b
         }
     }
     

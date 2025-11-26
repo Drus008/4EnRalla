@@ -1,0 +1,337 @@
+Flat profile:
+
+Versio 6978067. Es vol estudiar quines millores es poden realitzar.
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 90.22   2329.72  2329.72 663830596     0.00     0.00  aplicarKer
+  3.41   2417.75    88m.03 1542294198     0.00     0.00  aplicarXarxa
+  2.72   2487.92    70.17 1542294198     0.00     0.00  wrapperXarxa
+  0.74   2506.96    19.04                             _init
+  0.53   2520.76    13.80  4116731     0.00     0.00  iteracioMinmax
+  0.45   2532.26    11.50 1841046588     0.00     0.00  desferMoviment
+  0.38   2542.17     9.91 1542294198     0.00     0.00  alliberarLlistaMatrius
+  0.38   2551.91     9.74 1841681068     0.00     0.00  comprovarSolucio
+  0.33   2560.45     8.54 1804291406     0.00     0.00  comprovarSolucioDiagonal1
+  0.29   2568.05     7.60 1841681068     0.00     0.00  realitzarMoviment
+  0.25   2574.45     6.40 1841681068     0.00     0.00  comprovarSolucioHoritzontal
+  0.21   2579.82     5.37 1797296695     0.00     0.00  comprovarSolucioDiagonal2
+  0.06   2581.42     1.60 1962016334     0.00     0.00  comprovarColumnaPlena
+  0.03   2582.20     0.78  2162188     0.00     0.00  puntuacioPerAdjacencia
+  0.00   2582.29     0.09   628091     0.00     0.00  minMax
+  0.00   2582.30     0.01    14160     0.00     0.18  enfrentamentXarxes
+  0.00   2582.30     0.00   620681     0.00     0.00  comprovarEmpat
+  0.00   2582.30     0.00    24624     0.00     0.00  rand_normal_fast
+  0.00   2582.30     0.00    14208     0.00     0.00  alliberarQuatreEnRatlla
+  0.00   2582.30     0.00    14208     0.00     0.00  inicialitzarQuatreEnRatlla
+  0.00   2582.30     0.00      963     0.00     0.00  triarMovimentBotAleatoriSenseText
+  0.00   2582.30     0.00      216     0.00     0.00  actualitzarXarxa
+  0.00   2582.30     0.00      120     0.00     0.00  crearCapaAleatoria
+  0.00   2582.30     0.00       60     0.00     0.00  alliberarXarxa
+  0.00   2582.30     0.00       60     0.00     0.00  crearXarxaAleatoria
+  0.00   2582.30     0.00       48     0.00     0.16  validarXarxa
+  0.00   2582.30     0.00        4     0.00   640.81  iteracioEvolutiva
+  0.00   2582.30     0.00        4     0.00   638.87  torneigEnfrentaments
+  0.00   2582.30     0.00        4     0.00     0.00  trobarKMaxims
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.00% of 2582.30 seconds
+
+index % time    self  children    called     name
+                0.00 2563.26       4/4           entrenamentPerEnfrentaments [2]
+[1]     99.3    0.00 2563.26       4         iteracioEvolutiva [1]
+                0.00 2555.49       4/4           torneigEnfrentaments [6]
+                0.00    7.77      48/48          validarXarxa [15]
+                0.00    0.00     216/216         actualitzarXarxa [26]
+                0.00    0.00       4/4           trobarKMaxims [30]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     99.3    0.00 2563.26                 entrenamentPerEnfrentaments [2]
+                0.00 2563.26       4/4           iteracioEvolutiva [1]
+                0.00    0.00      60/60          crearXarxaAleatoria [29]
+                0.00    0.00      60/60          alliberarXarxa [28]
+-----------------------------------------------
+                0.00    3.86     947/628091      validarXarxa [15]
+                0.00    3.90     956/628091      triarMovimentBotAleatoriSenseText [19]
+                0.09 2555.38  626188/628091      enfrentamentXarxes [5]
+[3]     99.3    0.09 2563.15  628091         minMax [3]
+               13.80 2549.23 4116731/4116731     iteracioMinmax [4]
+                0.02    0.03 4131220/1841681068     comprovarSolucio [10]
+                0.03    0.00 4131220/1841046588     desferMoviment [12]
+                0.02    0.00 4131220/1841681068     realitzarMoviment [16]
+                0.01    0.00 4122487/1797296695     comprovarSolucioDiagonal2 [18]
+                0.00    0.00 5024728/1962016334     comprovarColumnaPlena [20]
+-----------------------------------------------
+                             240505949             iteracioMinmax [4]
+               13.80 2549.23 4116731/4116731     minMax [3]
+[4]     99.3   13.80 2549.23 4116731+240505949 iteracioMinmax [4]
+               70.17 2427.66 1542294198/1542294198     wrapperXarxa [7]
+                9.71   14.90 1836915368/1841681068     comprovarSolucio [10]
+               11.47    0.00 1836915368/1841046588     desferMoviment [12]
+                7.58    0.00 1836915368/1841681068     realitzarMoviment [16]
+                5.36    0.00 1792547893/1797296695     comprovarSolucioDiagonal2 [18]
+                1.60    0.00 1956981440/1962016334     comprovarColumnaPlena [20]
+                0.78    0.00 2162188/2162188     puntuacioPerAdjacencia [21]
+                             240505949             iteracioMinmax [4]
+-----------------------------------------------
+                0.01 2555.48   14160/14160       torneigEnfrentaments [6]
+[5]     99.0    0.01 2555.48   14160         enfrentamentXarxes [5]
+                0.09 2555.38  626188/628091      minMax [3]
+                0.00    0.01  632559/1841681068     comprovarSolucio [10]
+                0.00    0.00  632559/1841681068     realitzarMoviment [16]
+                0.00    0.00  624438/1797296695     comprovarSolucioDiagonal2 [18]
+                0.00    0.00   10138/1962016334     comprovarColumnaPlena [20]
+                0.00    0.00  618808/620681      comprovarEmpat [22]
+                0.00    0.00   14160/14208       inicialitzarQuatreEnRatlla [25]
+                0.00    0.00   14160/14208       alliberarQuatreEnRatlla [24]
+-----------------------------------------------
+                0.00 2555.49       4/4           iteracioEvolutiva [1]
+[6]     99.0    0.00 2555.49       4         torneigEnfrentaments [6]
+                0.01 2555.48   14160/14160       enfrentamentXarxes [5]
+-----------------------------------------------
+               70.17 2427.66 1542294198/1542294198     iteracioMinmax [4]
+[7]     96.7   70.17 2427.66 1542294198         wrapperXarxa [7]
+               88.03 2339.63 1542294198/1542294198     aplicarXarxa [8]
+-----------------------------------------------
+               88.03 2339.63 1542294198/1542294198     wrapperXarxa [7]
+[8]     94.0   88.03 2339.63 1542294198         aplicarXarxa [8]
+             2329.72    0.00 663830596/663830596     aplicarKer [9]
+                9.91    0.00 1542294198/1542294198     alliberarLlistaMatrius [13]
+-----------------------------------------------
+             2329.72    0.00 663830596/663830596     aplicarXarxa [8]
+[9]     90.2 2329.72    0.00 663830596         aplicarKer [9]
+-----------------------------------------------
+                0.00    0.00    1921/1841681068     validarXarxa [15]
+                0.00    0.01  632559/1841681068     enfrentamentXarxes [5]
+                0.02    0.03 4131220/1841681068     minMax [3]
+                9.71   14.90 1836915368/1841681068     iteracioMinmax [4]
+[10]     1.0    9.74   14.94 1841681068         comprovarSolucio [10]
+                8.54    0.00 1804291406/1804291406     comprovarSolucioDiagonal1 [14]
+                6.40    0.00 1841681068/1841681068     comprovarSolucioHoritzontal [17]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     0.7   19.04    0.00                 _init [11]
+-----------------------------------------------
+                0.03    0.00 4131220/1841046588     minMax [3]
+               11.47    0.00 1836915368/1841046588     iteracioMinmax [4]
+[12]     0.4   11.50    0.00 1841046588         desferMoviment [12]
+-----------------------------------------------
+                9.91    0.00 1542294198/1542294198     aplicarXarxa [8]
+[13]     0.4    9.91    0.00 1542294198         alliberarLlistaMatrius [13]
+-----------------------------------------------
+                8.54    0.00 1804291406/1804291406     comprovarSolucio [10]
+[14]     0.3    8.54    0.00 1804291406         comprovarSolucioDiagonal1 [14]
+-----------------------------------------------
+                0.00    7.77      48/48          iteracioEvolutiva [1]
+[15]     0.3    0.00    7.77      48         validarXarxa [15]
+                0.00    3.90     963/963         triarMovimentBotAleatoriSenseText [19]
+                0.00    3.86     947/628091      minMax [3]
+                0.00    0.00    1921/1841681068     comprovarSolucio [10]
+                0.00    0.00    1877/1797296695     comprovarSolucioDiagonal2 [18]
+                0.00    0.00     958/1841681068     realitzarMoviment [16]
+                0.00    0.00      20/1962016334     comprovarColumnaPlena [20]
+                0.00    0.00    1873/620681      comprovarEmpat [22]
+                0.00    0.00      48/14208       inicialitzarQuatreEnRatlla [25]
+                0.00    0.00      48/14208       alliberarQuatreEnRatlla [24]
+-----------------------------------------------
+                0.00    0.00     958/1841681068     validarXarxa [15]
+                0.00    0.00     963/1841681068     triarMovimentBotAleatoriSenseText [19]
+                0.00    0.00  632559/1841681068     enfrentamentXarxes [5]
+                0.02    0.00 4131220/1841681068     minMax [3]
+                7.58    0.00 1836915368/1841681068     iteracioMinmax [4]
+[16]     0.3    7.60    0.00 1841681068         realitzarMoviment [16]
+-----------------------------------------------
+                6.40    0.00 1841681068/1841681068     comprovarSolucio [10]
+[17]     0.2    6.40    0.00 1841681068         comprovarSolucioHoritzontal [17]
+-----------------------------------------------
+                0.00    0.00    1877/1797296695     validarXarxa [15]
+                0.00    0.00  624438/1797296695     enfrentamentXarxes [5]
+                0.01    0.00 4122487/1797296695     minMax [3]
+                5.36    0.00 1792547893/1797296695     iteracioMinmax [4]
+[18]     0.2    5.37    0.00 1797296695         comprovarSolucioDiagonal2 [18]
+-----------------------------------------------
+                0.00    3.90     963/963         validarXarxa [15]
+[19]     0.2    0.00    3.90     963         triarMovimentBotAleatoriSenseText [19]
+                0.00    3.90     956/628091      minMax [3]
+                0.00    0.00     963/1841681068     realitzarMoviment [16]
+                0.00    0.00       8/1962016334     comprovarColumnaPlena [20]
+-----------------------------------------------
+                0.00    0.00       8/1962016334     triarMovimentBotAleatoriSenseText [19]
+                0.00    0.00      20/1962016334     validarXarxa [15]
+                0.00    0.00   10138/1962016334     enfrentamentXarxes [5]
+                0.00    0.00 5024728/1962016334     minMax [3]
+                1.60    0.00 1956981440/1962016334     iteracioMinmax [4]
+[20]     0.1    1.60    0.00 1962016334         comprovarColumnaPlena [20]
+-----------------------------------------------
+                0.78    0.00 2162188/2162188     iteracioMinmax [4]
+[21]     0.0    0.78    0.00 2162188         puntuacioPerAdjacencia [21]
+-----------------------------------------------
+                0.00    0.00    1873/620681      validarXarxa [15]
+                0.00    0.00  618808/620681      enfrentamentXarxes [5]
+[22]     0.0    0.00    0.00  620681         comprovarEmpat [22]
+-----------------------------------------------
+                0.00    0.00   24624/24624       actualitzarXarxa [26]
+[23]     0.0    0.00    0.00   24624         rand_normal_fast [23]
+-----------------------------------------------
+                0.00    0.00      48/14208       validarXarxa [15]
+                0.00    0.00   14160/14208       enfrentamentXarxes [5]
+[24]     0.0    0.00    0.00   14208         alliberarQuatreEnRatlla [24]
+-----------------------------------------------
+                0.00    0.00      48/14208       validarXarxa [15]
+                0.00    0.00   14160/14208       enfrentamentXarxes [5]
+[25]     0.0    0.00    0.00   14208         inicialitzarQuatreEnRatlla [25]
+-----------------------------------------------
+                0.00    0.00     216/216         iteracioEvolutiva [1]
+[26]     0.0    0.00    0.00     216         actualitzarXarxa [26]
+                0.00    0.00   24624/24624       rand_normal_fast [23]
+-----------------------------------------------
+                0.00    0.00     120/120         crearXarxaAleatoria [29]
+[27]     0.0    0.00    0.00     120         crearCapaAleatoria [27]
+-----------------------------------------------
+                0.00    0.00      60/60          entrenamentPerEnfrentaments [2]
+[28]     0.0    0.00    0.00      60         alliberarXarxa [28]
+-----------------------------------------------
+                0.00    0.00      60/60          entrenamentPerEnfrentaments [2]
+[29]     0.0    0.00    0.00      60         crearXarxaAleatoria [29]
+                0.00    0.00     120/120         crearCapaAleatoria [27]
+-----------------------------------------------
+                0.00    0.00       4/4           iteracioEvolutiva [1]
+[30]     0.0    0.00    0.00       4         trobarKMaxims [30]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [11] _init                  [14] comprovarSolucioDiagonal1 [3] minMax
+  [26] actualitzarXarxa       [18] comprovarSolucioDiagonal2 [21] puntuacioPerAdjacencia
+  [13] alliberarLlistaMatrius [17] comprovarSolucioHoritzontal [23] rand_normal_fast
+  [24] alliberarQuatreEnRatlla [27] crearCapaAleatoria    [16] realitzarMoviment
+  [28] alliberarXarxa         [29] crearXarxaAleatoria     [6] torneigEnfrentaments
+   [9] aplicarKer             [12] desferMoviment         [19] triarMovimentBotAleatoriSenseText
+   [8] aplicarXarxa            [5] enfrentamentXarxes     [30] trobarKMaxims
+  [20] comprovarColumnaPlena  [25] inicialitzarQuatreEnRatlla [15] validarXarxa
+  [22] comprovarEmpat          [1] iteracioEvolutiva       [7] wrapperXarxa
+  [10] comprovarSolucio        [4] iteracioMinmax

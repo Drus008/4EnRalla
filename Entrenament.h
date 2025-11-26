@@ -2,24 +2,21 @@
 #include"Xarxa.h"
 
 
-#define PROBABILITAT_ALEATORI 0.01
+#define PROBABILITAT_ALEATORI 0.00
 
 #define NOMBRE_CAPES 2
 
 
-#define NOMBRE_SUPERVIVENTS 10
-#define NOMBRE_FILLS 6
-#define MIDA_POBLACIO (NOMBRE_FILLS*NOMBRE_SUPERVIVENTS)
-
-#define DIM_TAULELL 8
-
-#define LEARNING_RATE 0.001
-
-
-
+/**
+ * @brief Estructura que controla com es formen les generacions.
+ */
 typedef struct generacio{
-    XarxaNeuronal *poblacio[MIDA_POBLACIO];
-    int victories[MIDA_POBLACIO];
+    XarxaNeuronal **poblacio; /**<Array d'apuntadors a les xarxes neuronals que conforma la població */
+    int *victories; /**<Array que desa a la posicií i la quantitat de victories que ha aconseguit la xarxa i */
+    int nombreSupervivents; /**<El nombre de supervivents d'una iteració */
+    int nombreFills; /**<El nombre de fills que té cada supervivent */
+    int midaPoblacio; /**<La mida total de la població (ha de ser nombreSupervivents*midaPoblacio) */
+    int learinngRate; /**<El ratio d'aprenentatge */
 }Generacio;
 
 
@@ -83,9 +80,10 @@ void torneigEnfrentaments(Generacio *generacioXarxes);
  * @param tornXarxa indica si la xarxa és el J1 o J2 (1 per a J1 i -1 per a J2)
  * @param nTorns variable on es registraran els torns fets. En acabar la funció a aquest paràmetre se li ha afegit el nombre de moviments fets en total.
  * @param nVictories variable on és registrarà si la xarxa ha guanyat. Se li sumarà 1 en cas de que guanyi i res en cas contrari.
+ * @param partida és un apuntador a la partida en la que es validaran les xarxes. Es reinicia el taulell de la partida.
  * 
  */
-void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictories);
+void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictories, QuatreEnRatlla *partida);
 
 
 /**
@@ -97,20 +95,32 @@ void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictor
  * - Columna 4: Nombre de victories com a J2
  * 
  * Cada fila és una nova validació.
+ * 
+ * @param llistaXarxes és l'array de CNN que es volen avaluar.
+ * @param nXarxes és la longitut de l'array llista xarxes.
+ * @param partida és el taulell on es validaran les xarxes
+ * 
  */
-void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes);
+void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes, QuatreEnRatlla *partida);
 
 
 /**
- * @brief Realitza una iteració de l'algorisme evolutiu.
+ * @brief Realitza una iteració de l'algorisme evolutiu i guarda la xarxa.
+ * 
+ * Desa la xarxa neuronal a un arxiu anomenat "XarxaCalculada.DrusCNN".
  * 
  * @param generacioXarxes és la generació de xarxes que es vol fer evolucionar. En acabar la iteració ja retorna la generació evolucionada.
- * 
+ * @param partida és el taulell on competeixen les xarxes.
  */
-void iteracioEvolutiva(Generacio *generacioXarxes);
+void iteracioEvolutiva(Generacio *generacioXarxes, QuatreEnRatlla *partida);
 
 
 /**
  * @brief Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística.
+ * 
+ * @param generacioXarxes és una generació sense inicialitzar. Només ha de tenir creats els paràmtres ints, però no el *victories ni l'array de xarxes.
+ * @param partida és un apuntador a un QuatreEnRatlla inicialitzada i buida.
+ * @param iteracions és el nombre d'iteracions que fa l'entrenament.
+ * 
  */
-void entrenamentPerEnfrentaments();
+void entrenamentPerEnfrentaments(Generacio *generacioXarxes, QuatreEnRatlla *partida, int iteracions);

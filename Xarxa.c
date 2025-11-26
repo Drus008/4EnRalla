@@ -3,7 +3,7 @@
 
 #include"Xarxa.h"
 #include"Utilitats.h"
-#include"4enratlla.h"
+
 
 
 double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioReal activacio){
@@ -78,7 +78,7 @@ double **aplicarKer(double ***llistaMatrius, int dimFilMat, int dimColMat, int p
             }
             //printf("%.1f ", matResultant[f][c]);
             
-            if (elementResultant<0) elementResultant = elementResultant*0.1; //He implementat la funció d'activació directament aquí.
+            if (elementResultant<0) elementResultant = 0; //He implementat la funció d'activació directament aquí.
             matResultant[f][c] = elementResultant; //Hi ha una millora en quant al temps d'execusió. No caldria passar la funció com a paràmetre.
             //printf("%.1f\n", matResultant[f][c]);
         }
@@ -301,8 +301,8 @@ XarxaNeuronal *carregarXarxa(const char *filename){
 }
 
 
-
-
+//Potser això s'hauria de moure a un altre fitxer
+#include "4enratlla.h"
 
 double wrapperXarxa(QuatreEnRatlla *partida, void *xarxaCtx){
 
@@ -316,7 +316,6 @@ double wrapperXarxa(QuatreEnRatlla *partida, void *xarxaCtx){
             matriu[f][c] = (double) (partida->tauler[f][c]);
         }
     }
-    
     double resultat = aplicarXarxa(matriu, xarxa);
     for(int f=0; f<nFil; f++) free(matriu[f]);
     free(matriu);

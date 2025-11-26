@@ -21,7 +21,6 @@ typedef struct quatreEnRatlla {
     int nfiles; /**<nombre de files del taulell */
     int ncols; /**<nombre de columnes del taulell */
     int nVictoria; /**<Nombre de peces iguals que s'han d'alinear per a guanyar la partida */
-    int *filesSuperiors; /*<Indica a cada columna a quina fila està la peça més alta (Sense usar actualment) */
 }QuatreEnRatlla;
 
 
@@ -42,6 +41,14 @@ void imprimirQuateEnRatlla(QuatreEnRatlla *partida);
  * @param nVictoria és el nombre de peces adjacents alineades que s'han de tenir per a guanyar la partida
  */
 void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida, int nFils, int nCols, int nVictoria);
+
+/**
+ * @brief Fica tots els valors del tauler a 0.
+ * 
+ * @param partida és la partida que vols reiniciar.
+ */
+void reiniciarQuatreEnRatlla(QuatreEnRatlla *partida);
+
 
 /**
  * @brief Allibera la partida del 4 en ratlla quan ja no es necessita.
@@ -115,8 +122,6 @@ bool comprovarSolucio(QuatreEnRatlla *partida, int ultimMoviment);
  * @return true si la partida s'ha empatat i false en cas contrari.
  */
 bool comprovarEmpat(QuatreEnRatlla *partida);
-
-
 
 
 #endif
