@@ -39,15 +39,15 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
             double valoracioMoviment;
             int nMoviments;
             
-            if (!omplirNodeTrivial(partida, i, jugadorOriginal, &valoracioMoviment, &nMoviments, nivellNode, fHeuristica, ctxHeuristica)){
-                iteracioMinmax(partida, jugadorOriginal, nivellNode, &valoracioMoviment, &nMoviments, fHeuristica, ctxHeuristica);
-            }
+            if (detectarArrel(partida, i, jugadorOriginal, &valoracioMoviment, nivellNode, fHeuristica, ctxHeuristica)){
+                nMoviments = 0;}
+            else iteracioMinmax(partida, jugadorOriginal, nivellNode, &valoracioMoviment, &nMoviments, fHeuristica, ctxHeuristica);
             //imprimirQuateEnRatlla(partida);
             //printf("(%i) punt:%lf, prof: %i. millor: %lf\n", nivellNode,-multiplicador* valoracioMoviment, nMoviments, millorValoracio);
 
             desferMoviment(partida, i); 
-            triaMillorTirada(nivellNode,&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
-            if (millorValoracio==INFINITY) break; //Poda a-b
+            triaMillorTirada(&millorTirada,i,&millorValoracio, -multiplicador* valoracioMoviment,&millorNTirades, nMoviments);
+            if (millorValoracio==INFINITY) break;
         }
     }
     
@@ -58,7 +58,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
 
 
-bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int *nMoviments, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica){
+bool detectarArrel(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica){
     double multiplicador = -1;
     if (profunditat%2==0) multiplicador = 1;
     //Aquesta part es necessaria xq puntuacioPerAdj no te en compte a quin jugador li toca
@@ -66,12 +66,11 @@ bool omplirNodeTrivial(QuatreEnRatlla *partida, int moviment, char jugadorOrigin
     if (comprovarSolucio(partida,moviment)) *valoracio = multiplicador* INFINITY; 
     else if(profunditat==PROFUNDITAT) *valoracio = - jugadorOriginal* fHeuristica(partida, ctxHeuristica);
     else return false;
-    *nMoviments = 0;
     return true;
 }
 
 
-void triaMillorTirada(int nivellNode, int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual){
+void triaMillorTirada(int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual){
     if (valoracioActual>=*millorValoracio){
         if(valoracioActual!=*millorValoracio || accioDesempatActual<*accioDesempat){
         *millorMoviment = movimentActual;

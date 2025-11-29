@@ -12,7 +12,7 @@
 #include <time.h>   
 
 
-#define PROBABILITAT_ALEATORI 0.00
+#define PROBABILITAT_ALEATORI 0.01
 
 int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
     int moviment = -1;
@@ -21,15 +21,16 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
 
         if (scanf(" %d", &moviment)!=1){
             while (getchar() != '\n'); //atois
-            printf("Moviment invàlid.\n");
+            printf(" Input invàlid.\n");
             moviment = -1;
         }
-        
-        else if(moviment>=0 && moviment<partida->ncols && !comprovarColumnaPlena(partida,moviment)) realitzarMoviment(partida, moviment, jugador);
-        else{
-            printf("Moviment il·legal.\n");
-            moviment = -1;
-        }
+        else if(moviment<0 || moviment>=partida->ncols){
+            printf(" Moviment fora del taulell.\n");
+            moviment=-1;}
+        else if(comprovarColumnaPlena(partida,moviment)){
+            printf(" Columna plena.\n");
+            moviment=-1;}
+        else realitzarMoviment(partida, moviment, jugador);
     }
     return moviment;
 }
@@ -44,7 +45,7 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx){
     funcioHeuristica f = context->funcio[index];
     
     int moviment = minMax(partida, jugador, f,context->altres[index]);
-    printf("Movent a %d\n", moviment);
+    printf("Movent a %d\n", moviment+1);
     realitzarMoviment(partida,moviment,jugador);
     return moviment;
 }
@@ -75,7 +76,7 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void *ctx){
 }
 
 
-int triarMovimentBotAleatoriSenseText(QuatreEnRatlla *partida, char jugador, void *ctx){
+int triarMovimentBotSenseText(QuatreEnRatlla *partida, char jugador, void *ctx){
     ContextHeuristica *context = (ContextHeuristica*) ctx;
 
     int index;
@@ -84,14 +85,7 @@ int triarMovimentBotAleatoriSenseText(QuatreEnRatlla *partida, char jugador, voi
 
     funcioHeuristica f = context->funcio[index];
     double probabilitat = (double) rand() / RAND_MAX;
-    int moviment;
-    if (probabilitat<PROBABILITAT_ALEATORI){
-        bool movimentValid = false;
-        while (!movimentValid) {
-            moviment = rand()%(partida->ncols);
-            movimentValid = !comprovarColumnaPlena(partida, moviment);
-        }
-    } else moviment = minMax(partida, jugador, f, context->altres[index]);
+    int moviment = minMax(partida, jugador, f, context->altres[index]);
 
     realitzarMoviment(partida,moviment,jugador);
     return moviment;
@@ -117,7 +111,7 @@ void iniciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, 
 
             if(comprovarSolucio(&prova, moviment)){
                 printf("\nHA GUANYAT EL JUGADOR %d\n", 
-                       jugadors[i] == 1 ? 1 : 2); 
+                       jugadors[i] == 1 ? 1 : 2); /** @todo */
                 imprimirQuateEnRatlla(&prova);
                 partidaEnCurs = false;
                 break;
@@ -154,21 +148,21 @@ void validacioXarxa(){
     
     int *LlistaNKer = malloc(sizeof(int)*2);
     nDimKer[0] = 3; nDimKer[1] = 3;
-    XarxaNeuronal *xarxa2 = crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
-    XarxaNeuronal *xarxa = carregarXarxa("XarxaCalculada.DrusCNN"); //crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
+    XarxaNeuronal *xarxa = crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
+    XarxaNeuronal *xarxa2 = carregarXarxa("XarxaCalculadaJ2 2.DrusCNN"); //crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
 
-    imprimirXarxa(xarxa);
+    imprimirXarxa(xarxa2);
     if(xarxa==NULL){
         printf("ERROR al carregar la xarxa\n");
         return;
     }
 
     heuristiques.funcio[0] = wrapperXarxa;
-    heuristiques.funcio[1] = puntuacioPerAdjacencia;
-    heuristiques.altres[0] = xarxa;
-    heuristiques.altres[1]=xarxa2;
+    heuristiques.funcio[1] = wrapperXarxa;
+    heuristiques.altres[0] = xarxa2;
+    heuristiques.altres[1] = xarxa2;
 
-    iniciarPartida(triarMovimentBot, triarMovimentBot, 0, &heuristiques);
+    iniciarPartida(triarMovimentJugador, triarMovimentBot, 0, &heuristiques);
 }
 
 
@@ -181,8 +175,8 @@ void validacioNormal(){
     iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &ctx);
 }
 
-//gcc -g -fopenmp -ffast-math -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -O3 -o partida -lm
-
+//gcc -g -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -O3 -o partida -lm
+/*
 int main(){
     validacioXarxa();
-}
+}*/

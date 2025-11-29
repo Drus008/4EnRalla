@@ -71,19 +71,19 @@ void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus){
 }
 
 
-void torneigEnfrentaments(Generacio *generacioXarxes){
+void torneigEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2){
     #pragma omp parallel for
-    for(int iJ1=0; iJ1<generacioXarxes->midaPoblacio; iJ1++){
-        for(int iJ2=0; iJ2<generacioXarxes->midaPoblacio; iJ2++) if(iJ1!=iJ2){
-            int resultatEnfrentament = enfrentamentXarxes(generacioXarxes->poblacio[iJ1],generacioXarxes->poblacio[iJ2]);
+    for(int iJ1=0; iJ1<generacioXarxesJ1->midaPoblacio; iJ1++){
+        for(int iJ2=0; iJ2<generacioXarxesJ2->midaPoblacio; iJ2++) {
+            int resultatEnfrentament = enfrentamentXarxes(generacioXarxesJ1->poblacio[iJ1],generacioXarxesJ2->poblacio[iJ2]);
             if (resultatEnfrentament==0) {
                 #pragma omp atomic
-                generacioXarxes->victories[iJ1]++;
+                generacioXarxesJ1->victories[iJ1]++;
                 //printf("%ivs%i: %i\n", iJ1, iJ2, iJ1);
             }
             else if(resultatEnfrentament==1){
                 #pragma omp atomic
-                generacioXarxes->victories[iJ2]++;
+                generacioXarxesJ2->victories[iJ2]++;
                 //printf("%ivs%i: %i\n", iJ1, iJ2, iJ2);
             }
         }
@@ -113,7 +113,7 @@ void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictor
             
             int moviment;
             if(jugadors[i]==tornXarxa) moviment = triarMovimentXarxa(partida, jugadors[i], xarxa);
-            else moviment = triarMovimentBotAleatoriSenseText(partida, jugadors[i], &ctx);
+            else moviment = triarMovimentBotSenseText(partida, jugadors[i], &ctx);
             if(comprovarSolucio(partida, moviment)){
                 if(jugadors[i]==tornXarxa) (*nVictories)++;
                 return;
@@ -128,17 +128,17 @@ void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictor
 
 
 
-void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes, QuatreEnRatlla *partida){
+void validarLlistaXarxes(XarxaNeuronal **llistaXarxesJ1, XarxaNeuronal **llistaXarxesJ2, int nXarxesJ1, int nXarxesJ2, QuatreEnRatlla *partida){
     int movimentsTotalsJ1 = 0;
     int movimentsTotalsJ2 = 0;
     int victoriesTotalsJ1 = 0;
     int victoriesTotalsJ2 = 0;
     
-    for(int iXarxa=0; iXarxa<nXarxes; iXarxa++){
-        validarXarxa(llistaXarxes[iXarxa], 1, &movimentsTotalsJ1, &victoriesTotalsJ1, partida);
+    for(int iXarxa=0; iXarxa<nXarxesJ1; iXarxa++){
+        validarXarxa(llistaXarxesJ1[iXarxa], 1, &movimentsTotalsJ1, &victoriesTotalsJ1, partida);
     }
-    for(int iXarxa=0; iXarxa<nXarxes; iXarxa++){
-        validarXarxa(llistaXarxes[iXarxa], -1, &movimentsTotalsJ2, &victoriesTotalsJ2, partida);
+    for(int iXarxa=0; iXarxa<nXarxesJ1; iXarxa++){
+        validarXarxa(llistaXarxesJ2[iXarxa], -1, &movimentsTotalsJ2, &victoriesTotalsJ2, partida);
     }
 
     FILE *fp = fopen("Record.csv", "a"); 
@@ -156,36 +156,59 @@ void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes, QuatreEnRatl
 
 
 
-void iteracioEvolutiva(Generacio *generacioXarxes, QuatreEnRatlla *partida){
-    torneigEnfrentaments(generacioXarxes);
-    printf("VICTORIES: ");
-    for(int i=0; i<generacioXarxes->midaPoblacio; i++) printf("v(X%i)=%i ", i, generacioXarxes->victories[i]);
-    int *indexMillorsMatrius = trobarKMaxims(generacioXarxes->victories, generacioXarxes->midaPoblacio, generacioXarxes->nombreSupervivents);
-    printf("MILLORS: ");
-    for(int i=0; i<generacioXarxes->nombreSupervivents; i++) printf("%i ", indexMillorsMatrius[i]);
-    printf("\n");
-    int indexMillorXarxa=0;
+void iteracioEvolutiva(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2, QuatreEnRatlla *partida){
+    torneigEnfrentaments(generacioXarxesJ1, generacioXarxesJ2);
 
-    for(int i=1; i<generacioXarxes->nombreSupervivents; i++){
-        if(generacioXarxes->victories[indexMillorsMatrius[i]]>generacioXarxes->victories[indexMillorXarxa]){
-            indexMillorXarxa = i;
+    printf("VICTORIES:\nJ1: ");
+    for(int i=0; i<generacioXarxesJ1->midaPoblacio; i++) printf("v(X%i)=%i ", i, generacioXarxesJ1->victories[i]);
+    printf("J2: ");
+    for(int i=0; i<generacioXarxesJ2->midaPoblacio; i++) printf("v(X%i)=%i ", i, generacioXarxesJ2->victories[i]);
+
+
+    int *indexMillorsMatriusJ1 = trobarKMaxims(generacioXarxesJ1->victories, generacioXarxesJ1->midaPoblacio, generacioXarxesJ1->nombreSupervivents);
+    printf("\nMILLORS:\nJ1: ");
+    for(int i=0; i<generacioXarxesJ1->nombreSupervivents; i++) printf("%i ", indexMillorsMatriusJ1[i]);
+    
+    int *indexMillorsMatriusJ2 = trobarKMaxims(generacioXarxesJ2->victories, generacioXarxesJ2->midaPoblacio, generacioXarxesJ2->nombreSupervivents);
+    printf("\nJ2: ");
+    for(int i=0; i<generacioXarxesJ2->nombreSupervivents; i++) printf("%i ", indexMillorsMatriusJ2[i]);
+    printf("\n");
+
+    printf("Desant millor xarxa.");
+    int indexMillorXarxaJ1=0;
+    for(int i=1; i<generacioXarxesJ1->nombreSupervivents; i++){
+        if(generacioXarxesJ1->victories[indexMillorsMatriusJ1[i]]>generacioXarxesJ1->victories[indexMillorXarxaJ1]){
+            indexMillorXarxaJ1 = i;
         }
     }
-    desarXarxa(generacioXarxes->poblacio[indexMillorXarxa], "XarxaCalculada.DrusCNN");
-
-    
-    XarxaNeuronal **millorsMatrius = malloc(sizeof(XarxaNeuronal*)*generacioXarxes->nombreSupervivents);
-    for(int i=0; i<generacioXarxes->nombreSupervivents; i++) millorsMatrius[i] = generacioXarxes->poblacio[indexMillorsMatrius[i]];
-    validarLlistaXarxes(millorsMatrius,generacioXarxes->nombreSupervivents, partida);
-    free(millorsMatrius);
-    crearNovaGeneracio(generacioXarxes, indexMillorsMatrius);
-    free(indexMillorsMatrius);
+    desarXarxa(generacioXarxesJ1->poblacio[indexMillorXarxaJ1], "XarxaEntrenadaJ1.DrusCNN");
+    int indexMillorXarxaJ2=0;
+    for(int i=1; i<generacioXarxesJ2->nombreSupervivents; i++){
+        if(generacioXarxesJ2->victories[indexMillorsMatriusJ2[i]]>generacioXarxesJ2->victories[indexMillorXarxaJ2]){
+            indexMillorXarxaJ2 = i;
+        }
+    }
+    desarXarxa(generacioXarxesJ2->poblacio[indexMillorXarxaJ2], "XarxaEntrenadaJ2.DrusCNN");
+    printf(" Xarxes desades.\n");
+    printf(" Validant iteració.\n");
+    XarxaNeuronal **millorsMatriusJ1 = malloc(sizeof(XarxaNeuronal*)*generacioXarxesJ1->nombreSupervivents);
+    XarxaNeuronal **millorsMatriusJ2 = malloc(sizeof(XarxaNeuronal*)*generacioXarxesJ2->nombreSupervivents);
+    for(int i=0; i<generacioXarxesJ1->nombreSupervivents; i++) millorsMatriusJ1[i] = generacioXarxesJ1->poblacio[indexMillorsMatriusJ1[i]];
+    for(int i=0; i<generacioXarxesJ2->nombreSupervivents; i++) millorsMatriusJ2[i] = generacioXarxesJ2->poblacio[indexMillorsMatriusJ2[i]];
+    validarLlistaXarxes(millorsMatriusJ1, millorsMatriusJ2, generacioXarxesJ1->nombreSupervivents, generacioXarxesJ2->nombreSupervivents, partida);
+    free(millorsMatriusJ1);
+    free(millorsMatriusJ2);
+    crearNovaGeneracio(generacioXarxesJ1, indexMillorsMatriusJ1);
+    crearNovaGeneracio(generacioXarxesJ2, indexMillorsMatriusJ2);
+    free(indexMillorsMatriusJ1);
+    free(indexMillorsMatriusJ2);
 }
 
 
 
-void entrenamentPerEnfrentaments(Generacio *generacioXarxes, QuatreEnRatlla *partida, int iteracions){
+void entrenamentPerEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2, QuatreEnRatlla *partida, int iteracions){
 
+    printf("Incialitzant xarxes aleatoriament.\n");
     int nombreCapes = 2;
 
     int *nDimKer = malloc(sizeof(int)*nombreCapes);
@@ -195,23 +218,31 @@ void entrenamentPerEnfrentaments(Generacio *generacioXarxes, QuatreEnRatlla *par
     LlistaNKer[0] = 4; LlistaNKer[1] = 3;
 
     
-    generacioXarxes->poblacio = malloc(generacioXarxes->midaPoblacio*sizeof(XarxaNeuronal*));
-    generacioXarxes->victories = malloc(generacioXarxes->midaPoblacio*sizeof(int));
+    generacioXarxesJ1->poblacio = malloc(generacioXarxesJ1->midaPoblacio*sizeof(XarxaNeuronal*));
+    generacioXarxesJ1->victories = malloc(generacioXarxesJ1->midaPoblacio*sizeof(int));
+    generacioXarxesJ2->poblacio = malloc(generacioXarxesJ2->midaPoblacio*sizeof(XarxaNeuronal*));
+    generacioXarxesJ2->victories = malloc(generacioXarxesJ2->midaPoblacio*sizeof(int));
 
-    for(int nXarxa=0; nXarxa<generacioXarxes->midaPoblacio; nXarxa++){
-        generacioXarxes->victories[nXarxa] = 0;
-        generacioXarxes->poblacio[nXarxa] = crearXarxaAleatoria(nombreCapes,nDimKer,LlistaNKer,partida->nfiles,partida->ncols);
+
+    for(int nXarxa=0; nXarxa<generacioXarxesJ1->midaPoblacio; nXarxa++){
+        generacioXarxesJ1->victories[nXarxa] = 0;
+        generacioXarxesJ1->poblacio[nXarxa] = crearXarxaAleatoria(nombreCapes,nDimKer,LlistaNKer,partida->nfiles,partida->ncols);
     }
+    for(int nXarxa=0; nXarxa<generacioXarxesJ1->midaPoblacio; nXarxa++){
+        generacioXarxesJ2->victories[nXarxa] = 0;
+        generacioXarxesJ2->poblacio[nXarxa] = crearXarxaAleatoria(nombreCapes,nDimKer,LlistaNKer,partida->nfiles,partida->ncols);
+    }
+
 
     free(nDimKer); free(LlistaNKer);
+    printf("Iniciant entrenament");
     for(int i=0; i<iteracions; i++){
         printf("Iteració %i.\n", i);
-        iteracioEvolutiva(generacioXarxes, partida);
-
-
+        iteracioEvolutiva(generacioXarxesJ1, generacioXarxesJ2, partida);
     }
     
-    for(int iXarxa=0; iXarxa<generacioXarxes->midaPoblacio; iXarxa++) alliberarXarxa(generacioXarxes->poblacio[iXarxa]);
+    for(int iXarxa=0; iXarxa<generacioXarxesJ1->midaPoblacio; iXarxa++) alliberarXarxa(generacioXarxesJ1->poblacio[iXarxa]);
+    for(int iXarxa=0; iXarxa<generacioXarxesJ2->midaPoblacio; iXarxa++) alliberarXarxa(generacioXarxesJ2->poblacio[iXarxa]);
 }
 
 
@@ -240,19 +271,22 @@ void validacioValidacio(){
 }*/
 
 
-//gcc -fopenmp -ffast-math -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -o entrenament -lm
-/*
+//gcc -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -O3 -o entrenament -lm
+
 void main(){
-    srand(9);
+    srand(time(NULL));
+
+
     
-    Generacio generacioXarxes;
-    generacioXarxes.nombreSupervivents = 4;
-    generacioXarxes.nombreFills = 4;
-    generacioXarxes.midaPoblacio = generacioXarxes.nombreSupervivents*generacioXarxes.nombreFills;
-    generacioXarxes.learinngRate = 1;
+    Generacio generacioXarxesJ1;Generacio generacioXarxesJ2;
+    generacioXarxesJ1.nombreSupervivents = 50; generacioXarxesJ2.nombreSupervivents = 50;
+    generacioXarxesJ1.nombreFills = 10; generacioXarxesJ2.nombreFills = 10;
+    generacioXarxesJ1.midaPoblacio = generacioXarxesJ1.nombreSupervivents*generacioXarxesJ1.nombreFills;
+    generacioXarxesJ2.midaPoblacio = generacioXarxesJ2.nombreSupervivents*generacioXarxesJ2.nombreFills;
+    generacioXarxesJ1.learinngRate = 1; generacioXarxesJ2.learinngRate = 1;
 
     QuatreEnRatlla taulellEntrenament;
     inicialitzarQuatreEnRatlla(&taulellEntrenament, 8, 8, 4);
 
-    entrenamentPerEnfrentaments(&generacioXarxes, &taulellEntrenament, 30);
-}*/
+    entrenamentPerEnfrentaments(&generacioXarxesJ1, &generacioXarxesJ2, &taulellEntrenament, 300);
+}

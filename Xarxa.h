@@ -8,7 +8,7 @@
 #define ACTIVACIO leakyReLU
 
 /**
- * @brief Tipus de dada que representa la funció d'activació
+ * @brief Tipus de dada que representa la funció d'activació.
  */
 typedef double (*funcioReal)(double);
 
@@ -20,7 +20,7 @@ typedef struct capaXarxa{
     int nombreKernels; /**<Nombre de kernels que té la capa */
     double ****kerners; /**<Nuclis de la capa */
     double *biaixos; /**<Biaixos de cada kernel */
-    funcioReal funcioActivacio;
+    funcioReal funcioActivacio; /**< La funció d'activació que fa servir la capa */
     int dimKer; /**<Dimensió dels kernels */
     int nMatrius; /**<Nombre de matrius a processar que coincideix amb la profunditat dels kernels */
     int dimFil; /**<Nombre de files que tenen les matrius a processar */
@@ -41,24 +41,6 @@ typedef struct CNN{
 
 
 
-
-
-/**
- * @brief Realitza una convolució matricial
- * 
- * Per a la gestió dels bordes s'usa valid (ignora els bordes i la matriu resultatn és més petita).
- * 
- * 
- * @param matriu és la matriu a la que se li realitza la convolució.
- * @param dimFilMat nombre de files de la matriu.
- * @param dimColMat nombre de columnes de la matriu.
- * 
- * @param kernel és el kernel que s'aplica a la matriu. Ha der ser de mida 5x5.
- * 
- * 
- * @return Retorna la convolució entre la matriu y el kernel.
- */
-double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioReal activacio);
 
 
 
@@ -166,11 +148,13 @@ void alliberarXarxa(XarxaNeuronal *xarxa);
  * 
  * Les dues xarxes han de tenir les mateixes dimensions.
  * 
+ * La distribució normal s'aprogima amb l'algorisme de Marsaglia polar.
+ * 
  * @param xarxaOriginal és de la que és copien els valors
- * @param xarxaClon és on s'aplicaran els valors modificats. Ja ha de tenir la memòria reservada avans de pasar-la.
- * @param sigma és la desviació de la distribució normal (Marsaglia polar) que s'utilitza per a variar els valors
+ * @param xarxaFilla és on s'aplicaran els valors modificats. Ja ha de tenir la memòria reservada abans de pasar-la.
+ * @param sigma és la desviació de la distribució normal que s'utilitza per a variar els valors
  */
-void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaClon, double sigma);
+void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaFilla, double sigma);
 
 
 

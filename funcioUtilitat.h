@@ -2,9 +2,6 @@
 #define FUNCIO_UTILITAT_H
 
 #include "4enratlla.h"
-#define KER_DIM 5
-#define HALF_KER (int)KER_DIM/2
-
 
 
 /**
@@ -19,13 +16,11 @@
  */
 void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fitxesJ1, int* fitxesJ2);
 
-// Es podria millorar fent que no comproves casselles que estàn molt més amunt que les últimes tirades
-
 /**
  * @brief Valora un estat de partida
  * 
  * @param partida és l'estat que es vol valorar
- * 
+ * @param ctx és un apuntador a void que només serveix per a que s'adapti a l'estructura de funcióHeurística
  * per a fer el càlcul, per a cada casella es compten quantes n'hi ha de cada jugador i es resten les d'un amb les de l'altre elevades al quadrat
  * 
  * @return la valoració de la partida, on un nombre positiu vol dir que J1 va guanyant i negatiu que J2 va guanyant

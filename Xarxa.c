@@ -6,33 +6,6 @@
 
 
 
-double **convolucio(double **matriu, int dimFilMat, int dimColMat, double **kernel, double biaix, funcioReal activacio){
-    int dimKer = 1;
-    int dimFilConvolucio = dimFilMat - dimKer+1;
-    int dimColConvolucio = dimColMat - dimKer+1;
-    double **matConvolucio = malloc(sizeof(double*)*dimFilConvolucio);
-    for(int f=0; f<dimFilConvolucio; f++) matConvolucio[f]=malloc(sizeof(double)*dimColConvolucio);
-
-
-    for(int f=0; f<dimFilConvolucio; f++){
-        for(int c=0; c<dimColConvolucio; c++){
-            
-            matConvolucio[f][c] = biaix;
-            //printf("Calculant (%i,%i)\n", f,c);
-            for(int df=0; df<dimKer; df++){
-                for(int dc=0; dc<dimKer; dc++){
-                    //printf("  (%i,%i): %.2f\n",df,dc,kernel[df][dc]*matriu[f+df][c+dc]);
-                    matConvolucio[f][c] = matConvolucio[f][c] + kernel[df][dc]*matriu[f+df][c+dc];
-                }
-            }
-            printf("%.1f ", matConvolucio[f][c]);
-            matConvolucio[f][c] = activacio(matConvolucio[f][c]);
-            printf("%.1f\n", matConvolucio[f][c]);
-        }
-    }
-    return matConvolucio;
-}
-
 void imprimirCapa(CapaXarxa *capa){
     printf("nKers: %i, dimKers: %i, dimMats: %ix%i\n", capa->nombreKernels, capa->dimKer, capa->dimFil, capa->dimCol);
     for(int iKer=0; iKer<capa->nombreKernels; iKer++){
@@ -203,9 +176,9 @@ void alliberarXarxa(XarxaNeuronal *xarxa) {
     free(xarxa);
 }
 
-void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaClon, double sigma){
+void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaFilla, double sigma){
     for(int capa=0; capa<xarxaOriginal->nCapes; capa++){
-        CapaXarxa *capaActual = xarxaClon->capes[capa];
+        CapaXarxa *capaActual = xarxaFilla->capes[capa];
         CapaXarxa *capaOriginal = xarxaOriginal->capes[capa];
         for(int iKer=0; iKer<capaActual->nombreKernels; iKer++){
             capaActual->biaixos[iKer] = capaOriginal->biaixos[iKer] + rand_normal_fast()*sigma; 
@@ -292,7 +265,7 @@ XarxaNeuronal *carregarXarxa(const char *filename){
             }
         }
 
-        capa->funcioActivacio = NULL; 
+        capa->funcioActivacio = ACTIVACIO; 
         xarxa->capes[i] = capa;
     }
 

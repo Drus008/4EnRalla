@@ -2,9 +2,6 @@
 #include"Xarxa.h"
 
 
-#define PROBABILITAT_ALEATORI 0.00
-
-#define NOMBRE_CAPES 2
 
 
 /**
@@ -23,7 +20,7 @@ typedef struct generacio{
 
 
 /**
- * @brief Tria el moviment que fa una xarxa neuronal segons l'estat de la partida y el jugador al que li toqui tirar
+ * @brief Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l'estat de la partida y el jugador al que li toqui tirar
  * 
  * @param partida és l'estat actual de la partida.
  * @param jugador és al jugador que li toca tirar actualment.
@@ -31,7 +28,6 @@ typedef struct generacio{
  * 
  * Compleix la classe selector de moviment.
  * 
- * Realitza amb una petita provabilitat un moviment aleatori.
  * 
  * @return El moviment que ha decidit la xarxa. Només realitza moviments válids
  */
@@ -51,7 +47,7 @@ int enfrentamentXarxes(XarxaNeuronal *J1, XarxaNeuronal *J2);
 
 
 /**
- * @brief Crea una nova generació de xarxes a partir dels millors individus.
+ * @brief Crea una nova generació de xarxes a partir dels millors individus, modificant aquests lleugerament.
  * 
  * @param antigaGeneracio és la generació que es vol evolucionar.
  * @param millorsIndividus és un array amb els index del millors indiviuds de la generació.
@@ -62,12 +58,13 @@ void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus);
 /**
  * @brief Enfrenta a la generació de xarxes per a veure quina guanya més.
  * 
- * Enfrentes totes les xarxes en un format de lliga. Si la xarxa amb id i guanya aleshores si li afegeix 1 a victories[i] de generacioXarxes.
+ * Enfrentes totes les xarxes en un format de lliga. Si la xarxa amb identifiacdor "i" guanya aleshores si li suma 1 a victories[i] de la seva generacio.
  * 
- * @param generacioXarxes és la generació de xarxes que es vol enfrentar
+ * @param generacioXarxesJ1 és la generació de xarxes que es vol enfrentar i que començaran tirant.
+ * @param generacioXarxesJ2 és la generació de xarxes que es vol enfrentar i que moura en segón lloc.
  * 
  */
-void torneigEnfrentaments(Generacio *generacioXarxes);
+void torneigEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2);
 
 
 
@@ -96,31 +93,35 @@ void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictor
  * 
  * Cada fila és una nova validació.
  * 
- * @param llistaXarxes és l'array de CNN que es volen avaluar.
- * @param nXarxes és la longitut de l'array llista xarxes.
+ * @param llistaXarxesJ1 és l'array de CNN que es volen avaluar en el primer torn de partida.
+ * @param llistaXarxesJ1 és l'array de CNN que es volen avaluar en el segon torn de partida.
+ * @param nXarxesJ1 és la longitut de l'array llista xarxes de primer torn.
+ * @param nXarxesJ2 és la longitut de l'array llista xarxes de segon torn.
  * @param partida és el taulell on es validaran les xarxes
  * 
  */
-void validarLlistaXarxes(XarxaNeuronal **llistaXarxes, int nXarxes, QuatreEnRatlla *partida);
+void validarLlistaXarxes(XarxaNeuronal **llistaXarxesJ1, XarxaNeuronal **llistaXarxesJ2, int nXarxesJ1, int nXarxesJ2, QuatreEnRatlla *partida);
 
 
 /**
  * @brief Realitza una iteració de l'algorisme evolutiu i guarda la xarxa.
  * 
- * Desa la xarxa neuronal a un arxiu anomenat "XarxaCalculada.DrusCNN".
+ * Desa la xarxa neuronal del J1 a un arxiu anomenat "XarxaEntrenadaJ1.DrusCNN" i la J2 a un arxiu anomenat "XarxaEntrenadaJ2.DrusCNN".
  * 
- * @param generacioXarxes és la generació de xarxes que es vol fer evolucionar. En acabar la iteració ja retorna la generació evolucionada.
+ * @param generacioXarxesJ1 és la generació de xarxes que es vol fer evolucionar per a millorar en el primer torn. En acabar la iteració ja retorna la generació evolucionada.
+ * @param generacioXarxesJ1 és la generació de xarxes que es vol fer evolucionar per a millorar en el segon torn. En acabar la iteració ja retorna la generació evolucionada.
  * @param partida és el taulell on competeixen les xarxes.
  */
-void iteracioEvolutiva(Generacio *generacioXarxes, QuatreEnRatlla *partida);
+void iteracioEvolutiva(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2, QuatreEnRatlla *partida);
 
 
 /**
  * @brief Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística.
  * 
- * @param generacioXarxes és una generació sense inicialitzar. Només ha de tenir creats els paràmtres ints, però no el *victories ni l'array de xarxes.
+ * @param generacioXarxesJ1 és una generació sense inicialitzar. Només ha de tenir creats els paràmtres ints, però no el *victories ni l'array de xarxes. Serà la que competirà iniciant la partida.
+ * @param generacioXarxesJ2 és una generació sense inicialitzar. Només ha de tenir creats els paràmtres ints, però no el *victories ni l'array de xarxes. Serà la que competirà fent el segon moviemnt.
  * @param partida és un apuntador a un QuatreEnRatlla inicialitzada i buida.
  * @param iteracions és el nombre d'iteracions que fa l'entrenament.
  * 
  */
-void entrenamentPerEnfrentaments(Generacio *generacioXarxes, QuatreEnRatlla *partida, int iteracions);
+void entrenamentPerEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2, QuatreEnRatlla *partida, int iteracions);
