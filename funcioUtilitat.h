@@ -5,6 +5,10 @@
 
 
 /**
+ * @file funcioUtilitat.h
+ */
+
+/**
  * @brief Compta quantes fitxer de cada tipos hi ha al voltant d'una posició en concret
  * 
  * @param partida és l'estat de partida actual

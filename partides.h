@@ -3,11 +3,17 @@
 
 #include"4enratlla.h"
 
+
+/**
+ * @file partides.h
+ */
+
+
 /**
  * @brief Tipus de dada que representa una funció que donat un QuatreEnRatlla y un jugador, decideix quin moviment es realitzarà.
  * 
  */
-typedef int (*selectorDeMoviment)(QuatreEnRatlla*, char, void*);
+typedef int (*selectorDeMoviment)(QuatreEnRatlla*, signed char, void*);
 
 
 
@@ -43,7 +49,7 @@ typedef struct contextHeuristica{
  * @return el número de la columna que el jugador ha dit que vol tirar. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void*ctx);
+int triarMovimentJugador(QuatreEnRatlla *partida, signed char jugador, void *ctx);
 
 
 /**
@@ -58,7 +64,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void*ctx);
  * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx);
+int triarMovimentBot(QuatreEnRatlla *partida, signed char jugador, void *ctx);
 
 
 /**
@@ -73,7 +79,7 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx);
  * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void*ctx);
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, signed char jugador, void*ctx);
 
 /**
  * @brief Utilitza el min-max per a trobar la millor jugada sense imprimir les decisions per pantalla.
@@ -87,6 +93,6 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void*ctx);
  * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
  * 
  */
-int triarMovimentBotSenseText(QuatreEnRatlla *partida, char jugador, void *ctx);
+int triarMovimentBotSenseText(QuatreEnRatlla *partida, signed char jugador, void *ctx);
 
 #endif // PARTIDES_H

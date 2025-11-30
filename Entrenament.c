@@ -3,14 +3,19 @@
 #include<time.h>
 
 #include"Xarxa.h"
-#include"partides.h"
 #include"4enratlla.h"
 #include"minmax.h"
 #include"Utilitats.h"
 #include"funcioUtilitat.h"
 #include"Entrenament.h"
+#include"conexioXarxa4EnRatlla.h"
 
 
+
+/**
+ * @file Entrenament.c
+ * @brief Fitxer que implementa les funcions necesàries per a l'entrenament de la CNN.
+ */
 
 
 
@@ -64,7 +69,7 @@ void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus){
                 }
             }
             if(!supervivent){
-                actualitzarXarxa(antigaGeneracio->poblacio[millorsIndividus[iSupervivent]], antigaGeneracio->poblacio[iXarxa], antigaGeneracio->learinngRate);
+                actualitzarXarxa(antigaGeneracio->poblacio[millorsIndividus[iSupervivent]], antigaGeneracio->poblacio[iXarxa], antigaGeneracio->learningRate);
             } 
         }
     }
@@ -239,6 +244,11 @@ void entrenamentPerEnfrentaments(Generacio *generacioXarxesJ1, Generacio *genera
     for(int i=0; i<iteracions; i++){
         printf("Iteració %i.\n", i);
         iteracioEvolutiva(generacioXarxesJ1, generacioXarxesJ2, partida);
+        if(i%5==0){
+            printf("Canviant LR\n");
+            generacioXarxesJ1->learningRate=generacioXarxesJ1->learningRate*0.7;
+            generacioXarxesJ2->learningRate=generacioXarxesJ1->learningRate;
+        }
     }
     
     for(int iXarxa=0; iXarxa<generacioXarxesJ1->midaPoblacio; iXarxa++) alliberarXarxa(generacioXarxesJ1->poblacio[iXarxa]);
@@ -271,7 +281,8 @@ void validacioValidacio(){
 }*/
 
 
-//gcc -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -O3 -o entrenament -lm
+//gcc -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c funcioUtilitat.c conexioXarxa4EnRatlla.c -O3 -o entrenament -lm
+
 
 void main(){
     srand(time(NULL));
@@ -283,7 +294,7 @@ void main(){
     generacioXarxesJ1.nombreFills = 10; generacioXarxesJ2.nombreFills = 10;
     generacioXarxesJ1.midaPoblacio = generacioXarxesJ1.nombreSupervivents*generacioXarxesJ1.nombreFills;
     generacioXarxesJ2.midaPoblacio = generacioXarxesJ2.nombreSupervivents*generacioXarxesJ2.nombreFills;
-    generacioXarxesJ1.learinngRate = 1; generacioXarxesJ2.learinngRate = 1;
+    generacioXarxesJ1.learningRate = 7; generacioXarxesJ2.learningRate = 7;
 
     QuatreEnRatlla taulellEntrenament;
     inicialitzarQuatreEnRatlla(&taulellEntrenament, 8, 8, 4);

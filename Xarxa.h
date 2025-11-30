@@ -4,6 +4,11 @@
 #include"4enratlla.h"
 
 
+/**
+ * @file Xarxa.h
+ */
+
+
 
 #define ACTIVACIO leakyReLU
 
@@ -18,7 +23,7 @@ typedef double (*funcioReal)(double);
  */
 typedef struct capaXarxa{
     int nombreKernels; /**<Nombre de kernels que té la capa */
-    double ****kerners; /**<Nuclis de la capa */
+    double ****kernels; /**<Nuclis de la capa */
     double *biaixos; /**<Biaixos de cada kernel */
     funcioReal funcioActivacio; /**< La funció d'activació que fa servir la capa */
     int dimKer; /**<Dimensió dels kernels */
@@ -194,4 +199,4 @@ XarxaNeuronal *carregarXarxa(const char *filename);
  */
 double wrapperXarxa(QuatreEnRatlla *partida, void *xarxa);
 
-#endif
+#endif //XARXA_H

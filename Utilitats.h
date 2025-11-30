@@ -3,6 +3,10 @@
 
 
 
+/**
+ * @file Utilitats.h
+ */
+
 
 /**
  * @brief Donat un array de matrius amb el mateix nombre de files, les allibera totes.
@@ -48,6 +52,9 @@ int *trobarKMaxims(int *llista, int midaLlista, int k);
 
 /**
  * @brief Genera un nombre aleatori amb una distribució aproximada de la normal estandar
+ * 
+ * @warning S'ha de vigilar perque aquesta funció no es pot fer servir en paral·le degut a que fa servir variables static.
+ * 
  * 
  * @return el nombre aleatori
  */

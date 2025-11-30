@@ -8,8 +8,14 @@
 #include <stdio.h>
 
 
+/**
+ * @file minmax.c
+ * @brief Fitxer que implementa l'algorisme del minMax.
+ */
 
-int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica){
+
+
+int minMax(QuatreEnRatlla *partida, signed char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica){
     int dumy1 = 0;
     double dumy2;
     
@@ -18,8 +24,8 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeur
 }
 
 
-int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica){
-    char jugador = (nivellNode % 2 == 0) ? jugadorOriginal : -jugadorOriginal;
+int iteracioMinmax(QuatreEnRatlla *partida, signed char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica){
+    signed char jugador = (nivellNode % 2 == 0) ? jugadorOriginal : -jugadorOriginal;
     int nCols = partida->ncols;
     nivellNode++;
 
@@ -58,7 +64,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
 
 
 
-bool detectarArrel(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica){
+bool detectarArrel(QuatreEnRatlla *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica){
     double multiplicador = -1;
     if (profunditat%2==0) multiplicador = 1;
     //Aquesta part es necessaria xq puntuacioPerAdj no te en compte a quin jugador li toca

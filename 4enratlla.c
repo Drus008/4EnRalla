@@ -7,11 +7,18 @@
 #include <stdlib.h>
 
 
+
+/**
+ * @file 4enratlla.c
+ * @brief Fitxer que implementa les funcions básiques per a poder jugar una partida del cuatre en ratlla.
+ * 
+ */
+
 void imprimirQuateEnRatlla(QuatreEnRatlla *partida){
     for(int fil = 0; fil<partida->nfiles; fil++){
         for(int col = 0; col<partida->ncols; col++){
             if((partida->tauler)[fil][col]==1) printf("|🟥");
-            else if((partida->tauler)[fil][col]==-1) printf("|🟦"); 
+            else if((partida->tauler)[fil][col]==-1) printf("|🟨"); 
             else(printf("|  "));
         }
         printf("|\n");
@@ -34,9 +41,9 @@ void inicialitzarQuatreEnRatlla(QuatreEnRatlla *partida, int nFils, int nCols, i
     partida->ncols = nCols;
     partida->nfiles = nFils;
     partida->nVictoria = nVictoria;
-    partida->tauler = malloc(sizeof(char*)*nFils);
+    partida->tauler = malloc(sizeof(signed char*)*nFils);
     for(int fil=0; fil<nFils; fil++){
-        partida->tauler[fil] = malloc(sizeof(char*)*nCols);
+        partida->tauler[fil] = malloc(sizeof(signed char*)*nCols);
         for(int col=0; col<nCols; col++) partida->tauler[fil][col] = 0;
     }
 }
@@ -52,7 +59,7 @@ bool comprovarColumnaPlena(QuatreEnRatlla *partida, int moviment){
     else return true;
 }
 
-void realitzarMoviment(QuatreEnRatlla *partida, int moviment, char jugador){
+void realitzarMoviment(QuatreEnRatlla *partida, int moviment, signed char jugador){
     for(int fil = partida->nfiles-1; fil>=0; fil--){
         if(partida->tauler[fil][moviment]==0) {
             partida->tauler[fil][moviment] = jugador;
@@ -77,7 +84,7 @@ int filaSuperior(QuatreEnRatlla *partida, int columna){
 
 // Aquest codi és horrible, estaria bé una funció que ho englobes tot i fos eficient
 bool comprovarSolucioHoritzontal(QuatreEnRatlla *partida, int fila, int col){
-    char casellaInicial = partida->tauler[fila][col]; //Crec que es millor si això ho paso com a parametre en les 4 funcions
+    signed char casellaInicial = partida->tauler[fila][col]; //Crec que es millor si això ho paso com a parametre en les 4 funcions
     int comptadorFitxer = 1;
     int nVictoria = partida->nVictoria; //Crec que també és millor passar això com a paràmetre
     for(int i=1; i<nVictoria; i++){
@@ -97,7 +104,7 @@ bool comprovarSolucioHoritzontal(QuatreEnRatlla *partida, int fila, int col){
     return false;
 }
 bool comprovarSolucioVertical(QuatreEnRatlla *partida, int fila, int col){
-    char casellaInicial = partida->tauler[fila][col];
+    signed char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
     int nVictoria = partida->nVictoria;
     for(int i=1; i<nVictoria; i++){
@@ -110,7 +117,7 @@ bool comprovarSolucioVertical(QuatreEnRatlla *partida, int fila, int col){
     return false;
 }
 bool comprovarSolucioDiagonal1(QuatreEnRatlla *partida, int fila, int col){
-    char casellaInicial = partida->tauler[fila][col];
+    signed char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
     int nVictoria = partida->nVictoria;
     for(int i=1; i<nVictoria; i++){
@@ -130,7 +137,7 @@ bool comprovarSolucioDiagonal1(QuatreEnRatlla *partida, int fila, int col){
     return false;
 }
 bool comprovarSolucioDiagonal2(QuatreEnRatlla *partida, int fila, int col){
-    char casellaInicial = partida->tauler[fila][col];
+    signed char casellaInicial = partida->tauler[fila][col];
     int comptadorFitxer = 1;
     int nVictoria = partida->nVictoria;
     for(int i=1; i<nVictoria; i++){

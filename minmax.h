@@ -9,7 +9,10 @@
 
 #define PROFUNDITAT 3
 
-/** @todo s'hauria de ficar la prodfunditat com a paràmetre */
+/**
+ * @file minmax.h
+ * @todo s'hauria de ficar la prodfunditat com a paràmetre.
+ */
 
 /**
  * @brief Comença l'algorisme del MinMax
@@ -19,7 +22,7 @@
  * @param fHeuristica és la funció heurísitca que s'utilitza per a fer el minmax.
  * @param ctxHeuristica és una estructura que conté dades necesàries per a la funció heurística.
  */
-int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica);
+int minMax(QuatreEnRatlla *partida, signed char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica);
 
 /**
  * @brief realitza l'algorisme del MinMax
@@ -38,7 +41,7 @@ int minMax(QuatreEnRatlla *partida, char jugadorOriginal, funcioHeuristica fHeur
  * 
  * 
  */
-int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica);
+int iteracioMinmax(QuatreEnRatlla *partida, signed char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica);
 
 
 /**
@@ -62,7 +65,7 @@ int iteracioMinmax(QuatreEnRatlla *partida, char jugadorOriginal, int nivellNode
  * 
  * @return retorna cert en cas de que el node sigui una fulla i false en cas contrari.
  */
-bool detectarArrel(QuatreEnRatlla *partida, int moviment, char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica);
+bool detectarArrel(QuatreEnRatlla *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica);
 
 
 /**

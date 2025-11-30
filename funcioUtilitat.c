@@ -3,6 +3,11 @@
 
 
 
+/**
+ * @file funcioUtilitat.c
+ * @brief Fitxer que implementa una funció heurísitca que valora l'adjacència.
+ */
+
 void comptarFitxesAdjacents(QuatreEnRatlla *partida, int fila, int col, int* fitxesJ1, int* fitxesJ2){
     for(int i=fila-1; i<fila+2; i++){
         for(int j=col-1; j<col+2; j++){

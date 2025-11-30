@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<math.h>
+#include <math.h>
+
+
+/**
+ * @file Utilitats.c
+ * @brief Fitxer que inclou funcions amb utilitats diverses sense dependències.
+ */
+
 
 void alliberarLlistaMatrius(double ***llistaMatrius, int nMatrius, int dimFil){
     for(int i = 0; i<nMatrius; i++){
@@ -23,7 +30,7 @@ void imprimirMatriu(double **matriu, int dimFil, int dimCol){
 }
 
 double **deepCopyMatriu(double **matriu, int dimFil, int dimCol){
-    double **copiaMatriu = malloc(sizeof(double)*dimFil);
+    double **copiaMatriu = malloc(sizeof(double*)*dimFil);
     for(int f=0; f<dimFil; f++){
         copiaMatriu[f] = malloc(sizeof(double)*dimCol);
         for(int c=0;c<dimCol; c++) copiaMatriu[f][c] = matriu[f][c];

@@ -1,7 +1,11 @@
+#ifndef ENTRENAMENT_H
+#define ENTRENAMENT_H
 
 #include"Xarxa.h"
 
-
+/**
+ * @file Entrenament.h
+ */
 
 
 /**
@@ -13,7 +17,7 @@ typedef struct generacio{
     int nombreSupervivents; /**<El nombre de supervivents d'una iteració */
     int nombreFills; /**<El nombre de fills que té cada supervivent */
     int midaPoblacio; /**<La mida total de la població (ha de ser nombreSupervivents*midaPoblacio) */
-    int learinngRate; /**<El ratio d'aprenentatge */
+    double learningRate; /**<El ratio d'aprenentatge */
 }Generacio;
 
 
@@ -51,6 +55,9 @@ int enfrentamentXarxes(XarxaNeuronal *J1, XarxaNeuronal *J2);
  * 
  * @param antigaGeneracio és la generació que es vol evolucionar.
  * @param millorsIndividus és un array amb els index del millors indiviuds de la generació.
+ * 
+ * Per la implementació que s'ha dut a terme, pot ser que alguns pares tinguin menys o més fills que el que els hi pertoca.
+ * S'ha considerar que aquesta aleatorietat afegida no afecta a l'entrenament.
  * 
  */
 void crearNovaGeneracio(Generacio *antigaGeneracio, int *millorsIndividus);
@@ -94,7 +101,7 @@ void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictor
  * Cada fila és una nova validació.
  * 
  * @param llistaXarxesJ1 és l'array de CNN que es volen avaluar en el primer torn de partida.
- * @param llistaXarxesJ1 és l'array de CNN que es volen avaluar en el segon torn de partida.
+ * @param llistaXarxesJ2 és l'array de CNN que es volen avaluar en el segon torn de partida.
  * @param nXarxesJ1 és la longitut de l'array llista xarxes de primer torn.
  * @param nXarxesJ2 és la longitut de l'array llista xarxes de segon torn.
  * @param partida és el taulell on es validaran les xarxes
@@ -125,3 +132,4 @@ void iteracioEvolutiva(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ
  * 
  */
 void entrenamentPerEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarxesJ2, QuatreEnRatlla *partida, int iteracions);
+#endif // ENTRENAMENT_H

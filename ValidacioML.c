@@ -4,6 +4,14 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+/**
+ * @file ValidacioML.c
+ * @brief Fitxer per a validar les xarxes.
+ * 
+ * @warning Segurament està anticuat i algunes funcións d'han d'actualitzar.
+ * 
+ */
+
 
 
 void exempleConvolucio(){
@@ -45,9 +53,9 @@ void exempleCapa(){
     capa.funcioActivacio = ACTIVACIO;
 
     /* Reservar array de kernels (cada kernel és un tensor 3D) */
-    capa.kerners = malloc(sizeof(double***) * capa.nombreKernels);
+    capa.kernels = malloc(sizeof(double***) * capa.nombreKernels);
     capa.biaixos = malloc(sizeof(double) * capa.nombreKernels);
-    if(!capa.kerners || !capa.biaixos){
+    if(!capa.kernels || !capa.biaixos){
         perror("malloc capa arrays");
         return;
     }
@@ -78,18 +86,18 @@ void exempleCapa(){
     /* Reservar tots els kernels com tensors 3D (nombreKernels x profunditat x dimKer x dimKer) */
     for(int k=0; k<capa.nombreKernels; k++){
         /* Cada kernel[k] és un tensor 3D: profunditat canals, cadascun dimKer x dimKer */
-        capa.kerners[k] = malloc(capa.nMatrius * sizeof(double**));
-        if(!capa.kerners[k]){ perror("malloc kernel[k]"); return; }
+        capa.kernels[k] = malloc(capa.nMatrius * sizeof(double**));
+        if(!capa.kernels[k]){ perror("malloc kernel[k]"); return; }
         
         for(int iKer=0; iKer<capa.nMatrius; iKer++){
-            capa.kerners[k][iKer] = malloc(capa.dimKer * sizeof(double*));
-            if(!capa.kerners[k][iKer]){ perror("malloc kernel[k][iKer]"); return; }
+            capa.kernels[k][iKer] = malloc(capa.dimKer * sizeof(double*));
+            if(!capa.kernels[k][iKer]){ perror("malloc kernel[k][iKer]"); return; }
             
             for(int i=0; i<capa.dimKer; i++){
-                capa.kerners[k][iKer][i] = malloc(capa.dimKer * sizeof(double));
-                if(!capa.kerners[k][iKer][i]){ perror("malloc kernel[k][iKer][i]"); return; }
+                capa.kernels[k][iKer][i] = malloc(capa.dimKer * sizeof(double));
+                if(!capa.kernels[k][iKer][i]){ perror("malloc kernel[k][iKer][i]"); return; }
                 for(int j=0; j<capa.dimKer; j++){
-                    capa.kerners[k][iKer][i][j] = 0.0;
+                    capa.kernels[k][iKer][i][j] = 0.0;
                 }
             }
         }
@@ -100,12 +108,12 @@ void exempleCapa(){
         for(int iKer=0; iKer<capa.nMatrius; iKer++){
             for(int i=1; i<4; i++){
                 if(iKer==0){
-                    capa.kerners[k][iKer][i][1] = 1.0;
-                    capa.kerners[k][iKer][i][3] = -1.0;
+                    capa.kernels[k][iKer][i][1] = 1.0;
+                    capa.kernels[k][iKer][i][3] = -1.0;
                 }
                 else{
-                    capa.kerners[k][iKer][1][i] = 1.0;
-                    capa.kerners[k][iKer][3][i] = -1.0;
+                    capa.kernels[k][iKer][1][i] = 1.0;
+                    capa.kernels[k][iKer][3][i] = -1.0;
                 }
                 
             }
@@ -113,7 +121,7 @@ void exempleCapa(){
     }
     printf("Kernels:\n");
     for(int i=0; i<capa.nombreKernels; i++) for(int j=0; j<capa.nMatrius;j++){
-        imprimirMatriu(capa.kerners[i][j], capa.dimKer, capa.dimKer);
+        imprimirMatriu(capa.kernels[i][j], capa.dimKer, capa.dimKer);
         printf("\n");
     }
     
@@ -155,13 +163,13 @@ void exempleCapa(){
     for(int k=0; k<capa.nombreKernels; k++){
         for(int iKer=0; iKer<capa.nMatrius; iKer++){
             for(int i=0; i<capa.dimKer; i++){
-                free(capa.kerners[k][iKer][i]);
+                free(capa.kernels[k][iKer][i]);
             }
-            free(capa.kerners[k][iKer]);
+            free(capa.kernels[k][iKer]);
         }
-        free(capa.kerners[k]);
+        free(capa.kernels[k]);
     }
-    free(capa.kerners);
+    free(capa.kernels);
     free(capa.biaixos);
 
     printf("exempleCapa finalitzat i memòria alliberada\n");

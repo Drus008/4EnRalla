@@ -6,13 +6,21 @@
 
 
 
+/**
+ * @file Xarxa.c
+ * 
+ * @brief Fitxer que inclou totes les funcions relacionades les operacions de les CNN.
+
+ * @todo Crec que milloraría bastant la velocitat si s'implementes paralelització amb la gràfica. Per a fer això s'auria de canviar l'struct capaXarxa per a que uses double *kernel enlloc de ****kerner per a així usar memòria contigua.
+ */
+
 void imprimirCapa(CapaXarxa *capa){
     printf("nKers: %i, dimKers: %i, dimMats: %ix%i\n", capa->nombreKernels, capa->dimKer, capa->dimFil, capa->dimCol);
     for(int iKer=0; iKer<capa->nombreKernels; iKer++){
         printf("Imprimint ker %i: Biaix: %.2lf\n", iKer,capa->biaixos[iKer]);
         for(int p=0;p<capa->nMatrius;p++){
             printf(" Imprimint slice %i:\n", p);
-            imprimirMatriu(capa->kerners[iKer][p], capa->dimKer, capa->dimKer);
+            imprimirMatriu(capa->kernels[iKer][p], capa->dimKer, capa->dimKer);
             printf("\n");
         }
         printf("\n");
@@ -65,7 +73,7 @@ double ***aplicarCapa(double ***llistaMatrius, CapaXarxa *capa){
         matriusProcessades[iKer] = aplicarKer(
             llistaMatrius,
             capa->dimFil, capa->dimCol, capa->nMatrius,
-            (capa->kerners)[iKer],
+            (capa->kernels)[iKer],
             capa->dimKer,
             (capa->biaixos)[iKer],
             capa->funcioActivacio);
@@ -114,16 +122,16 @@ CapaXarxa *crearCapaAleatoria(int dimKer, int nKer, int profunditatKer, int dimF
     novaCapa->funcioActivacio = ACTIVACIO;
     novaCapa->dimFil = dimFilIn; novaCapa->dimCol = dimColIn;
 
-    novaCapa->kerners = malloc(sizeof(double***)*nKer);
+    novaCapa->kernels = malloc(sizeof(double***)*nKer);
     novaCapa->biaixos = malloc(sizeof(double)*nKer);
     for(int iKer=0;iKer<nKer; iKer++){
-        novaCapa->kerners[iKer] = malloc(sizeof(double**)*profunditatKer);
+        novaCapa->kernels[iKer] = malloc(sizeof(double**)*profunditatKer);
         novaCapa->biaixos[iKer] = 5*(((double)rand())/RAND_MAX - 0.5);
         for(int p=0; p<profunditatKer; p++){
-            novaCapa->kerners[iKer][p] = malloc(sizeof(double*)*dimKer);
+            novaCapa->kernels[iKer][p] = malloc(sizeof(double*)*dimKer);
             for(int f=0; f<dimKer; f++){
-                novaCapa->kerners[iKer][p][f] = malloc(sizeof(double)*dimKer);
-                for(int c=0; c<dimKer; c++) novaCapa->kerners[iKer][p][f][c] = 5*(((double)rand())/RAND_MAX - 0.5);
+                novaCapa->kernels[iKer][p][f] = malloc(sizeof(double)*dimKer);
+                for(int c=0; c<dimKer; c++) novaCapa->kernels[iKer][p][f][c] = 5*(((double)rand())/RAND_MAX - 0.5);
             }
         }
     }
@@ -162,13 +170,13 @@ void alliberarXarxa(XarxaNeuronal *xarxa) {
         for (int k = 0; k < capa->nombreKernels; k++) {
             for (int m = 0; m < capa->nMatrius; m++) {
                 for (int f = 0; f < capa->dimKer; f++) {
-                    free(capa->kerners[k][m][f]);
+                    free(capa->kernels[k][m][f]);
                 }
-                free(capa->kerners[k][m]);
+                free(capa->kernels[k][m]);
             }
-            free(capa->kerners[k]);
+            free(capa->kernels[k]);
         }
-        free(capa->kerners);
+        free(capa->kernels);
         free(capa->biaixos);
         free(capa);
     }
@@ -185,7 +193,7 @@ void actualitzarXarxa(XarxaNeuronal *xarxaOriginal, XarxaNeuronal *xarxaFilla, d
             for(int p=0; p<capaActual->nMatrius; p++){
                 for(int f=0; f<capaActual->dimKer; f++) for(int c=0; c<capaActual->dimKer; c++){
                     //printf("capa:%i, iKer:%i, p:%i, f:%i, c:%i\n", capa, iKer, p, f, c);
-                    capaActual->kerners[iKer][p][f][c] = capaOriginal->kerners[iKer][p][f][c] + rand_normal_fast()*sigma; 
+                    capaActual->kernels[iKer][p][f][c] = capaOriginal->kernels[iKer][p][f][c] + rand_normal_fast()*sigma; 
                 }
             }
         }
@@ -218,7 +226,7 @@ void desarXarxa(XarxaNeuronal *xarxa, const char *filename) {
         for (int k = 0; k < capa->nombreKernels; k++) {
             for (int m = 0; m < capa->nMatrius; m++) {
                 for (int iFila = 0; iFila < capa->dimKer; iFila++) {
-                    fwrite(capa->kerners[k][m][iFila], sizeof(double), capa->dimKer, f);
+                    fwrite(capa->kernels[k][m][iFila], sizeof(double), capa->dimKer, f);
                 }
             }
         }
@@ -253,14 +261,14 @@ XarxaNeuronal *carregarXarxa(const char *filename){
         fread(capa->biaixos, sizeof(double), capa->nombreKernels, f);
 
         
-        capa->kerners = malloc(capa->nombreKernels * sizeof(double***));
+        capa->kernels = malloc(capa->nombreKernels * sizeof(double***));
         for (int k = 0; k < capa->nombreKernels; k++) {
-            capa->kerners[k] = malloc(capa->nMatrius * sizeof(double**));
+            capa->kernels[k] = malloc(capa->nMatrius * sizeof(double**));
             for (int m = 0; m < capa->nMatrius; m++) {
-                capa->kerners[k][m] = malloc(capa->dimKer * sizeof(double*));
+                capa->kernels[k][m] = malloc(capa->dimKer * sizeof(double*));
                 for (int iFila = 0; iFila < capa->dimKer; iFila++) {
-                    capa->kerners[k][m][iFila] = malloc(capa->dimKer * sizeof(double));
-                    fread(capa->kerners[k][m][iFila], sizeof(double), capa->dimKer, f);
+                    capa->kernels[k][m][iFila] = malloc(capa->dimKer * sizeof(double));
+                    fread(capa->kernels[k][m][iFila], sizeof(double), capa->dimKer, f);
                 }
             }
         }
@@ -273,24 +281,3 @@ XarxaNeuronal *carregarXarxa(const char *filename){
     return xarxa;
 }
 
-
-//Potser això s'hauria de moure a un altre fitxer
-#include "4enratlla.h"
-
-double wrapperXarxa(QuatreEnRatlla *partida, void *xarxaCtx){
-
-    XarxaNeuronal *xarxa = (XarxaNeuronal*) xarxaCtx;
-
-    int nFil = partida->nfiles; int nCol = partida->ncols;
-    double **matriu = malloc(sizeof(double*)*nFil);
-    for(int f=0; f<partida->nfiles; f++){
-        matriu[f] = malloc(sizeof(double)*nCol);
-        for(int c=0;c<partida->ncols;c++){
-            matriu[f][c] = (double) (partida->tauler[f][c]);
-        }
-    }
-    double resultat = aplicarXarxa(matriu, xarxa);
-    for(int f=0; f<nFil; f++) free(matriu[f]);
-    free(matriu);
-    return resultat;
-}

@@ -3,7 +3,9 @@
 #include "partides.h"
 #include "funcioUtilitat.h"
 
-#include"Xarxa.h"
+#include "Xarxa.h"
+#include "conexioXarxa4EnRatlla.h"
+
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -11,10 +13,15 @@
 #include <unistd.h>
 #include <time.h>   
 
-
 #define PROBABILITAT_ALEATORI 0.01
 
-int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
+/**
+ * @file partides.c
+ * @brief Fitxer que inclou totes les funcions relacionades amb la interfície de la partida i la tria de moviments.
+ */
+
+
+int triarMovimentJugador(QuatreEnRatlla *partida, signed char jugador, void *ctx){
     int moviment = -1;
     while (moviment==-1){
         printf("Intodueix una columna: ");
@@ -35,7 +42,7 @@ int triarMovimentJugador(QuatreEnRatlla *partida, char jugador, void *ctx){
     return moviment;
 }
 
-int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx){
+int triarMovimentBot(QuatreEnRatlla *partida, signed char jugador, void *ctx){
     ContextHeuristica *context = (ContextHeuristica*) ctx;
 
     int index;
@@ -50,7 +57,8 @@ int triarMovimentBot(QuatreEnRatlla *partida, char jugador, void *ctx){
     return moviment;
 }
 
-int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void *ctx){
+int triarMovimentBotAleatori(QuatreEnRatlla *partida, signed char jugador, void *ctx){
+    if(ctx==NULL) fprintf(stderr, "(triarMovimentBotSenseText): No s'ha especificat cap funció heurística.");
     ContextHeuristica *context = (ContextHeuristica*) ctx;
 
     int index;
@@ -76,7 +84,8 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, char jugador, void *ctx){
 }
 
 
-int triarMovimentBotSenseText(QuatreEnRatlla *partida, char jugador, void *ctx){
+int triarMovimentBotSenseText(QuatreEnRatlla *partida, signed char jugador, void *ctx){
+    if(ctx==NULL) fprintf(stderr, "(triarMovimentBotSenseText): No s'ha especificat cap funció heurística.");
     ContextHeuristica *context = (ContextHeuristica*) ctx;
 
     int index;
@@ -96,14 +105,14 @@ void iniciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, 
     QuatreEnRatlla prova;
     inicialitzarQuatreEnRatlla(&prova, 8, 8, 4);
     bool partidaEnCurs = true;
-    char jugadors[2] = {1, -1};
+    signed char jugadors[2] = {1, -1};
     
     while (partidaEnCurs){
         for(int i=0; i<2; i++){
             sleep(esperaEntreTorns);
             imprimirQuateEnRatlla(&prova);
             if(i==0) printf("Torn del jugador 1 🟥. A quina columna vols ficar la peça?\n");
-            else printf("Torn del jugador 2 🟦. A quina columna vols ficar la peça?\n"); 
+            else printf("Torn del jugador 2 🟨. A quina columna vols ficar la peça?\n"); 
 
             int moviment;
             if(jugadors[i]==1) moviment = decisioJ1(&prova, jugadors[i], ctx);
@@ -147,7 +156,7 @@ void validacioXarxa(){
     nDimKer[0] = 3; nDimKer[1] = 3;
     
     int *LlistaNKer = malloc(sizeof(int)*2);
-    nDimKer[0] = 3; nDimKer[1] = 3;
+    LlistaNKer[0] = 3; LlistaNKer[1] = 3;
     XarxaNeuronal *xarxa = crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
     XarxaNeuronal *xarxa2 = carregarXarxa("XarxaCalculadaJ2 2.DrusCNN"); //crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
 
@@ -175,8 +184,8 @@ void validacioNormal(){
     iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &ctx);
 }
 
-//gcc -g -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c -O3 -o partida -lm
-/*
+//gcc -g -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c conexioXarxa4EnRatlla.c -O3 -o partida -lm
+
 int main(){
     validacioXarxa();
-}*/
+}
