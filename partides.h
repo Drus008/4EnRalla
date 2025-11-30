@@ -81,18 +81,5 @@ int triarMovimentBot(QuatreEnRatlla *partida, signed char jugador, void *ctx);
  */
 int triarMovimentBotAleatori(QuatreEnRatlla *partida, signed char jugador, void*ctx);
 
-/**
- * @brief Utilitza el min-max per a trobar la millor jugada sense imprimir les decisions per pantalla.
- * 
- * La funció per decidir el moviment s'ha de pasar com a context.
- * 
- * @param partida és un apuntador a la partida que s'està jugant.
- * @param jugador és el jugador que fa el moviment.
- * @param ctx serveix per a passar paràmetres extra (con funcions heurístiques) però preservant el tipus selectorDeMoviment. Aquest ha de ser de la classe context heurística.
- * 
- * @return el número de la columna que l'algorisme ha decidit. Sempre retorna un moviment vàlid
- * 
- */
-int triarMovimentBotSenseText(QuatreEnRatlla *partida, signed char jugador, void *ctx);
 
 #endif // PARTIDES_H

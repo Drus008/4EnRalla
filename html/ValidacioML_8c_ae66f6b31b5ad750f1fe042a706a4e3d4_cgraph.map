@@ -1,0 +1,13 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" id="node2" href="$ValidacioML_8c.html#a4aee655376a86cc07426725a65d80936" title=" " alt="" coords="108,132,269,159"/>
+<area shape="rect" id="node3" href="$Xarxa_8c.html#a1bbebbdf163044aa5b88d10b0a535921" title="Donada una matriu li aplica una xarxa neuronal." alt="" coords="341,56,445,83"/>
+<area shape="rect" id="node7" href="$Xarxa_8c.html#a763d51345431fa02cbc0397c893985c8" title="Crea una xarxa amb valors aleatoris." alt="" coords="317,107,469,133"/>
+<area shape="rect" id="node9" href="$Utilitats_8c.html#ad641e227f8675778fd84b786da5eea23" title="Imprimeix una matriu." alt="" coords="725,183,845,209"/>
+<area shape="rect" id="node10" href="$Xarxa_8c.html#acba430e0f77a74c797561103b71584c5" title="Imprimeix els kernels de les capes d&#39;una xarxa." alt="" coords="335,208,451,235"/>
+<area shape="rect" id="node4" href="$Utilitats_8c.html#ac6db62cf8630c59d515cbb5d312f5195" title="Donat un array de matrius amb el mateix nombre de files, les allibera totes." alt="" coords="517,5,677,32"/>
+<area shape="rect" id="node5" href="$Xarxa_8c.html#a5ceaef28707ccc5e1b5b061da3f7c174" title="Donades una llista de matrius els hi aplica una capa d&#39;una CNN." alt="" coords="548,56,647,83"/>
+<area shape="rect" id="node6" href="$Xarxa_8c.html#a6825fab42104bb41270c1f2d0a23b5e8" title="Donades una llista de matrius de longitut igual a la profunditat del kernels d&#39;una llista,..." alt="" coords="742,56,829,83"/>
+<area shape="rect" id="node8" href="$Xarxa_8c.html#aa8d7c1af5fceacc8a1d872572124271c" title="Crea una capa amb núclis amb valors aleatoris." alt="" coords="524,107,671,133"/>
+<area shape="rect" id="node11" href="$Xarxa_8c.html#a0caf2ab21cb1291cc67eda87a4153d19" title="Imprimeix els kernels d&#39;una capa." alt="" coords="542,208,653,235"/>
+</map>

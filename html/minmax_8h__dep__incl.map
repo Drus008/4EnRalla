@@ -1,0 +1,6 @@
+<map id="minmax.h" name="minmax.h">
+<area shape="rect" id="node1" title=" " alt="" coords="147,5,235,32"/>
+<area shape="rect" id="node2" href="$Entrenament_8c.html" title="Fitxer que implementa les funcions necesàries per a l&#39;entrenament de la CNN." alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$minmax_8c.html" title="Fitxer que implementa l&#39;algorisme del minMax." alt="" coords="147,80,234,107"/>
+<area shape="rect" id="node4" href="$partides_8c.html" title="Fitxer que inclou totes les funcions relacionades amb la interfície de la partida i la tria de movime..." alt="" coords="258,80,345,107"/>
+</map>

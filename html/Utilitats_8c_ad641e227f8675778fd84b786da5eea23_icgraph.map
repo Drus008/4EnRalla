@@ -1,0 +1,14 @@
+<map id="imprimirMatriu" name="imprimirMatriu">
+<area shape="rect" id="node1" title="Imprimeix una matriu." alt="" coords="748,65,868,91"/>
+<area shape="rect" id="node2" href="$ValidacioML_8c.html#a4aee655376a86cc07426725a65d80936" title=" " alt="" coords="115,14,276,41"/>
+<area shape="rect" id="node4" href="$ValidacioML_8c.html#a15b4e25fb13c01f5ab8d9a1c0e9bcd54" title=" " alt="" coords="569,39,680,66"/>
+<area shape="rect" id="node5" href="$ValidacioML_8c.html#a852d503c48744f9aabec04cc6b860c49" title=" " alt="" coords="549,90,700,117"/>
+<area shape="rect" id="node6" href="$Xarxa_8c.html#a0caf2ab21cb1291cc67eda87a4153d19" title="Imprimeix els kernels d&#39;una capa." alt="" coords="569,141,680,167"/>
+<area shape="rect" id="node3" href="$ValidacioML_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,14,60,41"/>
+<area shape="rect" id="node7" href="$ValidacioML_8c.html#a330e5d94a46e1a0715dd8298d568ec06" title=" " alt="" coords="331,90,501,117"/>
+<area shape="rect" id="node8" href="$Xarxa_8c.html#acba430e0f77a74c797561103b71584c5" title="Imprimeix els kernels de les capes d&#39;una xarxa." alt="" coords="358,141,474,167"/>
+<area shape="rect" id="node9" href="$ValidacioML_8c.html#ab64363d646a1a9f432bdd1cfa29fb640" title=" " alt="" coords="118,90,273,117"/>
+<area shape="rect" id="node10" href="$ValidacioML_8c.html#a92fff55b2a66825de00b13bb9015d715" title=" " alt="" coords="108,141,283,167"/>
+<area shape="rect" id="node11" href="$partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="136,191,255,218"/>
+<area shape="rect" id="node12" href="$partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,191,60,218"/>
+</map>

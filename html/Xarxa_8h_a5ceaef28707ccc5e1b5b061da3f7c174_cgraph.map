@@ -1,0 +1,4 @@
+<map id="aplicarCapa" name="aplicarCapa">
+<area shape="rect" id="node1" title="Donades una llista de matrius els hi aplica una capa d&#39;una CNN." alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node2" href="$Xarxa_8c.html#a6825fab42104bb41270c1f2d0a23b5e8" title="Donades una llista de matrius de longitut igual a la profunditat del kernels d&#39;una llista,..." alt="" coords="152,5,239,32"/>
+</map>

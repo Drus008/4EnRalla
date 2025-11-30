@@ -101,6 +101,23 @@ void torneigEnfrentaments(Generacio *generacioXarxesJ1, Generacio *generacioXarx
 //Validació
 
 
+int triarMovimentBotSenseText(QuatreEnRatlla *partida, signed char jugador, void *ctx){
+    if(ctx==NULL) fprintf(stderr, "(triarMovimentBotSenseText): No s'ha especificat cap funció heurística.");
+    ContextHeuristica *context = (ContextHeuristica*) ctx;
+
+    int index;
+    if (jugador==1) index = 0;
+    else index = 1;
+
+    funcioHeuristica f = context->funcio[index];
+    double probabilitat = (double) rand() / RAND_MAX;
+    int moviment = minMax(partida, jugador, f, context->altres[index]);
+
+    realitzarMoviment(partida,moviment,jugador);
+    return moviment;
+}
+
+
 void validarXarxa(XarxaNeuronal *xarxa, int tornXarxa, int *nTorns, int *nVictories, QuatreEnRatlla *partida){
 
     reiniciarQuatreEnRatlla(partida);
@@ -240,14 +257,15 @@ void entrenamentPerEnfrentaments(Generacio *generacioXarxesJ1, Generacio *genera
 
 
     free(nDimKer); free(LlistaNKer);
-    printf("Iniciant entrenament");
+    printf("Iniciant entrenament\n");
     for(int i=0; i<iteracions; i++){
         printf("Iteració %i.\n", i);
         iteracioEvolutiva(generacioXarxesJ1, generacioXarxesJ2, partida);
         if(i%5==0){
-            printf("Canviant LR\n");
+            
             generacioXarxesJ1->learningRate=generacioXarxesJ1->learningRate*0.7;
             generacioXarxesJ2->learningRate=generacioXarxesJ1->learningRate;
+            printf("Canviant LR a J1:%lf, J2:%lf\n", generacioXarxesJ1->learningRate, generacioXarxesJ2->learningRate);
         }
     }
     
@@ -290,11 +308,11 @@ void main(){
 
     
     Generacio generacioXarxesJ1;Generacio generacioXarxesJ2;
-    generacioXarxesJ1.nombreSupervivents = 50; generacioXarxesJ2.nombreSupervivents = 50;
-    generacioXarxesJ1.nombreFills = 10; generacioXarxesJ2.nombreFills = 10;
+    generacioXarxesJ1.nombreSupervivents = 10; generacioXarxesJ2.nombreSupervivents = 10;
+    generacioXarxesJ1.nombreFills = 5; generacioXarxesJ2.nombreFills = 5;
     generacioXarxesJ1.midaPoblacio = generacioXarxesJ1.nombreSupervivents*generacioXarxesJ1.nombreFills;
     generacioXarxesJ2.midaPoblacio = generacioXarxesJ2.nombreSupervivents*generacioXarxesJ2.nombreFills;
-    generacioXarxesJ1.learningRate = 7; generacioXarxesJ2.learningRate = 7;
+    generacioXarxesJ1.learningRate = 1.4; generacioXarxesJ2.learningRate = 1.4;
 
     QuatreEnRatlla taulellEntrenament;
     inicialitzarQuatreEnRatlla(&taulellEntrenament, 8, 8, 4);

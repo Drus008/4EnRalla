@@ -50,7 +50,7 @@ A més es pot variar la profunditat de l'algorisme minmax amb la constant PROFUN
 Per a compilar la partida, utilitza la seguent comanda: 
 
 ```
-gcc -g -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c conexioXarxa4EnRatlla.c -O3 -o partida -lm
+gcc -g -fopenmp -funroll-loops -flto -march=native 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c conexioXarxa4EnRatlla.c -O3 -o partida
 ```
 
 ## Com s'utilitza
@@ -73,7 +73,7 @@ Per jugar contra la IA executa ./entrenament. Assegura't de que en compilar has 
 
 ### Estructura de la CNN
 * Entrada: Matriu del tauler (files x columnes).
-* Capes: Sistema flexible definit per l'usuari (actualment configurat amb capes convolucionals de kernels 3x3 i 5x5).
+* Capes: Sistema flexible definit per l'usuari (actualment configurat amb capes convolucionals de kernels 5x5 i 3x3).
 * Funcio d'Activacio: Leaky ReLU.
 * Sortida: Un unic valor (double) que representa l'avaluacio heuristica del tauler.
 

@@ -1,0 +1,21 @@
+<map id="triarMovimentXarxa" name="triarMovimentXarxa">
+<area shape="rect" id="node1" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="5,208,159,235"/>
+<area shape="rect" id="node2" href="$minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="226,144,301,171"/>
+<area shape="rect" id="node13" href="$4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf" title="Introdueix una fitxa d&#39;un jugador en una columna." alt="" coords="562,208,705,235"/>
+<area shape="rect" id="node15" href="$conexioXarxa4EnRatlla_8c.html#a47f1476c95a74ba92af4c3b0701631c7" title="Wraper que serveix per a donar a una xarxa el tipus de funció heurísica." alt="" coords="207,259,320,285"/>
+<area shape="rect" id="node3" href="$minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="368,132,492,159"/>
+<area shape="rect" id="node4" href="$4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad" title="Comprova si hi ha espai en una columna per a introduïr fitxes." alt="" coords="540,5,727,32"/>
+<area shape="rect" id="node5" href="$4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb" title="Desfar un moviment d&#39;una partida." alt="" coords="779,51,909,77"/>
+<area shape="rect" id="node7" href="$minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="580,107,687,133"/>
+<area shape="rect" id="node14" href="$minmax_8c.html#a490303fb0c6e221ad8c0fa460173eb3f" title="Compara el node actual amb el millor d&#39;aquella bifuració." alt="" coords="572,157,695,184"/>
+<area shape="rect" id="node6" href="$4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="1019,37,1115,64"/>
+<area shape="rect" id="node8" href="$4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="775,113,913,140"/>
+<area shape="rect" id="node9" href="$4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="964,88,1169,115"/>
+<area shape="rect" id="node10" href="$4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="964,139,1169,165"/>
+<area shape="rect" id="node11" href="$4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="961,189,1172,216"/>
+<area shape="rect" id="node12" href="$4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="973,240,1161,267"/>
+<area shape="rect" id="node16" href="$Xarxa_8c.html#a1bbebbdf163044aa5b88d10b0a535921" title="Donada una matriu li aplica una xarxa neuronal." alt="" coords="378,259,482,285"/>
+<area shape="rect" id="node17" href="$Utilitats_8c.html#ac6db62cf8630c59d515cbb5d312f5195" title="Donat un array de matrius amb el mateix nombre de files, les allibera totes." alt="" coords="553,259,713,285"/>
+<area shape="rect" id="node18" href="$Xarxa_8c.html#a5ceaef28707ccc5e1b5b061da3f7c174" title="Donades una llista de matrius els hi aplica una capa d&#39;una CNN." alt="" coords="584,309,683,336"/>
+<area shape="rect" id="node19" href="$Xarxa_8c.html#a6825fab42104bb41270c1f2d0a23b5e8" title="Donades una llista de matrius de longitut igual a la profunditat del kernels d&#39;una llista,..." alt="" coords="801,309,887,336"/>
+</map>

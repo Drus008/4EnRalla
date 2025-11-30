@@ -52,7 +52,7 @@ int triarMovimentBot(QuatreEnRatlla *partida, signed char jugador, void *ctx){
     funcioHeuristica f = context->funcio[index];
     
     int moviment = minMax(partida, jugador, f,context->altres[index]);
-    printf("Movent a %d\n", moviment+1);
+    printf("Movent a %d\n", moviment);
     realitzarMoviment(partida,moviment,jugador);
     return moviment;
 }
@@ -84,22 +84,6 @@ int triarMovimentBotAleatori(QuatreEnRatlla *partida, signed char jugador, void 
 }
 
 
-int triarMovimentBotSenseText(QuatreEnRatlla *partida, signed char jugador, void *ctx){
-    if(ctx==NULL) fprintf(stderr, "(triarMovimentBotSenseText): No s'ha especificat cap funció heurística.");
-    ContextHeuristica *context = (ContextHeuristica*) ctx;
-
-    int index;
-    if (jugador==1) index = 0;
-    else index = 1;
-
-    funcioHeuristica f = context->funcio[index];
-    double probabilitat = (double) rand() / RAND_MAX;
-    int moviment = minMax(partida, jugador, f, context->altres[index]);
-
-    realitzarMoviment(partida,moviment,jugador);
-    return moviment;
-}
-
 
 void iniciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, double esperaEntreTorns, void *ctx){
     QuatreEnRatlla prova;
@@ -119,8 +103,8 @@ void iniciarPartida(selectorDeMoviment decisioJ1, selectorDeMoviment decisioJ2, 
             else moviment = decisioJ2(&prova, jugadors[i], ctx);
 
             if(comprovarSolucio(&prova, moviment)){
-                printf("\nHA GUANYAT EL JUGADOR %d\n", 
-                       jugadors[i] == 1 ? 1 : 2); /** @todo */
+                if (i==0) printf("\nHA GUANYAT EL JUGADOR 1 🟥.\n");
+                else printf("\nHA GUANYAT EL JUGADOR 2 🟨.\n");
                 imprimirQuateEnRatlla(&prova);
                 partidaEnCurs = false;
                 break;
@@ -158,7 +142,7 @@ void validacioXarxa(){
     int *LlistaNKer = malloc(sizeof(int)*2);
     LlistaNKer[0] = 3; LlistaNKer[1] = 3;
     XarxaNeuronal *xarxa = crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
-    XarxaNeuronal *xarxa2 = carregarXarxa("XarxaCalculadaJ2 2.DrusCNN"); //crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
+    XarxaNeuronal *xarxa2 = carregarXarxa("XarxaEntrenadaJ2FINAL.DrusCNN"); //crearXarxaAleatoria(2,nDimKer, LlistaNKer,8,8);
 
     imprimirXarxa(xarxa2);
     if(xarxa==NULL){
@@ -183,8 +167,6 @@ void validacioNormal(){
     ctx.altres[1] = NULL;
     iniciarPartida(triarMovimentBot, triarMovimentJugador, 0, &ctx);
 }
-
-//gcc -g -fopenmp -funroll-loops -flto -march=native Entrenament.c 4enratlla.c  minmax.c Xarxa.c Utilitats.c partides.c funcioUtilitat.c conexioXarxa4EnRatlla.c -O3 -o partida -lm
 
 int main(){
     validacioXarxa();

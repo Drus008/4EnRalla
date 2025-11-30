@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IA 4 en ratlla amb CNN: Referència del Fitxer minmax.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IA 4 en ratlla amb CNN
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generat per Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('minmax_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funcions</a>  </div>
+  <div class="headertitle">
+<div class="title">Referència del Fitxer minmax.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fitxer que implementa l'algorisme del minMax.  
+<a href="#details">Més...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="4enratlla_8h_source.html">4enratlla.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="funcioUtilitat_8h_source.html">funcioUtilitat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="minmax_8h_source.html">minmax.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Inclou el graf de dependències per a minmax.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c__incl.png" border="0" usemap="#aminmax_8c" alt=""/></div>
+<map name="aminmax_8c" id="aminmax_8c">
+<area shape="rect" title="Fitxer que implementa l&#39;algorisme del minMax." alt="" coords="136,5,223,32"/>
+<area shape="rect" href="4enratlla_8h.html" title=" " alt="" coords="88,229,180,256"/>
+<area shape="rect" title=" " alt="" coords="93,304,176,331"/>
+<area shape="rect" href="funcioUtilitat_8h.html" title=" " alt="" coords="27,155,146,181"/>
+<area shape="rect" href="minmax_8h.html" title=" " alt="" coords="136,80,224,107"/>
+<area shape="rect" title=" " alt="" coords="248,80,319,107"/>
+<area shape="rect" title=" " alt="" coords="343,80,411,107"/>
+<area shape="rect" title=" " alt="" coords="436,80,502,107"/>
+<area shape="rect" href="partides_8h.html" title=" " alt="" coords="222,155,308,181"/>
+</map>
+</div>
+</div>
+<p><a href="minmax_8c_source.html">Veure el codi d'aquest fitxer.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funcions</h2></td></tr>
+<tr class="memitem:a08fe058023cd5ca34ba806f8702c275b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b">minMax</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, signed char jugadorOriginal, <a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, void *ctxHeuristica)</td></tr>
+<tr class="memdesc:a08fe058023cd5ca34ba806f8702c275b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comença l'algorisme del MinMax.  <a href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b">Més...</a><br /></td></tr>
+<tr class="separator:a08fe058023cd5ca34ba806f8702c275b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5780a3adfddd1f51a535994a2cf6d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2">iteracioMinmax</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, signed char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, <a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, void *ctxHeuristica)</td></tr>
+<tr class="memdesc:a9d5780a3adfddd1f51a535994a2cf6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">realitza l'algorisme del MinMax  <a href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2">Més...</a><br /></td></tr>
+<tr class="separator:a9d5780a3adfddd1f51a535994a2cf6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad0c851b44cf3592fdb91f3ad52fcc6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6">detectarArrel</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, <a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, void *ctxHeuristica)</td></tr>
+<tr class="memdesc:a8ad0c851b44cf3592fdb91f3ad52fcc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestiona les arrels de l'arbre Donat un node comprova si:  <a href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6">Més...</a><br /></td></tr>
+<tr class="separator:a8ad0c851b44cf3592fdb91f3ad52fcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490303fb0c6e221ad8c0fa460173eb3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minmax_8c.html#a490303fb0c6e221ad8c0fa460173eb3f">triaMillorTirada</a> (int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual)</td></tr>
+<tr class="memdesc:a490303fb0c6e221ad8c0fa460173eb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara el node actual amb el millor d'aquella bifuració.  <a href="minmax_8c.html#a490303fb0c6e221ad8c0fa460173eb3f">Més...</a><br /></td></tr>
+<tr class="separator:a490303fb0c6e221ad8c0fa460173eb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
+<div class="textblock"><p>Fitxer que implementa l'algorisme del minMax. </p>
+
+<p class="definition">Definició al fitxer <a class="el" href="minmax_8c_source.html">minmax.c</a>.</p>
+</div><h2 class="groupheader">Documentació de les Funcions</h2>
+<a id="a8ad0c851b44cf3592fdb91f3ad52fcc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad0c851b44cf3592fdb91f3ad52fcc6">&#9670;&nbsp;</a></span>detectarArrel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool detectarArrel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moviment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">signed char&#160;</td>
+          <td class="paramname"><em>jugadorOriginal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>valoracio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>profunditat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a>&#160;</td>
+          <td class="paramname"><em>fHeuristica</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctxHeuristica</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestiona les arrels de l'arbre Donat un node comprova si: </p>
+<ul>
+<li>El moviment provoca una victoria (i aleshores assigna INF en cas de ser el jugador original i -INF en cas de ser l'altre)</li>
+<li>El moviment es de la profunditat màxima de l'arbre (i aleshores assigna la punuació corresponent si el jugador és l'original és el primer i l'oposat si és l'altre)</li>
+</ul>
+<p>En cas de detectar alguna d'aquestes coses s'assigna fulla=true al node i és retorna true En cas contrari retorna false.</p>
+<p>No modifica l'estat acutal de la partida.</p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és l'estat de la partida que es vol puntuar. </td></tr>
+    <tr><td class="paramname">moviment</td><td>és el l'últim moviment fet per a arribar a aquest estat. </td></tr>
+    <tr><td class="paramname">jugadorOriginal</td><td>és el jugador que està fent el moviment actual. </td></tr>
+    <tr><td class="paramname">valoracio</td><td>és el un aptuntador per on es retornarà la valoració del node. </td></tr>
+    <tr><td class="paramname">profunditat</td><td>és a la profunditat que ens trobem a l'arbre. </td></tr>
+    <tr><td class="paramname">fHeuristica</td><td>és la funció heurística que s'usarà per a puntuar les fulles. </td></tr>
+    <tr><td class="paramname">ctxHeuristica</td><td>son altres paràmetres que pot requerir la heurística.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>retorna cert en cas de que el node sigui una fulla i false en cas contrari. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="minmax_8c_source.html#l00067">67</a> del fitxer <a class="el" href="minmax_8c_source.html">minmax.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_cgraph.png" border="0" usemap="#aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_cgraph" alt=""/></div>
+<map name="aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_cgraph" id="aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_cgraph">
+<area shape="rect" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="5,107,112,133"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="160,107,299,133"/>
+<area shape="rect" href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="349,5,555,32"/>
+<area shape="rect" href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="349,56,555,83"/>
+<area shape="rect" href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="347,107,557,133"/>
+<area shape="rect" href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="358,157,546,184"/>
+<area shape="rect" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="404,208,500,235"/>
+</map>
+</div>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_icgraph.png" border="0" usemap="#aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_icgraph" alt=""/></div>
+<map name="aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_icgraph" id="aminmax_8c_a8ad0c851b44cf3592fdb91f3ad52fcc6_icgraph">
+<area shape="rect" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,81,1625,108"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,81,1471,108"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,81,1299,108"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,5,1143,32"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,56,1169,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9d5780a3adfddd1f51a535994a2cf6d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5780a3adfddd1f51a535994a2cf6d2">&#9670;&nbsp;</a></span>iteracioMinmax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int iteracioMinmax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">signed char&#160;</td>
+          <td class="paramname"><em>jugadorOriginal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nivellNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>puntuacioNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>profunditatNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a>&#160;</td>
+          <td class="paramname"><em>fHeuristica</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctxHeuristica</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>realitza l'algorisme del MinMax </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Per fer:</a></b></dt><dd></dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és l'estat acutal de la partida (sense modificar el moviment actual). </td></tr>
+    <tr><td class="paramname">jugadorOriginal</td><td>és el jugador al que li toca fer el moviment a l'inici del minmax. </td></tr>
+    <tr><td class="paramname">nivellNode</td><td>és a quina profunditat de l'arbre ens trobem. </td></tr>
+    <tr><td class="paramname">puntuacioNode</td><td>és un apuntador que conté la puntuació assignada al node. </td></tr>
+    <tr><td class="paramname">profunditatNode</td><td>és un apuntador a la profunditat a la que es ha rebut el valor del minmax. </td></tr>
+    <tr><td class="paramname">fHeuristica</td><td>és la funció heurística que s'usa per a valorar nodes. </td></tr>
+    <tr><td class="paramname">ctxHeuristica</td><td>son altres paràmetres que pot necessitar la heurísitca.</td></tr>
+    <tr><td class="paramname">retorna</td><td>el int del moviment que ha trobat l'algorisme que és el millor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="minmax_8c_source.html#l00027">27</a> del fitxer <a class="el" href="minmax_8c_source.html">minmax.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_cgraph.png" border="0" usemap="#aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_cgraph" alt=""/></div>
+<map name="aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_cgraph" id="aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_cgraph">
+<area shape="rect" title="realitza l&#39;algorisme del MinMax" alt="" coords="5,107,129,133"/>
+<area shape="rect" href="4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad" title="Comprova si hi ha espai en una columna per a introduïr fitxes." alt="" coords="177,5,364,32"/>
+<area shape="rect" href="4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb" title="Desfar un moviment d&#39;una partida." alt="" coords="417,44,546,71"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="217,107,324,133"/>
+<area shape="rect" href="4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf" title="Introdueix una fitxa d&#39;un jugador en una columna." alt="" coords="199,157,342,184"/>
+<area shape="rect" href="minmax_8c.html#a490303fb0c6e221ad8c0fa460173eb3f" title="Compara el node actual amb el millor d&#39;aquella bifuració." alt="" coords="209,208,332,235"/>
+<area shape="rect" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="656,37,752,64"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="412,113,551,140"/>
+<area shape="rect" href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="601,88,807,115"/>
+<area shape="rect" href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="601,139,807,165"/>
+<area shape="rect" href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="599,189,809,216"/>
+<area shape="rect" href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="610,240,798,267"/>
+</map>
+</div>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_icgraph.png" border="0" usemap="#aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_icgraph" alt=""/></div>
+<map name="aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_icgraph" id="aminmax_8c_a9d5780a3adfddd1f51a535994a2cf6d2_icgraph">
+<area shape="rect" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,81,1471,108"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,81,1299,108"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,5,1143,32"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,56,1169,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a08fe058023cd5ca34ba806f8702c275b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08fe058023cd5ca34ba806f8702c275b">&#9670;&nbsp;</a></span>minMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int minMax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">signed char&#160;</td>
+          <td class="paramname"><em>jugadorOriginal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a>&#160;</td>
+          <td class="paramname"><em>fHeuristica</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctxHeuristica</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comença l'algorisme del MinMax. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>l'estat de la partida en la que es fa el minmax. </td></tr>
+    <tr><td class="paramname">jugadorOriginal</td><td>és el jugador al que li toca tirar. </td></tr>
+    <tr><td class="paramname">fHeuristica</td><td>és la funció heurísitca que s'utilitza per a fer el minmax. </td></tr>
+    <tr><td class="paramname">ctxHeuristica</td><td>és una estructura que conté dades necesàries per a la funció heurística. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="minmax_8c_source.html#l00018">18</a> del fitxer <a class="el" href="minmax_8c_source.html">minmax.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a08fe058023cd5ca34ba806f8702c275b_cgraph.png" border="0" usemap="#aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_cgraph" alt=""/></div>
+<map name="aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_cgraph" id="aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_cgraph">
+<area shape="rect" title="Comença l&#39;algorisme del MinMax." alt="" coords="5,107,80,133"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="128,107,252,133"/>
+<area shape="rect" href="4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad" title="Comprova si hi ha espai en una columna per a introduïr fitxes." alt="" coords="300,5,487,32"/>
+<area shape="rect" href="4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb" title="Desfar un moviment d&#39;una partida." alt="" coords="539,44,669,71"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="340,107,447,133"/>
+<area shape="rect" href="4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf" title="Introdueix una fitxa d&#39;un jugador en una columna." alt="" coords="322,157,465,184"/>
+<area shape="rect" href="minmax_8c.html#a490303fb0c6e221ad8c0fa460173eb3f" title="Compara el node actual amb el millor d&#39;aquella bifuració." alt="" coords="332,208,455,235"/>
+<area shape="rect" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="779,37,875,64"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="535,113,673,140"/>
+<area shape="rect" href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="724,88,929,115"/>
+<area shape="rect" href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="724,139,929,165"/>
+<area shape="rect" href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="721,189,932,216"/>
+<area shape="rect" href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="733,240,921,267"/>
+</map>
+</div>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a08fe058023cd5ca34ba806f8702c275b_icgraph.png" border="0" usemap="#aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_icgraph" alt=""/></div>
+<map name="aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_icgraph" id="aminmax_8c_a08fe058023cd5ca34ba806f8702c275b_icgraph">
+<area shape="rect" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,81,1299,108"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,5,1143,32"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,56,1169,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a490303fb0c6e221ad8c0fa460173eb3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a490303fb0c6e221ad8c0fa460173eb3f">&#9670;&nbsp;</a></span>triaMillorTirada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void triaMillorTirada </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>millorMoviment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>movimentActual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>millorValoracio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valoracioActual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>accioDesempat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>accioDesempatActual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara el node actual amb el millor d'aquella bifuració. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">millorMoviment</td><td>és el millor moviment fet en aquella bifuracació. Si el moviment actual és millor, actualitza el valor </td></tr>
+    <tr><td class="paramname">movimentActual</td><td>és el moviment fet per a arribar a aquell estat. </td></tr>
+    <tr><td class="paramname">millorValoracio</td><td>és la valoració del millor moviment d'aquella biuració. </td></tr>
+    <tr><td class="paramname">valoracioActual</td><td>és la valoració del node actual. </td></tr>
+    <tr><td class="paramname">accioDesempat</td><td>és la profunditat relativa a la que s'ha arribat a la millor valoració de la bifurcació. </td></tr>
+    <tr><td class="paramname">accioDesempatActual</td><td>és la profunditat relativa a la que s'ha arribat a la fulla corresponent al node actual. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="minmax_8c_source.html#l00079">79</a> del fitxer <a class="el" href="minmax_8c_source.html">minmax.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="minmax_8c_a490303fb0c6e221ad8c0fa460173eb3f_icgraph.png" border="0" usemap="#aminmax_8c_a490303fb0c6e221ad8c0fa460173eb3f_icgraph" alt=""/></div>
+<map name="aminmax_8c_a490303fb0c6e221ad8c0fa460173eb3f_icgraph" id="aminmax_8c_a490303fb0c6e221ad8c0fa460173eb3f_icgraph">
+<area shape="rect" title="Compara el node actual amb el millor d&#39;aquella bifuració." alt="" coords="1519,81,1641,108"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,81,1471,108"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,81,1299,108"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,5,1143,32"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,56,1169,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="minmax_8c.html">minmax.c</a></li>
+    <li class="footer">Generat per <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

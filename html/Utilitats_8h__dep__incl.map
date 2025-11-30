@@ -1,0 +1,6 @@
+<map id="Utilitats.h" name="Utilitats.h">
+<area shape="rect" id="node1" title=" " alt="" coords="159,5,246,32"/>
+<area shape="rect" id="node2" href="$Entrenament_8c.html" title="Fitxer que implementa les funcions necesàries per a l&#39;entrenament de la CNN." alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$ValidacioML_8c.html" title="Fitxer per a validar les xarxes." alt="" coords="147,80,258,107"/>
+<area shape="rect" id="node4" href="$Xarxa_8c.html" title="Fitxer que inclou totes les funcions relacionades les operacions de les CNN." alt="" coords="282,80,353,107"/>
+</map>

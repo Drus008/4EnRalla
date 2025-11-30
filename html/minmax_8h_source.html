@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IA 4 en ratlla amb CNN: Fitxer de Codi minmax.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IA 4 en ratlla amb CNN
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generat per Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('minmax_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">minmax.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="minmax_8h.html">Veure la documentació d'aquest fitxer.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MIN_MAX_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MIN_MAX_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="4enratlla_8h.html">4enratlla.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="partides_8h.html">partides.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="minmax_8h.html#aa00cda1ab5bbbd3fff656ec7eb60c5dd">   10</a></span>&#160;<span class="preprocessor">#define PROFUNDITAT 6</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="minmax_8h.html#a08fe058023cd5ca34ba806f8702c275b">minMax</a>(<a class="code" href="structquatreEnRatlla.html">QuatreEnRatlla</a> *partida, <span class="keywordtype">signed</span> <span class="keywordtype">char</span> jugadorOriginal, <a class="code" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, <span class="keywordtype">void</span> *ctxHeuristica);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">int</span> <a class="code" href="minmax_8h.html#a9d5780a3adfddd1f51a535994a2cf6d2">iteracioMinmax</a>(<a class="code" href="structquatreEnRatlla.html">QuatreEnRatlla</a> *partida, <span class="keywordtype">signed</span> <span class="keywordtype">char</span> jugadorOriginal, <span class="keywordtype">int</span> nivellNode, <span class="keywordtype">double</span> *puntuacioNode, <span class="keywordtype">int</span> *profunditatNode, <a class="code" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, <span class="keywordtype">void</span> *ctxHeuristica);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="minmax_8h.html#a8ad0c851b44cf3592fdb91f3ad52fcc6">detectarArrel</a>(<a class="code" href="structquatreEnRatlla.html">QuatreEnRatlla</a> *partida, <span class="keywordtype">int</span> moviment, <span class="keywordtype">signed</span> <span class="keywordtype">char</span> jugadorOriginal, <span class="keywordtype">double</span> *valoracio, <span class="keywordtype">int</span> profunditat, <a class="code" href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a> fHeuristica, <span class="keywordtype">void</span> *ctxHeuristica);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minmax_8h.html#a490303fb0c6e221ad8c0fa460173eb3f">triaMillorTirada</a>(<span class="keywordtype">int</span> *millorMoviment, <span class="keywordtype">int</span> movimentActual, <span class="keywordtype">double</span> *millorValoracio, <span class="keywordtype">double</span> valoracioActual, <span class="keywordtype">int</span> *accioDesempat, <span class="keywordtype">int</span> accioDesempatActual);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MIN_MAX_H</span></div>
+<div class="ttc" id="a4enratlla_8h_html"><div class="ttname"><a href="4enratlla_8h.html">4enratlla.h</a></div></div>
+<div class="ttc" id="aminmax_8h_html_a08fe058023cd5ca34ba806f8702c275b"><div class="ttname"><a href="minmax_8h.html#a08fe058023cd5ca34ba806f8702c275b">minMax</a></div><div class="ttdeci">int minMax(QuatreEnRatlla *partida, signed char jugadorOriginal, funcioHeuristica fHeuristica, void *ctxHeuristica)</div><div class="ttdoc">Comença l'algorisme del MinMax.</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8c_source.html#l00018">minmax.c:18</a></div></div>
+<div class="ttc" id="aminmax_8h_html_a490303fb0c6e221ad8c0fa460173eb3f"><div class="ttname"><a href="minmax_8h.html#a490303fb0c6e221ad8c0fa460173eb3f">triaMillorTirada</a></div><div class="ttdeci">void triaMillorTirada(int *millorMoviment, int movimentActual, double *millorValoracio, double valoracioActual, int *accioDesempat, int accioDesempatActual)</div><div class="ttdoc">Compara el node actual amb el millor d'aquella bifuració.</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8c_source.html#l00079">minmax.c:79</a></div></div>
+<div class="ttc" id="aminmax_8h_html_a8ad0c851b44cf3592fdb91f3ad52fcc6"><div class="ttname"><a href="minmax_8h.html#a8ad0c851b44cf3592fdb91f3ad52fcc6">detectarArrel</a></div><div class="ttdeci">bool detectarArrel(QuatreEnRatlla *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica)</div><div class="ttdoc">Gestiona les arrels de l'arbre Donat un node comprova si:</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8c_source.html#l00067">minmax.c:67</a></div></div>
+<div class="ttc" id="aminmax_8h_html_a9d5780a3adfddd1f51a535994a2cf6d2"><div class="ttname"><a href="minmax_8h.html#a9d5780a3adfddd1f51a535994a2cf6d2">iteracioMinmax</a></div><div class="ttdeci">int iteracioMinmax(QuatreEnRatlla *partida, signed char jugadorOriginal, int nivellNode, double *puntuacioNode, int *profunditatNode, funcioHeuristica fHeuristica, void *ctxHeuristica)</div><div class="ttdoc">realitza l'algorisme del MinMax</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8c_source.html#l00027">minmax.c:27</a></div></div>
+<div class="ttc" id="apartides_8h_html"><div class="ttname"><a href="partides_8h.html">partides.h</a></div></div>
+<div class="ttc" id="apartides_8h_html_afc7d9b69affd24b5b483f6ffb02ef19f"><div class="ttname"><a href="partides_8h.html#afc7d9b69affd24b5b483f6ffb02ef19f">funcioHeuristica</a></div><div class="ttdeci">double(* funcioHeuristica)(QuatreEnRatlla *partida, void *ctx)</div><div class="ttdoc">Tipus de dada que representa una funció que donada una partida assigna un double. Aquest representa l...</div><div class="ttdef"><b>Definition:</b> <a href="partides_8h_source.html#l00026">partides.h:26</a></div></div>
+<div class="ttc" id="astructquatreEnRatlla_html"><div class="ttname"><a href="structquatreEnRatlla.html">quatreEnRatlla</a></div><div class="ttdoc">Estructura que conté l'estat d'una partida.</div><div class="ttdef"><b>Definition:</b> <a href="4enratlla_8h_source.html#l00018">4enratlla.h:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="minmax_8h.html">minmax.h</a></li>
+    <li class="footer">Generat per <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

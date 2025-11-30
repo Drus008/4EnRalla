@@ -1,0 +1,7 @@
+<map id="desarXarxa" name="desarXarxa">
+<area shape="rect" id="node1" title="Desa una xarxa neuronal a un arxiu." alt="" coords="581,31,677,57"/>
+<area shape="rect" id="node2" href="$ValidacioML_8c.html#ab64363d646a1a9f432bdd1cfa29fb640" title=" " alt="" coords="379,5,533,32"/>
+<area shape="rect" id="node3" href="$Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="390,56,522,83"/>
+<area shape="rect" id="node4" href="$Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,56,331,83"/>
+<area shape="rect" id="node5" href="$Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,56,60,83"/>
+</map>

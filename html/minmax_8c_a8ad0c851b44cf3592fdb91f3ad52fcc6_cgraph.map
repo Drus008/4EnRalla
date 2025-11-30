@@ -1,0 +1,9 @@
+<map id="detectarArrel" name="detectarArrel">
+<area shape="rect" id="node1" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="5,107,112,133"/>
+<area shape="rect" id="node2" href="$4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="160,107,299,133"/>
+<area shape="rect" id="node3" href="$4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="349,5,555,32"/>
+<area shape="rect" id="node4" href="$4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="349,56,555,83"/>
+<area shape="rect" id="node5" href="$4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="347,107,557,133"/>
+<area shape="rect" id="node6" href="$4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="358,157,546,184"/>
+<area shape="rect" id="node7" href="$4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="404,208,500,235"/>
+</map>

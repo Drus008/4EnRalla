@@ -1,0 +1,10 @@
+<map id="comptarFitxesAdjacents" name="comptarFitxesAdjacents">
+<area shape="rect" id="node1" title="Compta quantes fitxer de cada tipos hi ha al voltant d&#39;una posició en concret." alt="" coords="1157,31,1336,57"/>
+<area shape="rect" id="node2" href="$funcioUtilitat_8c.html#a7dd21ac180e25ae197dcbd6874fb1f3a" title="Valora un estat de partida." alt="" coords="931,31,1109,57"/>
+<area shape="rect" id="node3" href="$partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="753,5,883,32"/>
+<area shape="rect" id="node4" href="$Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="765,56,871,83"/>
+<area shape="rect" id="node5" href="$Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="559,56,705,83"/>
+<area shape="rect" id="node6" href="$Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,56,511,83"/>
+<area shape="rect" id="node7" href="$Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,56,331,83"/>
+<area shape="rect" id="node8" href="$Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,56,60,83"/>
+</map>

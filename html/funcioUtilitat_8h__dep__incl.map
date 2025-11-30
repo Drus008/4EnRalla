@@ -1,0 +1,7 @@
+<map id="funcioUtilitat.h" name="funcioUtilitat.h">
+<area shape="rect" id="node1" title=" " alt="" coords="209,5,327,32"/>
+<area shape="rect" id="node2" href="$Entrenament_8c.html" title="Fitxer que implementa les funcions necesàries per a l&#39;entrenament de la CNN." alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$funcioUtilitat_8c.html" title="Fitxer que implementa una funció heurísitca que valora l&#39;adjacència." alt="" coords="146,80,265,107"/>
+<area shape="rect" id="node4" href="$minmax_8c.html" title="Fitxer que implementa l&#39;algorisme del minMax." alt="" coords="289,80,375,107"/>
+<area shape="rect" id="node5" href="$partides_8c.html" title="Fitxer que inclou totes les funcions relacionades amb la interfície de la partida i la tria de movime..." alt="" coords="399,80,486,107"/>
+</map>

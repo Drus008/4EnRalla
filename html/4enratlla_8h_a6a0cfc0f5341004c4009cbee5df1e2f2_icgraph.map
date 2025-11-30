@@ -1,0 +1,22 @@
+<map id="comprovarSolucioDiagonal1" name="comprovarSolucioDiagonal1">
+<area shape="rect" id="node1" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="1860,173,2065,200"/>
+<area shape="rect" id="node2" href="$4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" id="node3" href="$minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" id="node12" href="$Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" id="node18" href="$Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" id="node20" href="$partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" id="node4" href="$minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" id="node5" href="$minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" id="node6" href="$partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" id="node10" href="$partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" id="node11" href="$Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" id="node17" href="$Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" id="node7" href="$partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" id="node8" href="$partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" id="node9" href="$partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" id="node13" href="$Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" id="node14" href="$Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" id="node15" href="$Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" id="node16" href="$Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" id="node19" href="$Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Xarxa.h" name="Xarxa.h">
+<area shape="rect" id="node1" title=" " alt="" coords="351,5,423,32"/>
+<area shape="rect" id="node2" href="$conexioXarxa4EnRatlla_8c.html" title="Implementa un wrapper per a poder fer servir una xarxa com a funció heurística." alt="" coords="5,80,189,107"/>
+<area shape="rect" id="node3" href="$Entrenament_8c.html" title="Fitxer que implementa les funcions necesàries per a l&#39;entrenament de la CNN." alt="" coords="216,155,333,181"/>
+<area shape="rect" id="node4" href="$Entrenament_8h.html" title=" " alt="" coords="265,80,383,107"/>
+<area shape="rect" id="node5" href="$partides_8c.html" title="Fitxer que inclou totes les funcions relacionades amb la interfície de la partida i la tria de movime..." alt="" coords="407,80,494,107"/>
+<area shape="rect" id="node6" href="$ValidacioML_8c.html" title="Fitxer per a validar les xarxes." alt="" coords="518,80,629,107"/>
+<area shape="rect" id="node7" href="$Xarxa_8c.html" title="Fitxer que inclou totes les funcions relacionades les operacions de les CNN." alt="" coords="653,80,723,107"/>
+</map>

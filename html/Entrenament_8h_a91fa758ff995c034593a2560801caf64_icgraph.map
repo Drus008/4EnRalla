@@ -1,0 +1,6 @@
+<map id="torneigEnfrentaments" name="torneigEnfrentaments">
+<area shape="rect" id="node1" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,5,723,32"/>
+<area shape="rect" id="node2" href="$Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,5,511,32"/>
+<area shape="rect" id="node3" href="$Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,5,331,32"/>
+<area shape="rect" id="node4" href="$Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,5,60,32"/>
+</map>

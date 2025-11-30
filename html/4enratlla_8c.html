@@ -1,0 +1,1079 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IA 4 en ratlla amb CNN: Referència del Fitxer 4enratlla.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IA 4 en ratlla amb CNN
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generat per Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('4enratlla_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funcions</a>  </div>
+  <div class="headertitle">
+<div class="title">Referència del Fitxer 4enratlla.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fitxer que implementa les funcions básiques per a poder jugar una partida del cuatre en ratlla.  
+<a href="#details">Més...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="4enratlla_8h_source.html">4enratlla.h</a>&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Inclou el graf de dependències per a 4enratlla.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c__incl.png" border="0" usemap="#a4enratlla_8c" alt=""/></div>
+<map name="a4enratlla_8c" id="a4enratlla_8c">
+<area shape="rect" title="Fitxer que implementa les funcions básiques per a poder jugar una partida del cuatre en ratlla." alt="" coords="165,5,255,32"/>
+<area shape="rect" href="4enratlla_8h.html" title=" " alt="" coords="5,80,97,107"/>
+<area shape="rect" title=" " alt="" coords="51,155,134,181"/>
+<area shape="rect" title=" " alt="" coords="173,80,247,107"/>
+<area shape="rect" title=" " alt="" coords="271,80,338,107"/>
+<area shape="rect" title=" " alt="" coords="363,80,433,107"/>
+</map>
+</div>
+</div>
+<p><a href="4enratlla_8c_source.html">Veure el codi d'aquest fitxer.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funcions</h2></td></tr>
+<tr class="memitem:afa72038ac5f14eddba3e0657969a4068"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#afa72038ac5f14eddba3e0657969a4068">imprimirQuateEnRatlla</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida)</td></tr>
+<tr class="memdesc:afa72038ac5f14eddba3e0657969a4068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprimeix un taulell del 4 en ratlla.  <a href="4enratlla_8c.html#afa72038ac5f14eddba3e0657969a4068">Més...</a><br /></td></tr>
+<tr class="separator:afa72038ac5f14eddba3e0657969a4068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3770ddda14a53752a43c6191a85930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#afd3770ddda14a53752a43c6191a85930">reiniciarQuatreEnRatlla</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida)</td></tr>
+<tr class="memdesc:afd3770ddda14a53752a43c6191a85930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fica tots els valors del tauler a 0.  <a href="4enratlla_8c.html#afd3770ddda14a53752a43c6191a85930">Més...</a><br /></td></tr>
+<tr class="separator:afd3770ddda14a53752a43c6191a85930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada09c609fc8497b5f379166a0371f3ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#ada09c609fc8497b5f379166a0371f3ef">inicialitzarQuatreEnRatlla</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int nFils, int nCols, int nVictoria)</td></tr>
+<tr class="memdesc:ada09c609fc8497b5f379166a0371f3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia una partida del 4 en ratlla des de zero.  <a href="4enratlla_8c.html#ada09c609fc8497b5f379166a0371f3ef">Més...</a><br /></td></tr>
+<tr class="separator:ada09c609fc8497b5f379166a0371f3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65449dcdb69dc098525517d8f848292c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a65449dcdb69dc098525517d8f848292c">alliberarQuatreEnRatlla</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida)</td></tr>
+<tr class="memdesc:a65449dcdb69dc098525517d8f848292c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allibera la partida del 4 en ratlla quan ja no es necessita.  <a href="4enratlla_8c.html#a65449dcdb69dc098525517d8f848292c">Més...</a><br /></td></tr>
+<tr class="separator:a65449dcdb69dc098525517d8f848292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af23f2ce0b5b5e9e06ce488dbcb994fad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad">comprovarColumnaPlena</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int moviment)</td></tr>
+<tr class="memdesc:af23f2ce0b5b5e9e06ce488dbcb994fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprova si hi ha espai en una columna per a introduïr fitxes.  <a href="4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad">Més...</a><br /></td></tr>
+<tr class="separator:af23f2ce0b5b5e9e06ce488dbcb994fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06862e8448203cb8ec11188167b585bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf">realitzarMoviment</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int moviment, signed char jugador)</td></tr>
+<tr class="memdesc:a06862e8448203cb8ec11188167b585bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introdueix una fitxa d'un jugador en una columna.  <a href="4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf">Més...</a><br /></td></tr>
+<tr class="separator:a06862e8448203cb8ec11188167b585bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b957cf256a66088acd4223ee1d28efb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb">desferMoviment</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int moviment)</td></tr>
+<tr class="memdesc:a2b957cf256a66088acd4223ee1d28efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desfar un moviment d'una partida.  <a href="4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb">Més...</a><br /></td></tr>
+<tr class="separator:a2b957cf256a66088acd4223ee1d28efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba78c38f4429dff275b25a51c417e3df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df">filaSuperior</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int columna)</td></tr>
+<tr class="memdesc:aba78c38f4429dff275b25a51c417e3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donada una partida y una columna retorna la fila on és hi ha la peça més alta.  <a href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df">Més...</a><br /></td></tr>
+<tr class="separator:aba78c38f4429dff275b25a51c417e3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d9217249c51593bed89ec474db6675"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675">comprovarSolucioHoritzontal</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int fila, int col)</td></tr>
+<tr class="memdesc:aa9d9217249c51593bed89ec474db6675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla horitzontal.  <a href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675">Més...</a><br /></td></tr>
+<tr class="separator:aa9d9217249c51593bed89ec474db6675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75622fcb6335a1a5d720b4d088a5fd5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a">comprovarSolucioVertical</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int fila, int col)</td></tr>
+<tr class="memdesc:a75622fcb6335a1a5d720b4d088a5fd5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla verical.  <a href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a">Més...</a><br /></td></tr>
+<tr class="separator:a75622fcb6335a1a5d720b4d088a5fd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0cfc0f5341004c4009cbee5df1e2f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2">comprovarSolucioDiagonal1</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int fila, int col)</td></tr>
+<tr class="memdesc:a6a0cfc0f5341004c4009cbee5df1e2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla diagonal d'esquerra a dretas.  <a href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2">Més...</a><br /></td></tr>
+<tr class="separator:a6a0cfc0f5341004c4009cbee5df1e2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9666927a5f915a54c99e07de870213f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f">comprovarSolucioDiagonal2</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int fila, int col)</td></tr>
+<tr class="memdesc:ad9666927a5f915a54c99e07de870213f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla diagonal de dreta a esquerra.  <a href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f">Més...</a><br /></td></tr>
+<tr class="separator:ad9666927a5f915a54c99e07de870213f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6c96b417e0dd30534ad4549f0f6463"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463">comprovarSolucio</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida, int ultimMoviment)</td></tr>
+<tr class="memdesc:acc6c96b417e0dd30534ad4549f0f6463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprova si un moviment fet ha guanyat la partida.  <a href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463">Més...</a><br /></td></tr>
+<tr class="separator:acc6c96b417e0dd30534ad4549f0f6463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af3b664a6a1ceeb9ce90f73a2ac0126"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="4enratlla_8c.html#a9af3b664a6a1ceeb9ce90f73a2ac0126">comprovarEmpat</a> (<a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *partida)</td></tr>
+<tr class="memdesc:a9af3b664a6a1ceeb9ce90f73a2ac0126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprova si s'ha empatat la partida.  <a href="4enratlla_8c.html#a9af3b664a6a1ceeb9ce90f73a2ac0126">Més...</a><br /></td></tr>
+<tr class="separator:a9af3b664a6a1ceeb9ce90f73a2ac0126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
+<div class="textblock"><p>Fitxer que implementa les funcions básiques per a poder jugar una partida del cuatre en ratlla. </p>
+
+<p class="definition">Definició al fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+</div><h2 class="groupheader">Documentació de les Funcions</h2>
+<a id="a65449dcdb69dc098525517d8f848292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65449dcdb69dc098525517d8f848292c">&#9670;&nbsp;</a></span>alliberarQuatreEnRatlla()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void alliberarQuatreEnRatlla </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allibera la partida del 4 en ratlla quan ja no es necessita. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador a la partida que es vol alliberar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00051">51</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a65449dcdb69dc098525517d8f848292c_icgraph.png" border="0" usemap="#a4enratlla_8c_a65449dcdb69dc098525517d8f848292c_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a65449dcdb69dc098525517d8f848292c_icgraph" id="a4enratlla_8c_a65449dcdb69dc098525517d8f848292c_icgraph">
+<area shape="rect" title="Allibera la partida del 4 en ratlla quan ja no es necessita." alt="" coords="973,31,1148,57"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,5,925,32"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="795,56,901,83"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,5,723,32"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,5,511,32"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,5,331,32"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="576,56,705,83"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="581,107,700,133"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="417,107,472,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af23f2ce0b5b5e9e06ce488dbcb994fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af23f2ce0b5b5e9e06ce488dbcb994fad">&#9670;&nbsp;</a></span>comprovarColumnaPlena()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarColumnaPlena </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moviment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprova si hi ha espai en una columna per a introduïr fitxes. </p>
+<p>Només té en compte si les columnes están plenes, no considera si el nombre està fora del taulell.</p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és una apuntador a la partida que es vol comprovar si es pot fer el moviment. </td></tr>
+    <tr><td class="paramname">moviment</td><td>és el número de columna que es vol comprovar si es pot introduïr una fitxa.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si la columna es plena i false si hi ha espai. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00057">57</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_af23f2ce0b5b5e9e06ce488dbcb994fad_icgraph.png" border="0" usemap="#a4enratlla_8c_af23f2ce0b5b5e9e06ce488dbcb994fad_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_af23f2ce0b5b5e9e06ce488dbcb994fad_icgraph" id="a4enratlla_8c_af23f2ce0b5b5e9e06ce488dbcb994fad_icgraph">
+<area shape="rect" title="Comprova si hi ha espai en una columna per a introduïr fitxes." alt="" coords="1519,132,1705,159"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,132,1471,159"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,208,1169,235"/>
+<area shape="rect" href="partides_8c.html#aa680ed7c7c4fd315973caf70c1068fba" title="Pregunta al jugador quin moviment vol fer." alt="" coords="993,5,1157,32"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,132,1299,159"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,56,1143,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,56,913,83"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,5,907,32"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,5,668,32"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9af3b664a6a1ceeb9ce90f73a2ac0126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af3b664a6a1ceeb9ce90f73a2ac0126">&#9670;&nbsp;</a></span>comprovarEmpat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarEmpat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprova si s'ha empatat la partida. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>un apuntador a la partida que es comprova.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si la partida s'ha empatat i false en cas contrari. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00166">166</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a9af3b664a6a1ceeb9ce90f73a2ac0126_icgraph.png" border="0" usemap="#a4enratlla_8c_a9af3b664a6a1ceeb9ce90f73a2ac0126_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a9af3b664a6a1ceeb9ce90f73a2ac0126_icgraph" id="a4enratlla_8c_a9af3b664a6a1ceeb9ce90f73a2ac0126_icgraph">
+<area shape="rect" title="Comprova si s&#39;ha empatat la partida." alt="" coords="973,56,1108,83"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,5,925,32"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,56,901,83"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,5,723,32"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,31,511,57"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,31,331,57"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,31,60,57"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="576,107,705,133"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="581,157,700,184"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="417,157,472,184"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,56,714,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acc6c96b417e0dd30534ad4549f0f6463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6c96b417e0dd30534ad4549f0f6463">&#9670;&nbsp;</a></span>comprovarSolucio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarSolucio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ultimMoviment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprova si un moviment fet ha guanyat la partida. </p>
+<p>No comprova que l'ultim moviment donat realment ho sigui. Es important no ficar un moviment que no 'shagi fet.</p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador a la partida que es vol comprovar. </td></tr>
+    <tr><td class="paramname">int</td><td>és l'ultim moviment fet on es comprovarà si forma part d'una solució.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si s'ha guanyat la partida i false si la partida continua. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00161">161</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_cgraph.png" border="0" usemap="#a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_cgraph" alt=""/></div>
+<map name="a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_cgraph" id="a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_cgraph">
+<area shape="rect" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="5,107,144,133"/>
+<area shape="rect" href="4enratlla_8c.html#a6a0cfc0f5341004c4009cbee5df1e2f2" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="195,5,400,32"/>
+<area shape="rect" href="4enratlla_8c.html#ad9666927a5f915a54c99e07de870213f" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="195,56,400,83"/>
+<area shape="rect" href="4enratlla_8c.html#aa9d9217249c51593bed89ec474db6675" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="192,107,403,133"/>
+<area shape="rect" href="4enratlla_8c.html#a75622fcb6335a1a5d720b4d088a5fd5a" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="203,157,391,184"/>
+<area shape="rect" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="249,208,345,235"/>
+</map>
+</div>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_icgraph.png" border="0" usemap="#a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_icgraph" id="a4enratlla_8c_acc6c96b417e0dd30534ad4549f0f6463_icgraph">
+<area shape="rect" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6a0cfc0f5341004c4009cbee5df1e2f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0cfc0f5341004c4009cbee5df1e2f2">&#9670;&nbsp;</a></span>comprovarSolucioDiagonal1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarSolucioDiagonal1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fila</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla diagonal d'esquerra a dretas. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Per fer:</a></b></dt><dd>Segurament aquesta funció es pot fusionar d'alguna manera amb les altes comprovar solució, ja que son molt semblans.</dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida que es vol comprovar. </td></tr>
+    <tr><td class="paramname">fila</td><td>és la fila on s'ha fet el moviment. </td></tr>
+    <tr><td class="paramname">col</td><td>és la columna on s'ha fet el movient.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si s'ha guanyat la partida i false en cas de no ser la solució diagonal. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00119">119</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a6a0cfc0f5341004c4009cbee5df1e2f2_icgraph.png" border="0" usemap="#a4enratlla_8c_a6a0cfc0f5341004c4009cbee5df1e2f2_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a6a0cfc0f5341004c4009cbee5df1e2f2_icgraph" id="a4enratlla_8c_a6a0cfc0f5341004c4009cbee5df1e2f2_icgraph">
+<area shape="rect" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal d&#39;esqu..." alt="" coords="1860,173,2065,200"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad9666927a5f915a54c99e07de870213f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9666927a5f915a54c99e07de870213f">&#9670;&nbsp;</a></span>comprovarSolucioDiagonal2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarSolucioDiagonal2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fila</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla diagonal de dreta a esquerra. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Per fer:</a></b></dt><dd>Segurament aquesta funció es pot fusionar d'alguna manera amb les altes comprovar solució, ja que son molt semblans.</dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida que es vol comprovar. </td></tr>
+    <tr><td class="paramname">fila</td><td>és la fila on s'ha fet el moviment. </td></tr>
+    <tr><td class="paramname">col</td><td>és la columna on s'ha fet el movient.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si s'ha guanyat la partida i false en cas de no ser la solució diagonal. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00139">139</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_ad9666927a5f915a54c99e07de870213f_icgraph.png" border="0" usemap="#a4enratlla_8c_ad9666927a5f915a54c99e07de870213f_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_ad9666927a5f915a54c99e07de870213f_icgraph" id="a4enratlla_8c_ad9666927a5f915a54c99e07de870213f_icgraph">
+<area shape="rect" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla diagonal de dre..." alt="" coords="1860,173,2065,200"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa9d9217249c51593bed89ec474db6675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d9217249c51593bed89ec474db6675">&#9670;&nbsp;</a></span>comprovarSolucioHoritzontal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarSolucioHoritzontal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fila</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla horitzontal. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Per fer:</a></b></dt><dd>Segurament aquesta funció es pot fusionar d'alguna manera amb les altes comprovar solució, ja que son molt semblans.</dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida que es vol comprovar. </td></tr>
+    <tr><td class="paramname">fila</td><td>és la fila on s'ha fet el moviment. </td></tr>
+    <tr><td class="paramname">col</td><td>és la columna on s'ha fet el movient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si s'ha guanyat la partida i false en cas de no ser la solució horitzontal. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00086">86</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_aa9d9217249c51593bed89ec474db6675_icgraph.png" border="0" usemap="#a4enratlla_8c_aa9d9217249c51593bed89ec474db6675_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_aa9d9217249c51593bed89ec474db6675_icgraph" id="a4enratlla_8c_aa9d9217249c51593bed89ec474db6675_icgraph">
+<area shape="rect" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla horitzontal." alt="" coords="1860,173,2071,200"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a75622fcb6335a1a5d720b4d088a5fd5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75622fcb6335a1a5d720b4d088a5fd5a">&#9670;&nbsp;</a></span>comprovarSolucioVertical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool comprovarSolucioVertical </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fila</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donat on s'ha inserit l'última peça retorna si aquest moviment provoca un k en ratlla verical. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Per fer:</a></b></dt><dd>Segurament aquesta funció es pot fusionar d'alguna manera amb les altes comprovar solució, ja que son molt semblans.</dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida que es vol comprovar. </td></tr>
+    <tr><td class="paramname">fila</td><td>és la fila on s'ha fet el moviment. </td></tr>
+    <tr><td class="paramname">col</td><td>és la columna on s'ha fet el movient.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true si s'ha guanyat la partida i false en cas de no ser la solució vertical. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00106">106</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a75622fcb6335a1a5d720b4d088a5fd5a_icgraph.png" border="0" usemap="#a4enratlla_8c_a75622fcb6335a1a5d720b4d088a5fd5a_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a75622fcb6335a1a5d720b4d088a5fd5a_icgraph" id="a4enratlla_8c_a75622fcb6335a1a5d720b4d088a5fd5a_icgraph">
+<area shape="rect" title="Donat on s&#39;ha inserit l&#39;última peça retorna si aquest moviment provoca un k en ratlla verical." alt="" coords="1860,173,2048,200"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1673,173,1812,200"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1519,148,1625,174"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,148,901,174"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,97,925,124"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,300,1128,326"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,148,1471,174"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,148,1299,174"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,249,1143,276"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,46,1169,73"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,148,1176,174"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,97,1151,124"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,300,913,326"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,249,907,276"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,249,668,276"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,148,714,174"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,122,511,149"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,122,331,149"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,122,60,149"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,97,723,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2b957cf256a66088acd4223ee1d28efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b957cf256a66088acd4223ee1d28efb">&#9670;&nbsp;</a></span>desferMoviment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void desferMoviment </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moviment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desfar un moviment d'una partida. </p>
+<p>El que fa és eliminar l'ultim moviment fer.</p>
+<p>No té en compte si el movment s'ha fet anteriorment. (no verifica que l'acció sigui válida)</p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador a la partida en la que es vol desfer un moviment </td></tr>
+    <tr><td class="paramname">moviment</td><td>és el número de columna del que es vol desfer l'últim moviment </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00071">71</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_cgraph.png" border="0" usemap="#a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_cgraph" alt=""/></div>
+<map name="a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_cgraph" id="a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_cgraph">
+<area shape="rect" title="Desfar un moviment d&#39;una partida." alt="" coords="5,5,135,32"/>
+<area shape="rect" href="4enratlla_8c.html#aba78c38f4429dff275b25a51c417e3df" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="183,5,279,32"/>
+</map>
+</div>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_icgraph.png" border="0" usemap="#a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_icgraph" id="a4enratlla_8c_a2b957cf256a66088acd4223ee1d28efb_icgraph">
+<area shape="rect" title="Desfar un moviment d&#39;una partida." alt="" coords="1519,81,1648,108"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,81,1471,108"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,81,1299,108"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,5,1143,32"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,56,1169,83"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,107,1176,133"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,157,1151,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,107,714,133"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,132,511,159"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,132,331,159"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,132,60,159"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,157,925,184"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,157,723,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aba78c38f4429dff275b25a51c417e3df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba78c38f4429dff275b25a51c417e3df">&#9670;&nbsp;</a></span>filaSuperior()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int filaSuperior </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>columna</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donada una partida y una columna retorna la fila on és hi ha la peça més alta. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida de la qual es vol comprovar la fila superior. </td></tr>
+    <tr><td class="paramname">columna</td><td>és la columna de la qual es vol comprovar la fila superior.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>l'índex de la fila amb la peça més alta de la columna indicada. Si la fila es buida retorna -1. </dd></dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00076">76</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_aba78c38f4429dff275b25a51c417e3df_icgraph.png" border="0" usemap="#a4enratlla_8c_aba78c38f4429dff275b25a51c417e3df_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_aba78c38f4429dff275b25a51c417e3df_icgraph" id="a4enratlla_8c_aba78c38f4429dff275b25a51c417e3df_icgraph">
+<area shape="rect" title="Donada una partida y una columna retorna la fila on és hi ha la peça més alta." alt="" coords="1883,309,1979,336"/>
+<area shape="rect" href="4enratlla_8c.html#acc6c96b417e0dd30534ad4549f0f6463" title="Comprova si un moviment fet ha guanyat la partida." alt="" coords="1696,233,1835,260"/>
+<area shape="rect" href="4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb" title="Desfar un moviment d&#39;una partida." alt="" coords="1519,360,1648,387"/>
+<area shape="rect" href="minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6" title="Gestiona les arrels de l&#39;arbre Donat un node comprova si:" alt="" coords="1530,233,1637,260"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,157,901,184"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,208,925,235"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="1021,5,1128,32"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,233,1471,260"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,208,1299,235"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,56,1143,83"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,259,1169,285"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,157,1176,184"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,208,1151,235"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,56,913,83"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,5,907,32"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,5,668,32"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,157,714,184"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,183,511,209"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,183,331,209"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,183,60,209"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,208,723,235"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afa72038ac5f14eddba3e0657969a4068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa72038ac5f14eddba3e0657969a4068">&#9670;&nbsp;</a></span>imprimirQuateEnRatlla()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimirQuateEnRatlla </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprimeix un taulell del 4 en ratlla. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador la partida de la que es vol imprimir l'estat </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00017">17</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_afa72038ac5f14eddba3e0657969a4068_icgraph.png" border="0" usemap="#a4enratlla_8c_afa72038ac5f14eddba3e0657969a4068_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_afa72038ac5f14eddba3e0657969a4068_icgraph" id="a4enratlla_8c_afa72038ac5f14eddba3e0657969a4068_icgraph">
+<area shape="rect" title="Imprimeix un taulell del 4 en ratlla." alt="" coords="440,31,611,57"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="285,31,392,57"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="108,5,237,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="113,56,232,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ada09c609fc8497b5f379166a0371f3ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada09c609fc8497b5f379166a0371f3ef">&#9670;&nbsp;</a></span>inicialitzarQuatreEnRatlla()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inicialitzarQuatreEnRatlla </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nFils</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nVictoria</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicia una partida del 4 en ratlla des de zero. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador a la partida que es vol iniciar. </td></tr>
+    <tr><td class="paramname">nFils</td><td>és el nombre de files de la taula. </td></tr>
+    <tr><td class="paramname">nCols</td><td>és el nombre de columnes de la taula. </td></tr>
+    <tr><td class="paramname">nVictoria</td><td>és el nombre de peces adjacents alineades que s'han de tenir per a guanyar la partida </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00040">40</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_ada09c609fc8497b5f379166a0371f3ef_icgraph.png" border="0" usemap="#a4enratlla_8c_ada09c609fc8497b5f379166a0371f3ef_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_ada09c609fc8497b5f379166a0371f3ef_icgraph" id="a4enratlla_8c_ada09c609fc8497b5f379166a0371f3ef_icgraph">
+<area shape="rect" title="Inicia una partida del 4 en ratlla des de zero." alt="" coords="973,56,1161,83"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,5,925,32"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,31,60,57"/>
+<area shape="rect" href="partides_8c.html#a19fcb70531dd502c66a9dc785968b2fd" title=" " alt="" coords="795,107,901,133"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,5,723,32"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,5,511,32"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,5,331,32"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="576,107,705,133"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="581,157,700,184"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="417,157,472,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a06862e8448203cb8ec11188167b585bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06862e8448203cb8ec11188167b585bf">&#9670;&nbsp;</a></span>realitzarMoviment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void realitzarMoviment </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moviment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">signed char&#160;</td>
+          <td class="paramname"><em>jugador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Introdueix una fitxa d'un jugador en una columna. </p>
+<p>No té en compte si el moviment no es pot fer.</p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és un apuntador a la partida en la que es vol fer el moviment. </td></tr>
+    <tr><td class="paramname">moviment</td><td>és el número de la columna en la que es vol introduïr la fitxa. </td></tr>
+    <tr><td class="paramname">jugador</td><td>és el jugador que realitza el moviment. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00062">62</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_a06862e8448203cb8ec11188167b585bf_icgraph.png" border="0" usemap="#a4enratlla_8c_a06862e8448203cb8ec11188167b585bf_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_a06862e8448203cb8ec11188167b585bf_icgraph" id="a4enratlla_8c_a06862e8448203cb8ec11188167b585bf_icgraph">
+<area shape="rect" title="Introdueix una fitxa d&#39;un jugador en una columna." alt="" coords="1519,132,1661,159"/>
+<area shape="rect" href="minmax_8c.html#a9d5780a3adfddd1f51a535994a2cf6d2" title="realitza l&#39;algorisme del MinMax" alt="" coords="1347,157,1471,184"/>
+<area shape="rect" href="partides_8c.html#aea8f891f1b0e5277059620969b8f4b8a" title="Utilitza el min&#45;max per a trobar la millor jugada." alt="" coords="1006,56,1143,83"/>
+<area shape="rect" href="partides_8c.html#aedd03f77c4cb57793f977d5767a72113" title="Utilitza el min&#45;max per a trobar la millor jugada amb una probablitat de fer un moviment aleatori." alt="" coords="981,119,1169,145"/>
+<area shape="rect" href="Entrenament_8c.html#af32c19c923e13868964a2d2906fe9a7f" title="Utilitza el min&#45;max per a trobar la millor jugada sense imprimir les decisions per pantalla." alt="" coords="973,245,1176,272"/>
+<area shape="rect" href="Entrenament_8c.html#aade9e42e9a985de58ce0c2ec85a06316" title="Tria el moviment que fa una xarxa neuronal (aplican minmax) segons l&#39;estat de la partida y el jugador..." alt="" coords="998,195,1151,221"/>
+<area shape="rect" href="partides_8c.html#aa680ed7c7c4fd315973caf70c1068fba" title="Pregunta al jugador quin moviment vol fer." alt="" coords="993,5,1157,32"/>
+<area shape="rect" href="minmax_8c.html#a08fe058023cd5ca34ba806f8702c275b" title="Comença l&#39;algorisme del MinMax." alt="" coords="1224,157,1299,184"/>
+<area shape="rect" href="partides_8c.html#afe16157ef6bc2992e3dc28dd16f030bb" title=" " alt="" coords="783,5,913,32"/>
+<area shape="rect" href="partides_8c.html#a9fdb508b6eae05cef1a3f368adf12418" title=" " alt="" coords="789,56,907,83"/>
+<area shape="rect" href="partides_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,56,668,83"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="795,245,901,272"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="567,245,714,272"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,220,511,247"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,220,331,247"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,220,60,247"/>
+<area shape="rect" href="Entrenament_8c.html#a0915248724697d589a05307135174358" title="Enfrenta dues xarxes neuronals i retorna el guanyador." alt="" coords="771,195,925,221"/>
+<area shape="rect" href="Entrenament_8c.html#a91fa758ff995c034593a2560801caf64" title="Enfrenta a la generació de xarxes per a veure quina guanya més." alt="" coords="559,195,723,221"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afd3770ddda14a53752a43c6191a85930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3770ddda14a53752a43c6191a85930">&#9670;&nbsp;</a></span>reiniciarQuatreEnRatlla()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reiniciarQuatreEnRatlla </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="4enratlla_8h.html#a54c4610af862987d7d93af2cf45ebf94">QuatreEnRatlla</a> *&#160;</td>
+          <td class="paramname"><em>partida</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fica tots els valors del tauler a 0. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">partida</td><td>és la partida que vols reiniciar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definició a la línia <a class="el" href="4enratlla_8c_source.html#l00034">34</a> del fitxer <a class="el" href="4enratlla_8c_source.html">4enratlla.c</a>.</p>
+<div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="4enratlla_8c_afd3770ddda14a53752a43c6191a85930_icgraph.png" border="0" usemap="#a4enratlla_8c_afd3770ddda14a53752a43c6191a85930_icgraph" alt=""/></div>
+<map name="a4enratlla_8c_afd3770ddda14a53752a43c6191a85930_icgraph" id="a4enratlla_8c_afd3770ddda14a53752a43c6191a85930_icgraph">
+<area shape="rect" title="Fica tots els valors del tauler a 0." alt="" coords="907,5,1080,32"/>
+<area shape="rect" href="Entrenament_8c.html#a2b3d07dffb4baffa0b0c25c714390e30" title="Simula una partida de la xarxa contra la IA de validació indicant el nombre de moviments i qui ha gua..." alt="" coords="753,5,859,32"/>
+<area shape="rect" href="Entrenament_8c.html#a26704167ced5bb2b24482d848d6781f6" title="Valida una llista de xarxes neuronals fent&#45;les competir contra un algorisme predefinit i afegeix els ..." alt="" coords="559,5,705,32"/>
+<area shape="rect" href="Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,5,511,32"/>
+<area shape="rect" href="Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,5,331,32"/>
+<area shape="rect" href="Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="4enratlla_8c.html">4enratlla.c</a></li>
+    <li class="footer">Generat per <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
