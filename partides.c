@@ -151,11 +151,11 @@ void validacioXarxa(){
     }
 
     heuristiques.funcio[0] = wrapperXarxa;
-    heuristiques.funcio[1] = wrapperXarxa;
+    heuristiques.funcio[1] = puntuacioPerAdjacencia;
     heuristiques.altres[0] = xarxa2;
     heuristiques.altres[1] = xarxa2;
 
-    iniciarPartida(triarMovimentJugador, triarMovimentBot, 0, &heuristiques);
+    iniciarPartida(triarMovimentBot, triarMovimentBot, 0, &heuristiques);
 }
 
 

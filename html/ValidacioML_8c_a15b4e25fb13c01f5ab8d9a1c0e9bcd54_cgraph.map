@@ -1,6 +1,0 @@
-<map id="exempleCapa" name="exempleCapa">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,116,57"/>
-<area shape="rect" id="node2" href="$Xarxa_8c.html#a5ceaef28707ccc5e1b5b061da3f7c174" title="Donades una llista de matrius els hi aplica una capa d&#39;una CNN." alt="" coords="175,5,273,32"/>
-<area shape="rect" id="node4" href="$Utilitats_8c.html#ad641e227f8675778fd84b786da5eea23" title="Imprimeix una matriu." alt="" coords="164,56,284,83"/>
-<area shape="rect" id="node3" href="$Xarxa_8c.html#a6825fab42104bb41270c1f2d0a23b5e8" title="Donades una llista de matrius de longitut igual a la profunditat del kernels d&#39;una llista,..." alt="" coords="332,5,419,32"/>
-</map>

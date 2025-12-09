@@ -1,5 +1,0 @@
-<map id="triarMovimentJugador" name="triarMovimentJugador">
-<area shape="rect" id="node1" title="Pregunta al jugador quin moviment vol fer." alt="" coords="5,31,169,57"/>
-<area shape="rect" id="node2" href="$4enratlla_8c.html#af23f2ce0b5b5e9e06ce488dbcb994fad" title="Comprova si hi ha espai en una columna per a introduïr fitxes." alt="" coords="217,5,404,32"/>
-<area shape="rect" id="node3" href="$4enratlla_8c.html#a06862e8448203cb8ec11188167b585bf" title="Introdueix una fitxa d&#39;un jugador en una columna." alt="" coords="239,56,382,83"/>
-</map>

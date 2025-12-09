@@ -1,5 +1,0 @@
-<map id="crearNovaGeneracio" name="crearNovaGeneracio">
-<area shape="rect" id="node1" title="Crea una nova generació de xarxes a partir dels millors individus, modificant aquests lleugerament." alt="" coords="5,5,160,32"/>
-<area shape="rect" id="node2" href="$Xarxa_8c.html#a38bd864b5b23faadbe67a947eb1bd789" title="Fa una copia d&#39;una xarxa neuronar variant els valors lleugerament seguint una distribució normal." alt="" coords="208,5,337,32"/>
-<area shape="rect" id="node3" href="$Utilitats_8c.html#a851cf2557f316824693f54ac49d5b1b7" title="Genera un nombre aleatori amb una distribució aproximada de la normal estandar." alt="" coords="385,5,521,32"/>
-</map>

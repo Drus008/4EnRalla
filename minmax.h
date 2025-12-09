@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 
-#define PROFUNDITAT 3
+#define PROFUNDITAT 7
 
 /**
  * @file minmax.h

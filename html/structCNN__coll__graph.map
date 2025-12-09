@@ -1,4 +1,0 @@
-<map id="CNN" name="CNN">
-<area shape="rect" id="node1" title="Estructura que encapsula una xarxa neuronal." alt="" coords="25,95,76,121"/>
-<area shape="rect" id="node2" href="$structcapaXarxa.html" title="Estructura que conté una capa de la xarxa." alt="" coords="5,5,96,32"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="actualitzarXarxa" name="actualitzarXarxa">
-<area shape="rect" id="node1" title="Fa una copia d&#39;una xarxa neuronar variant els valors lleugerament seguint una distribució normal." alt="" coords="781,31,911,57"/>
-<area shape="rect" id="node2" href="$Entrenament_8c.html#a9fc7c4e17403b300d0afa26d23e9a792" title="Crea una nova generació de xarxes a partir dels millors individus, modificant aquests lleugerament." alt="" coords="569,5,723,32"/>
-<area shape="rect" id="node6" href="$ValidacioML_8c.html#a92fff55b2a66825de00b13bb9015d715" title=" " alt="" coords="559,56,733,83"/>
-<area shape="rect" id="node3" href="$Entrenament_8c.html#ab4cbf5cbaf7077798a0917bbba287741" title="Realitza una iteració de l&#39;algorisme evolutiu i guarda la xarxa." alt="" coords="379,5,511,32"/>
-<area shape="rect" id="node4" href="$Entrenament_8c.html#aa1a6d27ebc1adec4908d3bab059df48f" title="Crea una generació de xarxes y les va evolucionant per a arribar a una bona funció heurística." alt="" coords="108,5,331,32"/>
-<area shape="rect" id="node5" href="$Entrenament_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " alt="" coords="5,5,60,32"/>
-</map>

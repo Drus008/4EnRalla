@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['deepcopymatriu_161',['deepCopyMatriu',['../Utilitats_8c.html#a767a0b284d547a2fffc7eb0cb7aedd80',1,'deepCopyMatriu(double **matriu, int dimFil, int dimCol):&#160;Utilitats.c'],['../Utilitats_8h.html#a767a0b284d547a2fffc7eb0cb7aedd80',1,'deepCopyMatriu(double **matriu, int dimFil, int dimCol):&#160;Utilitats.c']]],
-  ['desarxarxa_162',['desarXarxa',['../Xarxa_8c.html#a079adc136af3bd68db42d03f83e065f3',1,'desarXarxa(XarxaNeuronal *xarxa, const char *filename):&#160;Xarxa.c'],['../Xarxa_8h.html#a079adc136af3bd68db42d03f83e065f3',1,'desarXarxa(XarxaNeuronal *xarxa, const char *filename):&#160;Xarxa.c']]],
-  ['desfermoviment_163',['desferMoviment',['../4enratlla_8c.html#a2b957cf256a66088acd4223ee1d28efb',1,'desferMoviment(QuatreEnRatlla *partida, int moviment):&#160;4enratlla.c'],['../4enratlla_8h.html#a2b957cf256a66088acd4223ee1d28efb',1,'desferMoviment(QuatreEnRatlla *partida, int moviment):&#160;4enratlla.c']]],
-  ['detectararrel_164',['detectarArrel',['../minmax_8c.html#a8ad0c851b44cf3592fdb91f3ad52fcc6',1,'detectarArrel(QuatreEnRatlla *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica):&#160;minmax.c'],['../minmax_8h.html#a8ad0c851b44cf3592fdb91f3ad52fcc6',1,'detectarArrel(QuatreEnRatlla *partida, int moviment, signed char jugadorOriginal, double *valoracio, int profunditat, funcioHeuristica fHeuristica, void *ctxHeuristica):&#160;minmax.c']]]
-];
